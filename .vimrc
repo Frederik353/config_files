@@ -78,11 +78,12 @@ nmap L g_
 
 nmap K 5k
 nmap J 5j
-nmap <Leader>j J
+nnoremap <Leader>j J
 
 imap jk <Esc>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
 
 
