@@ -1,0 +1,133 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#4707a8'
+    leading_diamond = ''
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#4707a8'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'az'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#1a1af5'
+    trailing_diamond = ''
+    template = '  {{ .Name }} '
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#4707a8'
+    background_templates = ['{{ if gt .Code 0 }}#f1184c{{ end }}']
+    leading_diamond = '<transparent></>'
+    trailing_diamond = ''
+    template = '  '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ffffff'
+    leading_diamond = ''
+    template = ' {{ if .WSL }} on {{ end }}{{ .Icon }}<#000000> </>'
+
+    [blocks.segments.properties]
+      alpine = ''
+      arch = ''
+      centos = ''
+      debian = ''
+      elementary = ''
+      fedora = ''
+      gentoo = ''
+      linux = ''
+      macos = ''
+      manjaro = ''
+      mint = ''
+      opensuse = ''
+      raspbian = ''
+      ubuntu = ''
+      windows = ''
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#000000'
+    template = ' <#ffffff> </>'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ffffff'
+    template = '<#000000>  </>{{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = '<#000000> </>'
+      folder_separator_icon = '<#000000> </>'
+      home_icon = ' '
+      style = 'agnoster_short'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#000000'
+    foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}#ffea00{{ end }}', '{{ if gt .Ahead 0 }}#2EC4B6{{ end }}', '{{ if gt .Behind 0 }}#8A4FFF{{ end }}']
+    background = '#ffffff'
+    template = '<#000000> </>{{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }}<#2FDA4E>  {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}<#E84855>  {{ .Working.String }}</>{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'terraform'
+    style = 'powerline'
+    foreground = '#000000'
+    background = '#ffffff'
+    template = ' {{ .WorkspaceName }} '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ffffff'
+    trailing_diamond = ''
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#1a1af5'
+    template = ' ❯ '

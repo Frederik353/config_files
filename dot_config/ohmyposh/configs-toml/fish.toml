@@ -1,0 +1,50 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#ffffff'
+    template = ' {{ reason .Code }}'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#100e23'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#ffffff'
+    template = ' {{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#007ACC'
+    template = '<transparent></> {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = ''
+      folder_separator_icon = '  '
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#007ACC'
+    template = '<#ffffff></> {{ .HEAD }} '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#007ACC'
+    template = ' '

@@ -1,0 +1,108 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#26C6DA'
+    background = '#546E7A'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+    [blocks.segments.properties]
+      macos = 'mac'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#26C6DA'
+    background = '#546E7A'
+    template = ' {{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'battery'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#a2beef'
+    background_templates = ['{{if eq "Charging" .State.String}}#00D100{{end}}', '{{if eq "Discharging" .State.String}}#FFCD58{{end}}', '{{if eq "Full" .State.String}}#0476d0{{end}}']
+    template = ' {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}  '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#14c2dd'
+    template = '  {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#a2c4e0'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#6CA35E'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#ffff66'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'kubectl'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#0077c2'
+    template = '  {{.Context}} :: {{if .Namespace}}{{.Namespace}}{{else}}default{{end}} '
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#007800'
+    background_templates = ['{{ if gt .Code 0 }}#f1184c{{ end }}']
+    leading_diamond = '<transparent,background></>'
+    trailing_diamond = ''
+    template = '  '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#007ACC'
+    template = '➜ '

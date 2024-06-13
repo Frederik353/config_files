@@ -1,0 +1,46 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#ffdd86'
+    template = '{{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#42a9ff'
+    template = '{{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = 'git:{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<#ffdd86>{{ .HEAD }}</>{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} <#98c379>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <#d16971>{{ .Working.String }}</>{{ end }}'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#ffdd86'
+    foreground_templates = ['{{ if gt .Code 0 }}#42a9ff{{ end }}']
+    template = '> '
+
+    [blocks.segments.properties]
+      always_enabled = true

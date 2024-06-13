@@ -1,0 +1,84 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{if .Root}} ⚡ {{end}}{{.UserName}} ➔ 📁{{.Folder}}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'powerline'
+    foreground = '#100e23'
+    background = '#cfcfc4'
+    background_templates = ['{{if .Root}}#ff3026{{else}}#cfcfc4{{end}}']
+    template = '{{if .Root}}  {{.UserName}} {{else}} {{.UserName}} {{end}}'
+
+    [blocks.segments.properties]
+      display_host = false
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#100e23'
+    background = '#ec9706'
+    template = ' {{ path .Path .Location }} '
+
+    [blocks.segments.properties]
+      folder_icon = ''
+      folder_separator_icon = ''
+      home_icon = ''
+      mixed_threshold = 8.0
+      style = 'mixed'
+
+      [blocks.segments.properties.mapped_locations]
+        'C:\Users' = ''
+        'C:\Windows' = ''
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#3feb56'
+    template = ' {{ .HEAD }} '
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#100e23'
+    background = '#906cff'
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} '
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#ff4040'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    leading_diamond = ''
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      style = 'austin'
+
+[secondary_prompt]
+  foreground = '#100e23'
+  background = '#ec9706'
+  template = '  '

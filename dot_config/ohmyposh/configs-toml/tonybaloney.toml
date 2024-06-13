@@ -1,0 +1,48 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#ffc107'
+    background = '#18354c'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '  {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffc107'
+    background = '#18354c'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#18354c'
+    background = '#ffc107'
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#18354c'
+    background = '#ffc107'
+    template = '  '

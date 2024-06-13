@@ -1,0 +1,28 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#F5F5F5'
+    template = ' '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#B80101'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'agnoster'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#B80101'
+    template = ' <#F5F5F5>git:</>{{ .HEAD }} '

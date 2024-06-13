@@ -1,0 +1,149 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+pwd = 'osc99'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#dd1e1e'
+    background = '#000000'
+    template = ' ⚡'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = 'transparent'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+    [blocks.segments.properties]
+      alpine = ''
+      arch = ''
+      centos = ''
+      debian = ''
+      elementary = ''
+      fedora = ''
+      gentoo = ''
+      linux = ''
+      macos = ''
+      manjaro = ''
+      mint = ''
+      opensuse = ''
+      raspbian = ''
+      ubuntu = ''
+      windows = ''
+      wsl = ''
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#3EC669'
+    background = '#272727'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#00ff0d'
+    background = '#272727'
+    template = '<#000000> </>{{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00>  {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'diamond'
+    foreground = '#FFE873'
+    background = '#306998'
+    leading_diamond = ''
+    trailing_diamond = ' '
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}'
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'diamond'
+    foreground = '#06aad5'
+    background = '#ffffff'
+    leading_diamond = ''
+    trailing_diamond = ' '
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+  [[blocks.segments]]
+    type = 'aws'
+    style = 'diamond'
+    foreground = '#faa029'
+    background = '#565656'
+    leading_diamond = ''
+    trailing_diamond = ' '
+    template = ' {{.Profile}}{{if .Region}}@{{.Region}}{{end}}'
+
+  [[blocks.segments]]
+    type = 'terraform'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#000000'
+    background = '#ebcc34'
+    template = '{{.WorkspaceName}}'
+
+  [[blocks.segments]]
+    type = 'kubectl'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#316ce4'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}'
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    template = '{{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+      style = 'roundrock'
+
+  [[blocks.segments]]
+    type = 'sysinfo'
+    style = 'plain'
+    foreground = '#3c3c3c'
+    background = '#ffffff'
+    template = ' {{ round .PhysicalPercentUsed .Precision }}% '
+
+  [[blocks.segments]]
+    type = 'battery'
+    style = 'plain'
+    invert_powerline = true
+    foreground = '#262626'
+    background = '#f36943'
+    background_templates = ['{{if eq "Charging" .State.String}}#b8e994{{end}}', '{{if eq "Discharging" .State.String}}#fff34e{{end}}', '{{if eq "Full" .State.String}}#33DD2D{{end}}']
+    leading_diamond = ''
+    template = ' {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} <#262626></>'
+
+    [blocks.segments.properties]
+      charged_icon = ' '
+      charging_icon = ' '
+      discharging_icon = ' '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = 'lightGreen'
+    background = '#000000'
+    template = '{{ .CurrentDate | date .Format }}'

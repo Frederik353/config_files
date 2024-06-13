@@ -1,0 +1,79 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'white'
+    template = '({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'lightBlue'
+    template = '# '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = 'red'
+    template = ' % '
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    template = '<cyan>{{ .UserName }}</> <darkGray>@</> <green>{{ .HostName }}</> '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = 'lightYellow'
+    template = '<darkGray>in </>{{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = '<darkGray>on</> <white>git:</><cyan>{{ .HEAD }}</>{{ if .Working.Changed }}<red> x</>{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_status = true
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = 'darkGray'
+    template = '[{{ .CurrentDate | date .Format }}]'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = 'red'
+    template = ' C:{{ if gt .Code 0 }}{{ .Code }}{{ end }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'lightRed'
+    template = '$'

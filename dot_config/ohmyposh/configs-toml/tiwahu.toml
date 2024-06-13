@@ -1,0 +1,138 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = '#222222'
+    background = '#007ACC'
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      style = 'austin'
+      threshold = 321.0
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#ff8888'
+    background = '#880000'
+    template = '{{ if gt .Code 0 }} {{ .Code }} {{ end }}'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#222222'
+    background = '#ffcc88'
+    template = ''
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    foreground = '#666666'
+    background = '#222222'
+    template = ' {{ if .WSL }} {{ end }}{{.Icon}}'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#666666'
+    background = '#222222'
+    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#cccccc'
+    background = '#444444'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = '…'
+      style = 'mixed'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#f1f0e9'
+    background = '#cf432B'
+    template = ' {{ .HEAD }} '
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      cherry_pick_icon = ' '
+      commit_icon = ' '
+      fetch_status = false
+      fetch_upstream_icon = false
+      merge_icon = ' '
+      no_commits_icon = ' '
+      rebase_icon = ' '
+      revert_icon = ' '
+      tag_icon = ' '
+
+  [[blocks.segments]]
+    type = 'dotnet'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#7014eb'
+    template = '  '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#7FD5EA'
+    template = '  '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = '#100e23'
+    background = '#906cff'
+    template = '  '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'rust'
+    style = 'plain'
+    foreground = '#193549'
+    background = '#99908a'
+    template = '  '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'plain'
+    foreground = '#007ACC'
+    template = '{{ .Name }} '
+
+    [blocks.segments.properties]
+      [blocks.segments.properties.mapped_shell_names]
+        bash = '$'
+        cmd = '>'
+        fish = '~>'
+        lua = '>'
+        nu = ':)'
+        pwsh = '❯'
+        shell = '❯'
+        zsh = '%'

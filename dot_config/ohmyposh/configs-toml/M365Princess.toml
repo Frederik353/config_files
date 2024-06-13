@@ -1,0 +1,98 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = 'p:white'
+    background = 'p:tan'
+    leading_diamond = ''
+    template = '{{ if .Env.PNPPSHOST }}  {{ .Env.PNPPSHOST }} {{ end }}'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:white'
+    background = 'p:teal'
+    template = '{{ if .Env.PNPPSSITE }}  {{ .Env.PNPPSSITE }}{{ end }}'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = 'p:white'
+    background = 'p:teal'
+    trailing_diamond = ''
+    template = '{{ if .Env.PNPPSSITE }} {{ end }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = 'p:white'
+    background = 'p:plum'
+    leading_diamond = ''
+    template = '{{ .UserName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:white'
+    background = 'p:blush'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:white'
+    background = 'p:salmon'
+    template = ' ➜ ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}) '
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_stash_count = true
+      fetch_status = false
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:white'
+    background = 'p:sky'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = 'p:white'
+    background = 'p:teal_blue'
+    trailing_diamond = ''
+    template = ' ♥ {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04'
+
+[palette]
+  blush = '#DA627D'
+  plum = '#9A348E'
+  salmon = '#FCA17D'
+  sky = '#86BBD8'
+  tan = '#CC3802'
+  teal = '#047E84'
+  teal_blue = '#33658A'
+  white = '#FFFFFF'

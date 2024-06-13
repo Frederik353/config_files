@@ -1,0 +1,161 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+console_title_template = '{{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#1865f5'
+    trailing_diamond = '<transparent,></>'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}}'
+
+    [blocks.segments.properties]
+      alpine = ''
+      arch = ''
+      centos = ''
+      debian = ''
+      elementary = ''
+      fedora = ''
+      gentoo = ''
+      linux = ''
+      macos = ' '
+      manjaro = ''
+      mint = ''
+      opensuse = ''
+      raspbian = ''
+      ubuntu = ' '
+      windows = ' '
+      wsl = ''
+
+  [[blocks.segments]]
+    type = 'sysinfo'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#00c7fc'
+    leading_diamond = '<transparent,#00c7fc></>'
+
+    [blocks.segments.properties]
+      template = '  CPU: {{ round .PhysicalPercentUsed .Precision }}% | '
+
+  [[blocks.segments]]
+    type = 'sysinfo'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#00c7fc'
+    trailing_diamond = '<transparent,#00c7fc></>'
+    template = 'RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB  '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#2343e2'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      style = 'roundrock'
+      threshold = 0.0
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ee79d1'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+      fetch_worktree_count = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#91f2ff'
+    template = '╭─'
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#91f2ff'
+    leading_diamond = ''
+    trailing_diamond = '<transparent,#91f2ff></>'
+    template = '  {{ .Name }} '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ff8c94'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '  {{ .CurrentDate | date .Format }}  '
+
+    [blocks.segments.properties]
+      time_format = '3:04:05 PM | Monday'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    template = '  '
+
+    [blocks.segments.properties]
+      root_icon = ' '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#f8677b'
+    leading_diamond = '<transparent,#F8677b></>'
+    trailing_diamond = ''
+
+    [blocks.segments.properties]
+      folder_icon = ' '
+      folder_separator_icon = '  '
+      home_icon = ''
+      style = 'agnoster_full'
+      template = '  {{ .Path }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#00BCF9'
+    foreground_templates = ['{{ if gt .Code 0 }}#ef5350{{ end }}']
+    template = ' '
+
+    [blocks.segments.properties]
+      always_enabled = true
+      template = '╰─  '
+
+[transient_prompt]
+  foreground = '#FEF5ED'
+  background = 'transparent'
+  template = ' '

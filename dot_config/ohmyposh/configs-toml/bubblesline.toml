@@ -1,0 +1,131 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#3EC669'
+    background = '#424242'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#43CCEA'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ .HEAD }}'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'diamond'
+    foreground = '#E4F34A'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'diamond'
+    foreground = '#7FD5EA'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'diamond'
+    foreground = '#42E66C'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'ruby'
+    style = 'diamond'
+    foreground = '#E64747'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'java'
+    style = 'diamond'
+    foreground = '#E64747'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'julia'
+    style = 'diamond'
+    foreground = '#9B6BDF'
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'battery'
+    style = 'diamond'
+    foreground = '#9B6BDF'
+    foreground_templates = ['{{if eq "Charging" .State.String}}#40c4ff{{end}}', '{{if eq "Discharging" .State.String}}#ff5722{{end}}', '{{if eq "Full" .State.String}}#4caf50{{end}}']
+    background = '#424242'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}'
+
+    [blocks.segments.properties]
+      charged_icon = '● '
+      charging_icon = '⇡ '
+      discharging_icon = '⇣ '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#9B6BDF'
+    background = '#424242'
+    leading_diamond = ''
+    trailing_diamond = ' '
+    template = '{{ .UserName }} ❯'

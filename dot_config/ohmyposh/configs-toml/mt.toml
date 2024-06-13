@@ -1,0 +1,60 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#B4009E'
+    leading_diamond = ''
+    template = '{{ .UserName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#000000'
+    background = '#FFFF00'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#4E44FF'
+    template = ' ➜ ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}) '
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_stash_count = true
+      fetch_status = false
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#4e903d'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#16C60C'
+    trailing_diamond = ''
+    template = ' ♥ {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04'

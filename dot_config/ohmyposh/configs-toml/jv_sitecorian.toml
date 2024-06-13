@@ -1,0 +1,151 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{if .Root}}Admin: {{end}} {{.Folder}}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#ffffff'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#185F7B'
+    template = ''
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#185F7B'
+    background = '#185F7B'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#185F7B'
+    trailing_diamond = ''
+    template = '{{ .Path }} '
+
+    [blocks.segments.properties]
+      home_icon = '  '
+      style = 'mixed'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#6f42c1'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    leading_diamond = '<transparent,#49404f></>'
+    trailing_diamond = ''
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#4caf50'
+    background_templates = ['{{ if gt .Code 0 }}red{{ end }}']
+    template = ' {{ if gt .Code 0 }}{{ else }} ♥{{ end }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    invert_powerline = true
+    foreground = '#ffffff'
+    background = '#2B2B2B'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .CurrentDate | date .Format }}<#ffffff>  </>'
+
+    [blocks.segments.properties]
+      time_format = '3:04:05 PM'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    invert_powerline = true
+    foreground = '#ffffff'
+    background = '#2B2B2B'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .FormattedMs }}<#ffffff>  </>'
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#2B2B2B'
+    template = ''
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#1CA6A3'
+    background = '#2B2B2B'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#FBD951'
+    background = '#2B2B2B'
+    template = ' '
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#DC291E'
+    template = ' {{ .UserName }} '
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'plain'
+    foreground = '#666666'
+    background = '#000000'
+    template = ' {{ .Name }}'

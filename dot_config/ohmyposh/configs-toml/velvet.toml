@@ -1,0 +1,159 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} - {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#EFDCF9'
+    background = '#0E050F'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+    [blocks.segments.properties]
+      arch = ''
+      debian = ''
+      fedora = ''
+      linux = ''
+      macos = ''
+      manjaro = ''
+      opensuse = ''
+      ubuntu = ''
+      windows = ''
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#EFDCF9'
+    background = '#170B3B'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = '...'
+      folder_separator_icon = '/'
+      home_icon = '~'
+      max_depth = 3.0
+      style = 'agnoster_short'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#EFDCF9'
+    background = '#341948'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      branch_max_length = 25.0
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#EFDCF9'
+    background = '#4c1f5e'
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#EFDCF9'
+    foreground_templates = ['{{ if gt .Code 0 }}#FF3C3C{{ end }}']
+    background = '#69307A'
+    trailing_diamond = ''
+    template = ' {{ if gt .Code 0 }} {{.Code}}{{ end }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'diamond'
+    foreground = '#E4F34A'
+    background = '#4c1f5e'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'diamond'
+    foreground = '#7FD5EA'
+    background = '#4c1f5e'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'diamond'
+    foreground = '#42E66C'
+    background = '#4c1f5e'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'ruby'
+    style = 'diamond'
+    foreground = '#E64747'
+    background = '#4c1f5e'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'java'
+    style = 'diamond'
+    foreground = '#E64747'
+    background = '#4c1f5e'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#EFDCF9'
+    background = '#4c1f5e'
+    trailing_diamond = ''
+    template = ' {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'

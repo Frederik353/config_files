@@ -1,0 +1,57 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#15C2CB'
+    template = '{{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#F141A8'
+    template = '<#F3EFF5>on</> {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+
+  [[blocks.segments]]
+    type = 'project'
+    style = 'plain'
+    foreground = '#5EADF2'
+    template = '{{if .Version}}<#F3EFF5>is</>  {{.Version}} {{end}}'
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'plain'
+    foreground = '#44FFD2'
+    template = '<#F3EFF5>via</>  {{ .Full }} '
+
+    [blocks.segments.properties]
+      fetch_version = true
+
+  [[blocks.segments]]
+    type = 'npm'
+    style = 'plain'
+    foreground = '#FE4A49'
+    template = '<#F3EFF5>and</>  {{.Full}} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#FFE45E'
+    template = '❯ '

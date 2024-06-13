@@ -1,0 +1,71 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#BF231D'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#0A703E'
+    template = ' {{ .Icon }} '
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#0A703E'
+    template = '{{ .UserName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#256C9D'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = ''
+      folder_separator_icon = '  '
+      max_depth = 2.0
+      style = 'agnoster_short'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#256C9D'
+    template = '[ {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ]'
+
+    [blocks.segments.properties]
+      branch_max_length = 30.0
+      fetch_stash_count = false
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#256C9D'
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} '
+
+    [blocks.segments.properties]
+      text = ''
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#256C9D'
+    template = ' '

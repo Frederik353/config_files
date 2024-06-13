@@ -1,0 +1,82 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    foreground = '#26C6DA'
+    template = '{{ if .WSL }}WSL at {{ end }}{{.Icon}}'
+
+    [blocks.segments.properties]
+      macos = 'mac'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#26C6DA'
+    template = ' {{ .UserName }}: '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = 'lightGreen'
+    template = '{{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = '<#ffffff>on</> {{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_stash_count = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'powerline'
+    foreground = '#906cff'
+    template = '[ {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}] '
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'powerline'
+    foreground = '#7FD5EA'
+    template = '[ {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] '
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    foreground = '#76b367'
+    template = '[ {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}] '
+
+  [[blocks.segments]]
+    type = 'ruby'
+    style = 'powerline'
+    foreground = '#f44336'
+    template = '[{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] '
+
+  [[blocks.segments]]
+    type = 'java'
+    style = 'powerline'
+    foreground = '#ea2d2e'
+    template = '[ {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}] '
+
+  [[blocks.segments]]
+    type = 'julia'
+    style = 'powerline'
+    foreground = '#4063D8'
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#FFD54F'
+    template = '❯ '

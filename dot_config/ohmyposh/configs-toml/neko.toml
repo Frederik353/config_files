@@ -1,0 +1,60 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    template = '😺💬<#FF8000> Meow! What should I do next? ...</>'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#56B6C2'
+    template = '🏡 {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#D0666F'
+    template = '<#5FAAE8>git:(</>{{ .HEAD }}<#5FAAE8>)</>'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      fetch_status = false
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#1a415d'
+    template = '⌚'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = '#1a415d'
+    template = ' {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#FF8000'
+    template = '😀💬<#FF8000> ~ </>'

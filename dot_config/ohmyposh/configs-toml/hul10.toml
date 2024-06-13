@@ -1,0 +1,117 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{if .Root}}[root] {{end}}{{.Shell}} in <{{.Folder}}>'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'p:white'
+    background = 'transparent'
+    template = '┌'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    foreground = 'p:white'
+    background = '#464646'
+    template = ' {{.Icon}}{{if .WSL}} (WSL){{end}}⠀'
+
+    [blocks.segments.properties]
+      linux = ''
+      macos = ''
+      ubuntu = ''
+      windows = ''
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'plain'
+    foreground = 'p:black'
+    background = 'p:white'
+    template = '  {{.Name}}⠀'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = 'p:black'
+    background = '#ffe093'
+    template = '  {{.HostName}}{{.UserName}}⠀'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'p:black'
+    background = '#ffffd6'
+    template = '{{.HEAD}}⠀'
+
+    [blocks.segments.properties]
+      branch_icon = '  '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = '#b3ffde'
+    background = 'transparent'
+    template = '{{.FormattedMs}}'
+
+    [blocks.segments.properties]
+      style = 'austin'
+      threshold = 0.0
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = '#b3ffde'
+    background = 'transparent'
+    template = '<p:white> · </>{{.CurrentDate | date .Format}}'
+
+    [blocks.segments.properties]
+      time_format = '02/01/06 15:04'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = 'p:white'
+    background = 'transparent'
+    template = '<p:white>└</><#93d0ff>[</> {{.Path}} <#93d0ff>]</>'
+
+    [blocks.segments.properties]
+      folder_icon = ''
+      folder_separator_template = '<#93d0ff> » </>'
+      home_icon = ''
+      style = 'agnoster'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#81ff91'
+    foreground_templates = ['{{if gt .Code 0}}#ff3030{{end}}']
+    background = 'transparent'
+    template = '❯'
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[palette]
+  black = '#111111'
+  white = '#f7f7f7'

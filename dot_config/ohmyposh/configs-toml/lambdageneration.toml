@@ -1,0 +1,119 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#fb7e14'
+    background = '#292929'
+    leading_diamond = '╭─'
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'powerline'
+    foreground = '#fb7e14'
+    background = '#292929'
+    template = ' {{ .FormattedMs }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+      style = 'austin'
+      threshold = 500.0
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#26C6DA'
+    background = '#292929'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#fb7e14'
+    background = '#292929'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+      trailing_diamond = ''
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#D4E157'
+    background = '#292929'
+
+  [[blocks.segments]]
+    type = 'battery'
+    style = 'powerline'
+    foreground = '#26C6DA'
+    foreground_templates = ['{{ if eq "Full" .State.String }}#292929{{ end }}', '{{ if eq "Charging" .State.String }}#40c4ff{{ end }}', '{{ if eq "Discharging" .State.String }}#fb7e14{{ end }}']
+    background = '#292929'
+    template = ' {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} '
+
+    [blocks.segments.properties]
+      charged_icon = ' '
+      charging_icon = ' '
+      discharging_icon = ' '
+      text = ''
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = '#fb7e14'
+    background = '#292929'
+    background_templates = ['{{ if gt .Code 0 }}#292929{{ end }}']
+    trailing_diamond = ''
+    template = ' {{ if gt .Code 0 }} {{ reason .Code }}{{ else }}{{ end }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+      display_exit_code = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#fb7e14'
+    background = '#292929'
+    leading_diamond = ''
+    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }}@{{ .HostName }} <#fb7e14></> '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#fb7e14'
+    background = '#292929'
+    trailing_diamond = ''
+    template = '{{ .CurrentDate | date .Format }}  '
+
+    [blocks.segments.properties]
+      time_format = '15:04:05, _2'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#292929'
+    background = '#fb7e14'
+    leading_diamond = '╰─'
+    trailing_diamond = ''
+    template = ''
+
+    [blocks.segments.properties]
+      always_enabled = true

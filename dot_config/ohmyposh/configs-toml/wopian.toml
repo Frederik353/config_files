@@ -1,0 +1,96 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'powerline'
+    foreground = 'cyan'
+    template = '{{ .Icon }}'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = 'cyan'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'lightYellow'
+    template = ':: <lightBlue>git(</>{{ .HEAD }}<lightBlue>)</>'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'plain'
+    foreground = '#68a063'
+    template = ' {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}'
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_package_manager = true
+      fetch_version = true
+      npm_icon = '/npm'
+      yarn_icon = '/yarn'
+
+  [[blocks.segments]]
+    type = 'crystal'
+    style = 'plain'
+    foreground = '#4063D8'
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_version = true
+
+  [[blocks.segments]]
+    type = 'ruby'
+    style = 'plain'
+    foreground = '#DE3F24'
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_version = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = '#FED142'
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}'
+
+    [blocks.segments.properties]
+      display_mode = 'context'
+      fetch_virtual_env = false
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = 'lightGreen'
+    template = ' {{ .CurrentDate | date .Format }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'powerline'
+    foreground = 'lightGreen'
+    foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}']
+    template = '➜ '
+
+    [blocks.segments.properties]
+      always_enabled = true

@@ -1,0 +1,89 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'powerline'
+    foreground = '#b1ff4f'
+    template = '[🐍 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}] '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#ffaed8'
+    template = '<#eaeaea>⎧</> ⟨{{ .Path }}⟩ '
+
+    [blocks.segments.properties]
+      folder_separator_icon = ' | '
+      home_icon = ''
+      style = 'letter'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#62beff'
+    template = '⟨{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} ∆{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}⟩'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      branch_identical_icon = '≡'
+      fetch_status = true
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'plain'
+    foreground = '#98C379'
+    template = '<#ffffff>◦</> ☢{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+    [blocks.segments.properties]
+      fetch_version = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#fb0207'
+    template = ' ××× '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = '#9966ff'
+    template = '⟨{{ .FormattedMs }}⟩ <#eaeaea>⎫</>'
+
+    [blocks.segments.properties]
+      style = 'austin'
+      threshold = 0.0
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#3ce6bf'
+    template = '<#eaeaea>⎩</>⟩⟩⟩⟩⟩⟩ '
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = '#f5f5a6'
+    template = '⟨{{ .CurrentDate | date .Format }}⟩ <#eaeaea>⎭</>'
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'

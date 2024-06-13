@@ -1,0 +1,60 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#ffffff'
+    template = '{{ reason .Code }}❌ '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    foreground = '#ff0000'
+    template = '# '
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#ffffff'
+    template = '{{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#007ACC'
+    template = '<transparent></> {{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = '…'
+      folder_separator_icon = '  '
+      max_depth = 3.0
+      style = 'agnoster_short'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#007ACC'
+    template = '{{ .HEAD }}{{ if and (eq .Ahead 0) (eq .Behind 0) }} ≡{{end}}{{ if gt .Ahead 0 }} ↑{{.Ahead}}{{end}}{{ if gt .Behind 0 }} ↓{{.Behind}}{{end}} {{ if .Working.Changed }}+{{ .Working.Added }} ~{{ .Working.Modified }} -{{ .Working.Deleted }} {{ end }}'
+
+    [blocks.segments.properties]
+      cherry_pick_icon = '✓ '
+      commit_icon = '▷ '
+      fetch_status = true
+      merge_icon = '◴ '
+      no_commits_icon = '[no commits]'
+      rebase_icon = 'Ɫ '
+      tag_icon = '▶ '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#007ACC'
+    template = ' '

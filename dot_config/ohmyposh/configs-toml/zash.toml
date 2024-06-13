@@ -1,0 +1,44 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = '#E36464'
+    template = '@{{ .UserName }} '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#62ED8B'
+    template = '➜'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    foreground = '#56B6C2'
+    template = ' {{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = '#D4AAFC'
+    template = ' <#DDB15F>git(</>{{ .HEAD }}<#DDB15F>)</>'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#DCB977'
+    template = ' '

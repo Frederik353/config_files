@@ -1,0 +1,113 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+console_title_template = '{{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#BBC4B9'
+    leading_diamond = '<#BFA8BF>~</> '
+    template = '{{ .UserName }} '
+
+    [blocks.segments.properties]
+      display_host = true
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#BFA8BF'
+    template = '<#fff>{{ .UpstreamIcon }}</>{{ .HEAD }}'
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+      fetch_worktree_count = true
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'powerline'
+    foreground = '#BFA8BF'
+    template = ' <#fff></> {{ .Name }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#fff'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    foreground = '#fff'
+    template = ' <#BBC4B9>{{ .FormattedMs }}s</> <#fff>󰇝</>'
+
+    [blocks.segments.properties]
+      style = 'dallas'
+      threshold = 0.0
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#BBC4B9'
+    template = ' {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = 'Monday <#fff>at</> 3:04 PM'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    template = ' '
+
+    [blocks.segments.properties]
+      root_icon = ' '
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'diamond'
+    foreground = '#BBC4B9'
+    template = ' <#fff></> {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#B6D6F2'
+    leading_diamond = '<#BFA8BF>~</>'
+    template = '  {{ .Path }}'
+
+    [blocks.segments.properties]
+      folder_icon = '/'
+      folder_separator_icon = ' / '
+      home_icon = 'home'
+      style = 'agnoster_full'
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#BFA8BF'
+    foreground_templates = ['{{ if gt .Code 0 }}#fff{{ end }}']
+    template = ' ~ '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[transient_prompt]
+  foreground = '#FEF5ED'
+  background = 'transparent'
+  template = ' '

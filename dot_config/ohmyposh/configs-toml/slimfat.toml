@@ -1,0 +1,168 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#26C6DA'
+    background = '#2f2f2f'
+    leading_diamond = '▓'
+    template = ' {{ if .WSL }} on {{ end }}{{ .Icon }}<#7a7a7a> </>'
+
+    [blocks.segments.properties]
+      alpine = ''
+      arch = ''
+      centos = ''
+      debian = ''
+      elementary = ''
+      fedora = ''
+      gentoo = ''
+      linux = ''
+      macos = ''
+      manjaro = ''
+      mint = ''
+      opensuse = ''
+      raspbian = ''
+      ubuntu = ''
+      windows = ''
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    template = ' {{ if ne .Env.POSH_SESSION_DEFAULT_USER .UserName }}<#77f5d6>{{ .UserName }}</><#7a7a7a></>{{ end }}<#2EEFBF>{{ .HostName }}</><#7a7a7a> </>'
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    foreground = '#ffff66'
+    background = '#2f2f2f'
+    template = ' <#7a7a7a> </>'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    template = '<#f2f200>  </>{{ .Path }} '
+
+    [blocks.segments.properties]
+      folder_icon = '<#B5B2C2> </>'
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'diamond'
+    foreground = '#ffeb3b'
+    foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}#ffeb3b{{ end }}', '{{ if gt .Ahead 0 }}#2EC4B6{{ end }}', '{{ if gt .Behind 0 }}#8A4FFF{{ end }}']
+    background = '#2f2f2f'
+    template = '<#7a7a7a> </>{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}<#E84855>  {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#2FDA4E>  {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    trailing_diamond = ''
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    leading_diamond = ''
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'diamond'
+    foreground = '#6CA35E'
+    background = '#2f2f2f'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}<#7a7a7a> </>'
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'diamond'
+    foreground = '#96E072'
+    background = '#2f2f2f'
+    template = '  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#7a7a7a> </>'
+
+  [[blocks.segments]]
+    type = 'dotnet'
+    style = 'diamond'
+    foreground = '#3891A6'
+    background = '#2f2f2f'
+    template = '  {{ if .Unsupported }}{{ else }}{{ .Full }}{{ end }}<#7a7a7a> </>'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#fafafa'
+    background = '#2f2f2f'
+    trailing_diamond = '▓'
+    template = ' {{ .CurrentDate | date .Format }}<#007ACC>  </>'
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#7a7a7a'
+    template = ' ~#@❯ '
+
+[[blocks]]
+  type = 'rprompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = '#7a7a7a'
+    template = ' ❮ '
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = '#FFCE5C'
+    template = ' {{ .FormattedMs }}<#fafafa>  </>'
+
+    [blocks.segments.properties]
+      style = 'roundrock'
+      threshold = 500.0
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#9FD356'
+    foreground_templates = ['{{ if gt .Code 0 }}#E84855{{ end }}']
+    template = '  {{ if gt .Code 0 }}{{ .Code }}{{ end }} '
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+[transient_prompt]
+  foreground = '#7a7a7a'
+  background = 'transparent'
+  template = ' ~#@❯ '

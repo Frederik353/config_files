@@ -1,0 +1,93 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ffffff'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#000000'
+    background = '#0000ff'
+    template = '  '
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#0000ff'
+    template = ' {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#000000'
+    background = '#D4E157'
+    template = ' {{ .HEAD }} '
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#D4E157'
+    leading_diamond = ''
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} <transparent></>'
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'diamond'
+    foreground = '#ffffff'
+    background = '#7FD5EA'
+    leading_diamond = ''
+    template = ' {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} <transparent></>'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    foreground = '#000000'
+    background = '#ffffff'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#D4E157'
+    foreground_templates = ['{{ if gt .Code 0 }}#FF5252{{ end }}']
+    template = '❯ '
+
+    [blocks.segments.properties]
+      always_enabled = true

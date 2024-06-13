@@ -1,0 +1,194 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+console_title_template = '{{ if or .Root .Segments.Git.RepoName }}[ {{ if .Root }}Admin{{ end }}{{ if and .Root .Segments.Git.RepoName }}@{{ end }}{{ if .Segments.Git.RepoName }}{{ .Segments.Git.RepoName }}{{ end }} ]{{ end }} {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'powerline'
+    foreground = 'p:timer-text'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ dateInZone .Format .CurrentDate "UTC" }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'
+
+  [[blocks.segments]]
+    type = 'kubectl'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:kubernetes-text'
+    background = 'p:background-color'
+    template = '<p:symbol-color></> {{.Context}}{{if .Namespace}}  {{.Namespace}}{{end}}'
+
+  [[blocks.segments]]
+    type = 'talosctl'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:talosctl-text'
+    background = 'p:background-color'
+    template = '<p:symbol-color>󱃾</> {{.Context}}'
+
+  [[blocks.segments]]
+    type = 'aws'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:cloud-text-amazon'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{.Profile}}{{if .Region}}  {{.Region}}{{end}}'
+
+  [[blocks.segments]]
+    type = 'az'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:cloud-text-azure'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ .Name }}'
+
+    [blocks.segments.properties]
+      source = 'cli'
+
+  [[blocks.segments]]
+    type = 'az'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:cloud-text-azure'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> (PS) {{ .Name }}'
+
+    [blocks.segments.properties]
+      source = 'pwsh'
+
+  [[blocks.segments]]
+    type = 'gcp'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:cloud-text-gcp'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ .Project }}'
+
+  [[blocks.segments]]
+    type = 'firebase'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:cloud-text-firebase'
+    background = 'p:background-color'
+    template = ' <p:symbol-color>󰥧</> {{ .Project }}'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:git-text'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ .RepoName }}'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:timer-text'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      style = 'austin'
+      threshold = 1.0
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:symbol-color'
+    background = 'p:background-color'
+    template = '{{ if eq .Code 0 }}  {{ end }}'
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'diamond'
+    foreground = 'p:error-text'
+    background = 'p:error-background'
+    leading_diamond = ' '
+    trailing_diamond = ''
+    template = '{{ if ne .Code 0 }}  {{ .Code }}{{ if (ne (reason .Code) (toString .Code)) }} - {{ reason .Code }}{{else}}{{ end }} {{ end }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'powerline'
+    foreground = 'p:timer-text'
+    background = 'p:background-color'
+    template = ' <p:symbol-color></> {{ .CurrentDate | date .Format }} '
+
+    [blocks.segments.properties]
+      time_format = '15:04:05'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:symbol-color'
+    background = 'p:background-color'
+    template = ' {{ path .Path .Location }} '
+
+    [blocks.segments.properties]
+      folder_separator_icon = '/'
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = 'p:git-text'
+    background = 'p:background-color'
+    template = '{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    foreground = 'p:backgrond-color'
+    background = 'p:error-background'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground = 'p:git-text'
+    background = 'p:background-color'
+    template = '{{ if .Root }}{{ else }}<p:symbol-color> > </>{{ end }}'
+
+[palette]
+  background-color = 'transparent'
+  cloud-text-amazon = '#4285F4'
+  cloud-text-azure = '#4285F4'
+  cloud-text-firebase = '#FFA000'
+  cloud-text-gcp = '#4285F4'
+  error-background = '#dd0033'
+  error-text = '#242424'
+  git-text = '#238636'
+  kubernetes-text = '#FFBB00'
+  symbol-color = '#ffffff'
+  talosctl-text = '#FF6C00'
+  timer-text = '#dd0033'

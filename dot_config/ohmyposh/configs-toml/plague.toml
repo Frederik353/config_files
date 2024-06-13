@@ -1,0 +1,83 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'diamond'
+    foreground = '#ff0000'
+    background = '#333333'
+    leading_diamond = ''
+    trailing_diamond = ''
+    template = ' {{ .UserName }}@{{ .HostName }} '
+
+  [[blocks.segments]]
+    type = 'spotify'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#434343'
+    background = '#1BD760'
+    template = '  {{ .Icon }}{{ if ne .Status "stopped" }}{{ .Artist }} - {{ .Track }}{{ end }} '
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#000000'
+    background = '#ff0000'
+    template = '  {{ .Path }} '
+
+    [blocks.segments.properties]
+      style = 'folder'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#193549'
+    background = '#fffb38'
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#6CA35E'
+    template = '  {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#203248'
+    template = '  {{ .Name }} '
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'powerline'
+    powerline_symbol = ''
+    foreground = '#ffffff'
+    background = '#ffff66'
+    template = '  '
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'plain'
+    foreground = '#ffffff'
+    background = '#2e9599'
+    background_templates = ['{{ if gt .Code 0 }}#f1184c{{ end }}']
+    template = '<transparent></>  <background,transparent></>'
+
+    [blocks.segments.properties]
+      always_enabled = true
