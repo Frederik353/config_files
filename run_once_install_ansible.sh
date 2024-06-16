@@ -4,7 +4,7 @@ install_on_fedora() {
     sudo dnf install -y ansible
 }
 
-install_on_ubuntu() {
+install_on_debian_based() {
     sudo apt-get update
     sudo apt-get install -y ansible
 }
@@ -18,8 +18,8 @@ case "${OS}" in
     Linux*)
         if [ -f /etc/fedora-release ]; then
             install_on_fedora
-        elif [ -f /etc/lsb-release ]; then
-            install_on_ubuntu
+        elif [ -f /etc/lsb-release ] || [ -f /etc/debian_version ]; then
+            install_on_debian_based
         else
             echo "Unsupported Linux distribution"
             exit 1
@@ -34,8 +34,6 @@ case "${OS}" in
         ;;
 esac
 
-
 ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
 
 echo "Ansible installation complete."
-

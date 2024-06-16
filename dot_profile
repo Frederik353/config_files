@@ -1,5 +1,4 @@
 # ~/.profile: executed by Bourne-compatible login shells.
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.luarocks/bin:$PATH"
 
 
@@ -10,3 +9,4 @@ if [ "$BASH" ]; then
 fi
 
 mesg n 2> /dev/null || true
+. "$HOME/.cargo/env"
