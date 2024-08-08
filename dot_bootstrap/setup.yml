@@ -1,3 +1,4 @@
+
 - name: Machine setup
   hosts: localhost
   become: true
@@ -102,6 +103,7 @@
           - libxcb-xinput-dev
           - xdg-desktop-portal-wlr
           - libtomlplusplus3
+          - zoxide
         state: present
         update_cache: yes
 
@@ -145,6 +147,7 @@
         dest: "/home/{{ remote_regular_user }}/.fonts/"
         remote_src: true
         creates: "/home/{{ remote_regular_user }}/.fonts/Hack Regular Nerd Font Complete.ttf"
+
 
     - name: Ensure TPM is installed
       git:
@@ -419,4 +422,37 @@
         src: /usr/share/wayland-sessions/hyprland.desktop
         dest: /usr/share/wayland-sessions/hyprland.desktop
         remote_src: yes
+
+
+- name: Install Google Chrome on Kali Linux
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Add Google Chrome GPG key
+      apt_key:
+        url: 'https://dl.google.com/linux/linux_signing_key.pub'
+        state: present
+
+    - name: Add Google Chrome repository
+      apt_repository:
+        repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Google Chrome
+      apt:
+        name: google-chrome-stable
+        state: present
+
+    - name: Ensure Google Chrome is installed
+      command: google-chrome --version
+      register: chrome_version
+      ignore_errors: yes
+
+    - name: Print Google Chrome version
+      debug:
+        msg: "Google Chrome version: {{ chrome_version.stdout }}"
 

@@ -4,4 +4,15 @@ This repo contains the configuration to setup my machines. This is using [Chezmo
 
 ## How to run
 
-```shell sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:Frederik353/config-files.git```
+```sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/Frederik353/config_files.git```
+
+
+In tmux do ø-I to install TPM packages.
+
+
+
+install oh my posh: 
+curl -s https://ohmyposh.dev/install.sh | bash -s
+source ~/.zshrc
+
+
