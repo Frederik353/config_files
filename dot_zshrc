@@ -1,3 +1,7 @@
+export PATH=$PATH:/root/bin
+export PATH=$PATH:/home/frederik/bin
+
+
 # Enable Powerlevel9k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -117,7 +121,7 @@
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 
 
-alias find='fd'
+alias find='fdfind'
 
 alias grep='rg'
 
@@ -140,4 +144,7 @@ alias df='duf'
 
 eval "$(zoxide init zsh)"
 
-export PATH=$PATH:/root/bin
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="~/.cargo/bin:$PATH"
+export PATH="/home/frederik/.cargo/bin:$PATH"

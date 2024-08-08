@@ -112,7 +112,13 @@ vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
+-- vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+
+-- -- Optional key mappings to copy/paste using system clipboard
+-- vim.api.nvim_set_keymap('v', 'y', '"*y', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'p', '"*p', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('v', 'p', '"*p', { noremap = true, silent = true })
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -314,10 +320,10 @@ require('lazy').setup({
       }
 
       -- Open parent directory in current window
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+      -- vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
       -- Open parent directory in floating window
-      vim.keymap.set('n', '<space>-', require('oil').toggle_float)
+      vim.keymap.set('n', '<space>-', require('oil').toggle_float, { desc = 'Open parent directory' })
     end,
   },
   {
@@ -353,27 +359,27 @@ require('lazy').setup({
       -- vim.keymap.set('n', '<C-e>', function() toggle_telescope(harpoon:list()) end, { desc = 'Open harpoon window' })
       vim.keymap.set('n', '<C-e>', function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
+      end, { desc = 'toggle harpoon list' })
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
-      end)
+      end, { desc = 'harpoon add to list' })
       vim.keymap.set('n', '<M-h>', function()
         harpoon:list():select(1)
-      end)
+      end, { desc = 'harpoon go to mark 1' })
       vim.keymap.set('n', '<M-j>', function()
         harpoon:list():select(2)
-      end)
+      end, { desc = 'harpoon go to mark 2' })
       vim.keymap.set('n', '<M-k>', function()
         harpoon:list():select(3)
-      end)
+      end, { desc = 'harpoon go to mark 3' })
       vim.keymap.set('n', '<M-l>', function()
         harpoon:list():select(4)
-      end)
+      end, { desc = 'harpoon go to mark 4' })
     end,
   },
   {
     'mbbill/undotree',
-    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle),
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'toggle Undotree' }),
   },
   {
     'nvimtools/none-ls.nvim',
