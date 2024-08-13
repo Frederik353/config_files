@@ -256,141 +256,18 @@
         dest: '/usr/local/bin/kbct'
         mode: '0755'
         remote_src: true
-#
-# - name: Build and Install Hyprland on 
-#   hosts: localhost
-#   become: true
-#   tasks:
-#     - name: Install nala package manager
-#       apt:
-#         name: nala
-#         state: present
-#
-#     - name: Install dependencies using nala
-#       apt:
-#         name:
-#           - meson
-#           - wget
-#           - build-essential
-#           - ninja-build
-#           - cmake-extras
-#           - cmake
-#           - gettext
-#           - gettext-base
-#           - fontconfig
-#           - libfontconfig-dev
-#           - libffi-dev
-#           - libxml2-dev
-#           - libdrm-dev
-#           - libxkbcommon-x11-dev
-#           - libxkbregistry-dev
-#           - libxkbcommon-dev
-#           - libpixman-1-dev
-#           - libudev-dev
-#           - libseat-dev
-#           - seatd
-#           - libxcb-dri3-dev
-#           - libvulkan-dev
-#           - libvulkan-volk-dev
-#           # - vulkan-validationlayers-dev
-#           - libvkfft-dev
-#           - libgulkan-dev
-#           - libegl-dev
-#           - libgles2
-#           - libegl1-mesa-dev
-#           - glslang-tools
-#           - libinput-bin
-#           - libinput-dev
-#           - libxcb-composite0-dev
-#           - libavutil-dev
-#           - libavcodec-dev
-#           - libavformat-dev
-#           - libxcb-ewmh2
-#           - libxcb-ewmh-dev
-#           - libxcb-present-dev
-#           - libxcb-icccm4-dev
-#           - libxcb-render-util0-dev
-#           - libxcb-res0-dev
-#           - libxcb-xinput-dev
-#           - xdg-desktop-portal-wlr
-#           # - hwdata-dev
-#         state: present
-#         update_cache: yes
-#
-#     - name: Download and install Hyprland build script
-#       get_url:
-#         url: https://gist.githubusercontent.com/Vertecedoc4545/6e54487f07a1888b656b656c0cdd9764/raw/2c5e8ccb428fc331307e2f653cab88174c051310/build-ubuntu-23.sh
-#         dest: /tmp/build-ubuntu-23.sh
-#         mode: '0755'
-#
-#     - name: Run Hyprland build script
-#       command: /tmp/build-ubuntu-23.sh
-#
-#     - name: Ensure /opt/hyprland directory exists
-#       file:
-#         path: /opt/hyprland
-#         state: directory
-#
-#     - name: Download source archives
-#       get_url:
-#         url: "{{ item.url }}"
-#         dest: "/tmp/{{ item.filename }}"
-#       with_items:
-#         - { url: https://github.com/hyprwm/Hyprland/releases/download/v0.24.1/source-v0.24.1.tar.gz, filename: source-v0.24.1.tar.gz }
-#         - { url: https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.31/downloads/wayland-protocols-1.31.tar.xz, filename: wayland-protocols-1.31.tar.xz }
-#         - { url: https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.22.0/downloads/wayland-1.22.0.tar.xz, filename: wayland-1.22.0.tar.xz }
-#         - { url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/releases/0.1.1/downloads/libdisplay-info-0.1.1.tar.xz, filename: libdisplay-info-0.1.1.tar.xz }
-#
-#     - name: Extract source archives
-#       unarchive:
-#         src: "/tmp/{{ item }}"
-#         dest: /opt/hyprland
-#         remote_src: yes
-#       with_items:
-#         - source-v0.24.1.tar.gz
-#         - wayland-protocols-1.31.tar.xz
-#         - wayland-1.22.0.tar.xz
-#         - libdisplay-info-0.1.1.tar.xz
-#
-#     - name: Build and install Wayland 1.22.0
-#       shell: |
-#         cd /opt/hyprland/wayland-1.22.0
-#         mkdir -p build
-#         cd build
-#         meson setup .. --prefix=/usr --buildtype=release -Ddocumentation=false
-#         ninja
-#         sudo ninja install
-#
-#     - name: Build and install Wayland Protocols 1.31
-#       shell: |
-#         cd /opt/hyprland/wayland-protocols-1.31
-#         mkdir -p build
-#         cd build
-#         meson setup .. --prefix=/usr --buildtype=release
-#         ninja
-#         sudo ninja install
-#
-#     - name: Build and install libdisplay-info 0.1.1
-#       shell: |
-#         cd /opt/hyprland/libdisplay-info-0.1.1
-#         mkdir -p build
-#         cd build
-#         meson setup .. --prefix=/usr --buildtype=release
-#         ninja
-#         sudo ninja install
-#
-#     - name: Build and install Hyprland
-#       shell: |
-#         cd /opt/hyprland/hyprland-source
-#         sed -i 's/\/usr\/local/\/usr/g' config.mk
-#         sudo make install
-#
-#     - name: Add configuration to Hyprland config
-#       lineinfile:
-#         path: /etc/hypr/hyprland.conf
-#         line: 'misc {\n  suppress_portal_warnings = true\n}'
-#         create: yes
-#
+
+    - name: Verify kbct binary in /usr/local/bin/
+      stat:
+        path: /usr/local/bin/kbct
+      register: kbct_stat
+
+    - name: Enable and start kbct service
+      systemd:
+        name: kbct
+        enabled: yes
+        state: started
+      become: true
 
 - name: Install Hyprland on Kali Linux
   hosts: localhost

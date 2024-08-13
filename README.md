@@ -16,3 +16,5 @@ curl -s https://ohmyposh.dev/install.sh | bash -s
 source ~/.zshrc
 
 
+sudo mv ~/keyboard /etc/default/keyboard
+think reboot is needed

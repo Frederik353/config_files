@@ -1,6 +1,9 @@
 export PATH=$PATH:/root/bin
 export PATH=$PATH:/home/frederik/bin
 
+export XDG_SESSION_TYPE=wayland
+export GDK_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland
 
 # Enable Powerlevel9k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
