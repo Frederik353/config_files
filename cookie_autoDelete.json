@@ -1,0 +1,284 @@
+{
+  "default": [
+    {
+      "expression": "*.app.betaflight.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "0uiHwjfwDp"
+    },
+    {
+      "expression": "*.app.todoist.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "IK5POD21zZ"
+    },
+    {
+      "expression": "*.betaflight.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "bXnOGtUxt"
+    },
+    {
+      "expression": "*.blackboard.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "d7a5yaJ5C"
+    },
+    {
+      "expression": "*.chatgpt.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "PFWXq6ux-"
+    },
+    {
+      "expression": "*.codewars.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "_s92x2JZX"
+    },
+    {
+      "expression": "*.github.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "eFkpcqz-d"
+    },
+    {
+      "expression": "*.gitlab.stud.idi.ntnu.no",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "-IRcY39mV"
+    },
+    {
+      "expression": "*.icloud.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "2ASdz2Cawo"
+    },
+    {
+      "expression": "*.leetcode.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "0zkR-S4tE"
+    },
+    {
+      "expression": "*.ntnu.blackboard.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "0qwYr_PWwv"
+    },
+    {
+      "expression": "*.ntnu.no",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "vHIxXU7NZ"
+    },
+    {
+      "expression": "*.picoctf.org",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "W8Wcn1Ybt"
+    },
+    {
+      "expression": "*.todoist.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "CrVy8ut9R"
+    },
+    {
+      "expression": "app.betaflight.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "JLT-BWyNq"
+    },
+    {
+      "expression": "app.todoist.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "qsMpE66LA"
+    },
+    {
+      "expression": "chatgpt.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "ei79zVa5R"
+    },
+    {
+      "expression": "codewars.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "DqOwbX_1w"
+    },
+    {
+      "expression": "github.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "sJ7YLvY9I"
+    },
+    {
+      "expression": "gitlab.stud.idi.ntnu.no",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "KsKrx6fGl"
+    },
+    {
+      "expression": "https://app.betaflight.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "wFtGDNq82"
+    },
+    {
+      "expression": "https://app.todoist.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "-QXSLHkYY"
+    },
+    {
+      "expression": "https://chatgpt.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "SNkPFEH9i"
+    },
+    {
+      "expression": "https://github.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "8aZBoeJVc"
+    },
+    {
+      "expression": "https://gitlab.stud.idi.ntnu.no",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "mla7B18_y"
+    },
+    {
+      "expression": "https://leetcode.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "f7BzNnn_C"
+    },
+    {
+      "expression": "https://ntnu.blackboard.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "z-G6oehbe"
+    },
+    {
+      "expression": "https://picoctf.org",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "Jj0uT2eUr"
+    },
+    {
+      "expression": "https://www.codewars.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "DKHqz0DFV"
+    },
+    {
+      "expression": "https://www.geogebra.org",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "8yVOOUslE"
+    },
+    {
+      "expression": "https://www.icloud.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "X-QPiIrWd"
+    },
+    {
+      "expression": "icloud.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "FShdOLYKQ"
+    },
+    {
+      "expression": "leetcode.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "7P4suXqnW"
+    },
+    {
+      "expression": "ntnu.blackboard.com",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "2MPIqRxkL"
+    },
+    {
+      "expression": "picoctf.org",
+      "listType": "WHITE",
+      "storeId": "default",
+      "cleanSiteData": [],
+      "cookieNames": [],
+      "id": "0WYM0a3IO"
+    }
+  ]
+}
