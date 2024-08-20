@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Define menu entries
+entries="
+Lock
+Logout
+Suspend
+Reboot
+Shutdown"
+
+# Use wofi instead of rofi for Wayland
+selected=$(echo "$entries" | wofi --dmenu --prompt "power" --ignore-case)
+
+# Perform actions based on the selected option
+case "$selected" in
+  Lock)
+    exec ~/.local/bin/scripts/lock.sh;;
+  Logout)
+    swaymsg exit;;
+  Suspend)
+    exec systemctl suspend;;
+  Reboot)
+    exec systemctl reboot;;
+  Shutdown)
+    exec systemctl poweroff -i;;
+esac

@@ -103,9 +103,36 @@
           - libxcb-xinput-dev
           - xdg-desktop-portal-wlr
           - libtomlplusplus3
+          - dunst
+          - pipewire
+          - wireplumber
+          - xdg-desktop-portal 
+          - xdg-desktop-portal-gtk
+          - polkit-kde-agent-1
+          - qtwayland5
+          - qt6-wayland
           - zoxide
+          - waybar
+          - wofi
+          - golang
+          # - libgtk-4-dev
+          # - gtk-layer-shell-dev
+          # - gobject-introspection
+          - gparted
+          - sway
+          - swaybg
+          - swaylock
+          - sway-notification-center
+          - libwayland-dev
+          - grim
+          - slurp
+          - emacs
+          - openjdk-11-jdk
+          - scala
+          - acpica-tools
         state: present
         update_cache: yes
+        # when: ansible_os_family == "Debian"
 
     - name: Change shell to zsh
       ansible.builtin.user:
@@ -158,31 +185,31 @@
         force: yes
       become: yes
       become_user: "{{ remote_regular_user }}"
+     
+    # - name: Check if tmux is running
+    #   ansible.builtin.shell: "pgrep -x tmux || true"
+    #   register: tmux_running
+    #   ignore_errors: yes
+    #
+    # - name: Check if tmux session exists
+    #   ansible.builtin.shell: "tmux ls || true"
+    #   register: tmux_sessions
+    #   ignore_errors: yes
+    #
+    # - name: Debug tmux sessions status
+    #   ansible.builtin.debug:
+    #     var: tmux_sessions
+    #
+    # - name: Reload tmux configuration
+    #   ansible.builtin.shell: "tmux source-file /home/{{ remote_regular_user }}/.tmux.conf"
+    #   when: tmux_running.rc == 0
+    #   become: yes
+    #   become_user: "{{ remote_regular_user }}"
 
-    - name: Check if tmux is running
-      ansible.builtin.shell: "pgrep -x tmux || true"
-      register: tmux_running
-      ignore_errors: yes
-
-    - name: Check if tmux session exists
-      ansible.builtin.shell: "tmux ls || true"
-      register: tmux_sessions
-      ignore_errors: yes
-
-    - name: Debug tmux sessions status
-      ansible.builtin.debug:
-        var: tmux_sessions
-
-    - name: Reload tmux configuration
-      ansible.builtin.shell: "tmux source-file /home/{{ remote_regular_user }}/.tmux.conf"
-      when: tmux_running.rc == 0
-      become: yes
-      become_user: "{{ remote_regular_user }}"
-
-    - name: Install tmux plugins
-      ansible.builtin.shell: "tmux run-shell /home/{{ remote_regular_user }}/.tmux/plugins/tpm/scripts/install_plugins.sh"
-      become: yes
-      become_user: "{{ remote_regular_user }}"
+    # - name: Install tmux plugins
+    #   ansible.builtin.shell: "tmux run-shell /home/{{ remote_regular_user }}/.tmux/plugins/tpm/scripts/install_plugins.sh"
+    #   become: yes
+    #   become_user: "{{ remote_regular_user }}"
 
     - name: Install Rust if not present
       shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -213,66 +240,66 @@
         executable: /bin/zsh
       become: false
 
-    - name: Clone kbct repository
-      git:
-        repo: 'https://github.com/samvel1024/kbct.git'
-        dest: '/home/{{ remote_regular_user }}/kbct'
-        version: 'HEAD'
-      become: true
+    # - name: Clone kbct repository
+    #   git:
+    #     repo: 'https://github.com/samvel1024/kbct.git'
+    #     dest: '/home/{{ remote_regular_user }}/kbct'
+    #     version: 'HEAD'
+    #   become: true
+    #
+    # - name: Ensure .config/kbct directory exists
+    #   file:
+    #     path: "/home/{{ remote_regular_user }}/.config/kbct"
+    #     state: directory
+    #     owner: "{{ remote_regular_user }}"
+    #   become: true
+    #
+    # - name: Fix permissions for kbct directory
+    #   ansible.builtin.command: "chown -R {{ remote_regular_user }}:{{ remote_regular_user }} /home/{{ remote_regular_user }}/kbct"
+    #   become: true
+    #
+    # - name: Verify Cargo installation and build kbct
+    #   shell: |
+    #     source /home/{{ remote_regular_user }}/.cargo/env
+    #     cargo --version
+    #     cargo build --release
+    #   args:
+    #     chdir: '/home/{{ remote_regular_user }}/kbct'
+    #     executable: /bin/zsh
+    #   environment:
+    #     PATH: "/home/{{ remote_regular_user }}/.cargo/bin:{{ ansible_env.PATH }}"
+    #   become: true
+    #   become_user: "{{ remote_regular_user }}"
+    #   register: cargo_build
+    #   ignore_errors: true
 
-    - name: Ensure .config/kbct directory exists
-      file:
-        path: "/home/{{ remote_regular_user }}/.config/kbct"
-        state: directory
-        owner: "{{ remote_regular_user }}"
-      become: true
-
-    - name: Fix permissions for kbct directory
-      ansible.builtin.command: "chown -R {{ remote_regular_user }}:{{ remote_regular_user }} /home/{{ remote_regular_user }}/kbct"
-      become: true
-
-    - name: Verify Cargo installation and build kbct
-      shell: |
-        source /home/{{ remote_regular_user }}/.cargo/env
-        cargo --version
-        cargo build --release
-      args:
-        chdir: '/home/{{ remote_regular_user }}/kbct'
-        executable: /bin/zsh
-      environment:
-        PATH: "/home/{{ remote_regular_user }}/.cargo/bin:{{ ansible_env.PATH }}"
-      become: true
-      become_user: "{{ remote_regular_user }}"
-      register: cargo_build
-      ignore_errors: true
-
-    - name: Debug Cargo build output
-      debug:
-        var: cargo_build.stdout_lines
-
-    - name: Copy kbct to /usr/local/bin/
-      copy:
-        src: '/home/{{ remote_regular_user }}/kbct/target/release/kbct'
-        dest: '/usr/local/bin/kbct'
-        mode: '0755'
-        remote_src: true
-
-    - name: Verify kbct binary in /usr/local/bin/
-      stat:
-        path: /usr/local/bin/kbct
-      register: kbct_stat
-
-    - name: Enable and start kbct service
-      systemd:
-        name: kbct
-        enabled: yes
-        state: started
-      become: true
-
-- name: Install Hyprland on Kali Linux
-  hosts: localhost
-  become: yes
-  tasks:
+    # - name: Debug Cargo build output
+    #   debug:
+    #     var: cargo_build.stdout_lines
+    #
+    # - name: Copy kbct to /usr/local/bin/
+    #   copy:
+    #     src: '/home/{{ remote_regular_user }}/kbct/target/release/kbct'
+    #     dest: '/usr/local/bin/kbct'
+    #     mode: '0755'
+    #     remote_src: true
+    #
+    # - name: Verify kbct binary in /usr/local/bin/
+    #   stat:
+    #     path: /usr/local/bin/kbct
+    #   register: kbct_stat
+    #
+    # - name: Enable and start kbct service
+    #   systemd:
+    #     name: kbct
+    #     enabled: yes
+    #     state: started
+    #   become: true
+    
+    # - name: Install Hyprland on Kali Linux
+      # hosts: localhost
+      # become: yes
+      # tasks:
     - name: Update APT package index
       apt:
         update_cache: yes
@@ -301,10 +328,10 @@
         remote_src: yes
 
 
-- name: Install Google Chrome on Kali Linux
-  hosts: localhost
-  become: yes
-  tasks:
+    # - name: Install Google Chrome on Kali Linux
+      # hosts: localhost
+      # become: yes
+      # tasks:
     - name: Add Google Chrome GPG key
       apt_key:
         url: 'https://dl.google.com/linux/linux_signing_key.pub'
@@ -332,4 +359,83 @@
     - name: Print Google Chrome version
       debug:
         msg: "Google Chrome version: {{ chrome_version.stdout }}"
+
+    # - name: Clone Walker repository
+    #   git:
+    #     repo: "https://github.com/abenz1267/walker"
+    #     dest: "/tmp/walker"
+    #     version: "main"
+    #
+    # - name: Build Walker from source
+    #   command: go build -x
+    #   args:
+    #     chdir: /tmp/walker
+    #
+    # - name: Copy Walker binary to /usr/bin/
+    #   copy:
+    #     src: "/tmp/walker/walker"
+    #     dest: "/usr/bin/walker"
+    #     mode: '0755'
+    #
+    # - name: Clean up source directory
+    #   file:
+    #     path: /tmp/walker
+    #     state: absent
+    - name: Install hyprls using go install
+      command: /usr/bin/go install github.com/ewen-lbh/hyprls/cmd/hyprls@latest
+      environment:
+        GOPATH: "{{ ansible_env.HOME }}/go"
+        GOBIN: /usr/bin
+
+    - name: Ensure Python 3 and pip are installed (Debian/Ubuntu)
+      apt:
+        name:
+          - python3
+          - python3-pip
+          - python3-venv
+          - pipx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure Python 3 and pip are installed (RedHat/CentOS)
+      yum:
+        name:
+          - python3
+          - python3-pip
+          - python3-virtualenv
+          - pipx
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Ensure pipx path is set up
+      shell: pipx ensurepath
+      environment:
+        PIPX_HOME: /root/.local/pipx
+
+    - name: Install hyprshade using pipx
+      command: pipx install hyprshade
+
+    - name: Verify hyprshade installation
+      command: hyprshade --version
+      register: hyprshade_version
+      ignore_errors: yes
+
+    - name: Display hyprshade version if installed successfully
+      debug:
+        msg: "hyprshade version: {{ hyprshade_version.stdout }}"
+
+
+    - name: Download Mozart2 .deb package
+      get_url:
+        url: https://github.com/mozart/mozart2/releases/download/v2.0.1/mozart2-2.0.1-x86_64-linux.deb
+        dest: /tmp/mozart2-2.0.1-x86_64-linux.deb
+
+    - name: Install Mozart2 .deb package
+      apt:
+        deb: /tmp/mozart2-2.0.1-x86_64-linux.deb
+
+    - name: Clean up downloaded .deb package
+      file:
+        path: /tmp/mozart2-2.0.1-x86_64-linux.deb
+        state: absent
 

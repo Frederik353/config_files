@@ -394,9 +394,22 @@ require('lazy').setup({
     build = 'sh install.sh',
     config = function()
       require('sniprun').setup {
-        selected_interpreters = {}, -- "use those instead of the default for the current filetype"
+
+        selected_interpreters = { 'Generic' }, -- "use those instead of the default for the current filetype" -- Enable the Generic interpreter
         repl_enable = {}, -- "enable REPL-like behavior for the given interpreters"
-        interpreter_options = {}, -- "specific options for interpreters"
+        interpreter_options = {
+          Generic = {
+            error_truncate = 'long',
+
+            OzConfig = {
+              supported_filetypes = { 'oz' },
+              extension = '.oz',
+              interpreter = 'ozengine',
+              boilerplate_pre = 'declare\n',
+              boilerplate_post = '\n', -- Ensure correct syntax
+            },
+          },
+        }, -- "specific options for interpreters"
         display = {
           'Classic', -- "display results in the command area"
           'VirtualTextOk', -- "display ok results as virtual text (multiline is shortened)"
@@ -426,7 +439,11 @@ require('lazy').setup({
       }
     end,
   },
-
+  {
+    -- syntax highlighting for mozart-oz
+    'Procrat/oz.vim',
+    ft = 'oz',
+  },
   -------------------------------
   -- "gc" to comment visual regions/lines
   {
@@ -791,7 +808,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        hyprls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -1053,7 +1070,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'hyprlang', 'jsonc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -1071,7 +1088,6 @@ require('lazy').setup({
       -- Prefer git instead of curl in order to improve connectivity in some environments
       require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup(opts)
 
       -- There are additional nvim-treesitter modules that you can use to interact
       -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -1079,6 +1095,15 @@ require('lazy').setup({
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      vim.filetype.add {
+        extension = { rasi = 'rasi' },
+        pattern = {
+          ['.*/waybar/config'] = 'jsonc',
+          ['.*/hypr/.*%.conf'] = 'hyprlang',
+        },
+      }
+
+      require('nvim-treesitter.configs').setup(opts)
     end,
   },
 
