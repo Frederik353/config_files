@@ -112,17 +112,16 @@ exec swayidle \
 # Load the script path
 set $switch_super ~/.config/sway/switch_superspace.sh
 
-# Define keybindings for switching superspaces (Super + Alt + number)
-bindsym $mod+Tab+1 exec $switch_super 0
-bindsym $mod+Tab+2 exec $switch_super 1
-bindsym $mod+Tab+3 exec $switch_super 2
-bindsym $mod+Tab+4 exec $switch_super 3
-bindsym $mod+Tab+5 exec $switch_super 4
-bindsym $mod+Tab+6 exec $switch_super 5
-bindsym $mod+Tab+7 exec $switch_super 6
-bindsym $mod+Tab+8 exec $switch_super 7
-bindsym $mod+Tab+9 exec $switch_super 8
-bindsym $mod+Tab+0 exec $switch_super 9
+bindsym $mod+ctrl+1 exec $switch_super 0
+bindsym $mod+ctrl+2 exec $switch_super 1
+bindsym $mod+ctrl+3 exec $switch_super 2
+bindsym $mod+ctrl+4 exec $switch_super 3
+bindsym $mod+ctrl+5 exec $switch_super 4
+bindsym $mod+ctrl+6 exec $switch_super 5
+bindsym $mod+ctrl+7 exec $switch_super 6
+bindsym $mod+ctrl+8 exec $switch_super 7
+bindsym $mod+ctrl+9 exec $switch_super 8
+bindsym $mod+ctrl+0 exec $switch_super 9
 
 bindsym $mod+1 exec swaymsg workspace $(cat ~/.config/sway/superspace)-0
 bindsym $mod+2 exec swaymsg workspace $(cat ~/.config/sway/superspace)-1

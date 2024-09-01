@@ -65,39 +65,90 @@ sudo reboot
 
 
 
-
-nvidia drivers
-
-kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
-kali@kali:~$
-kali@kali:~$ sudo apt update
-[...]
-kali@kali:~$
-kali@kali:~$ sudo apt -y full-upgrade -y
-[...]
-kali@kali:~$
-kali@kali:~$ sudo apt install linux-headers-$(uname -r) -y
-kali@kali:~$
-kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
+seems font have to be reloaded to work in sway and hyprland
+rebuild from scrach
+fc-cache -fv
 
 
 
+change to natural scroll
+fix taskbar if needed
+change audio settings, notification sound 0
 
-Let’s determine the exact GPU installed, and check the kernel modules it’s using. Take note, the lspci command contains a unique PCI bus address. Be sure to include the correct address lspci -s XX.XX.X -v:
 
-kali@kali:~$ lspci | grep -i vga
-07:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
-kali@kali:~$
-kali@kali:~$ lspci -s 07:00.0 -v
-07:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
-        Subsystem: Gigabyte Technology Co., Ltd GP106 [GeForce GTX 1060 6GB]
-        Flags: bus master, fast devsel, latency 0, IRQ 100
-        Memory at f6000000 (32-bit, non-prefetchable) [size=16M]
-        Memory at e0000000 (64-bit, prefetchable) [size=256M]
-        Memory at f0000000 (64-bit, prefetchable) [size=32M]
-        I/O ports at e000 [size=128]
-        Expansion ROM at 000c0000 [disabled] [size=128K]
-        Capabilities: <access denied>
-        Kernel driver in use: nouveau
-        Kernel modules: nouveau
+
+nvidia?
+sudo apt update
+sudo apt-get dist-upgrade
+sudo apt -y full-upgrade -y
+sudo apt install linux-headers-$(uname -r) -y
+[ -f /var/run/reboot-required ] && sudo reboot -f
+sudo apt install -y linux-headers-amd64
+sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+sudo reboot -f
+
+check if nvidia card is recognised
+nvidia-smi 
+check if nouveau is running
+lsmod | grep nouveau
+is is running, change grub to
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset nouveau.modeset=0 nvidia-drm.modeset=1"
+
+sudo update-grub
+sudo reboot
+sudo apt install nvidia-kernel-dkms
+
+fix dpi
+xrdb -q
+
+xdpyinfo | grep -B 2 resolution
+
+sudo nano /etc/X11/xorg.conf.d/90-monitor.conf
+
+
+
+
+fix hibernation graphics glitch?
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
+
+sudo nvim /lib/modeprobe.d/systemd.conf
+
+Add following line at the end of the file:
+
+options nvidia NVreg_PreserveVideoMemoryAllocations=1
+
+
+
+sudo apt-get install --reinstall linux-image-$(uname -r)
+
+sudo update-grub
+
+sudo reboot
+
+
+
+installs nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+download and install Node.js (you may need to restart the terminal)
+nvm install 22
+
+verifies the right Node.js version is in the environment
+node -v # should print `v22.7.0`
+
+verifies the right npm version is in the environment
+npm -v # should print `10.8.2`
+
+
+
+default scaling is roughly 1.5 but xwayland does not support decimal scaling leading to pixelated apps
+wlr-randr --output eDP-1 --scale 1
+
+install zsh plugins
+sudo git clone https://github.com/jeffreytse/zsh-vi-mode ~/.config/ohmyposh/plugins/zsh-vi-mode
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/ohmyposh/plugins/zsh-syntax-highlighting
+sudo git clone https://github.com/marlonrichert/zsh-autocomplete.git ~/.config/ohmyposh/plugins/zsh-autocomplete
+sudo git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.config/ohmyposh/plugins/you-should-use
+

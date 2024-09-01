@@ -1,0 +1,5 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\nunmap J\nunmap K\nunmap H\nunmap L\nmap J   scrollDown count=5\nmap K  scrollUp count=5\nmap H  scrollLeft count=5\nmap L scrollRight count=5\nunmap <C-h>\nmap <C-h> previousTab\nmap <C-l> nextTab\n\nunmap x\nunmap X\nmap c removeTab\nmap C restoreTab\n\n\n\n# go to tab\nunmap g0\nmap ø1 firstTab\nmap ø2 firstTab count=2\nmap ø3 firstTab count=3 \nmap ø4 firstTab count=4 \nmap ø5 firstTab count=5 \nmap ø6 firstTab count=6 \nmap ø7 firstTab count=7 \nmap ø8 firstTab count=8\nmap ø9 firstTab count=9\nmap ø0 firstTab count=10 \n\n\n\n# clutter\nunmap d \nunmap u\nunmap <c-e>\nunmap <c-y>",
+  "settingsVersion": "2.1.2",
+  "exclusionRules": []
+}

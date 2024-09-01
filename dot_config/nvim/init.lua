@@ -115,10 +115,7 @@ vim.opt.showmode = false
 -- vim.opt.clipboard = 'unnamedplus'
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
--- -- Optional key mappings to copy/paste using system clipboard
--- vim.api.nvim_set_keymap('v', 'y', '"*y', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', 'p', '"*p', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('v', 'p', '"*p', { noremap = true, silent = true })
+vim.opt.termguicolors = true
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -196,10 +193,78 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- sniprun
-vim.keymap.set('n', '<leader>n', '<cmd>SnipRun<CR>', { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>n', '<cmd>SnipRun<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
+-- vim. eymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
 
+-- Define a table with filetypes and corresponding commands
+local filetype_run_cmds = {
+  python = 'python3 %',
+  javascript = 'node %',
+  c = 'gcc % -o %<.out && ./%<.out',
+  lua = 'lua %',
+  java = 'javac % && java %<',
+  ruby = 'ruby %',
+  oz = 'ozc -c % -o %<.oza && ozengine %<.oza',
+}
+
+-- Define a function to manage and reuse terminal buffer
+function _G.run_in_split(cmd)
+  -- Save the current window and buffer
+  local current_win = vim.api.nvim_get_current_win()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  -- Search for existing terminal window
+  local found_terminal = false
+  local terminal_win = nil
+  local term_buf = nil
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.api.nvim_buf_get_option(buf, 'buftype') == 'term' then
+      -- If a terminal window is found, use it
+      terminal_win = win
+      term_buf = buf
+      found_terminal = true
+      break
+    end
+  end
+
+  if not found_terminal then
+    vim.cmd 'vsplit | terminal'
+    terminal_win = vim.api.nvim_get_current_win()
+    term_buf = vim.api.nvim_win_get_buf(terminal_win)
+  end
+
+  vim.api.nvim_set_current_win(terminal_win)
+
+  vim.cmd 'vertical resize 60'
+
+  local job_id = vim.api.nvim_buf_get_var(term_buf, 'terminal_job_id')
+
+  vim.defer_fn(function()
+    vim.fn.jobsend(job_id, 'clear\n')
+
+    local file_path = vim.fn.expand '%:p'
+    local file_path_without_ext = vim.fn.expand '%:p:r'
+
+    local final_cmd = cmd:gsub('%%<', file_path_without_ext):gsub('%%', file_path)
+
+    vim.fn.jobsend(job_id, final_cmd .. '\n')
+  end, 40) -- Adjust the delay if necessary
+
+  vim.api.nvim_set_current_win(current_win)
+  vim.api.nvim_set_current_buf(current_buf)
+end
+
+-- Set up autocommands for each filetype
+for filetype, cmd in pairs(filetype_run_cmds) do
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = filetype,
+    callback = function()
+      -- Ensure the function is accessible when called
+      vim.api.nvim_buf_set_keymap(0, 'n', '<leader>n', ":w<CR>:lua run_in_split('" .. cmd .. "')<CR>", { noremap = true, silent = true })
+    end,
+  })
+end
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -222,6 +287,12 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Remap >> to indent and stay in visual mode
+vim.api.nvim_set_keymap('x', '>', '>gv', { noremap = true, silent = true })
+
+-- Remap << to outdent and stay in visual mode
+vim.api.nvim_set_keymap('x', '<', '<gv', { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -389,6 +460,20 @@ require('lazy').setup({
       return require 'custom.configs.none_ls'
     end,
   },
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      -- Configuration for nvim-notify can go here
+      require('notify').setup {
+        -- Example configuration options
+        stages = 'fade_in_slide_out',
+        timeout = 5000,
+        -- Add other options here
+      }
+      -- Set the notify function as the default notification function
+      vim.notify = require 'notify'
+    end,
+  },
   { -- coderunner/ sniprun
     'michaelb/sniprun',
     build = 'sh install.sh',
@@ -397,28 +482,30 @@ require('lazy').setup({
 
         selected_interpreters = { 'Generic' }, -- "use those instead of the default for the current filetype" -- Enable the Generic interpreter
         repl_enable = {}, -- "enable REPL-like behavior for the given interpreters"
-        interpreter_options = {
-          Generic = {
-            error_truncate = 'long',
 
-            OzConfig = {
-              supported_filetypes = { 'oz' },
-              extension = '.oz',
-              interpreter = 'ozengine',
-              boilerplate_pre = 'declare\n',
-              boilerplate_post = '\n', -- Ensure correct syntax
-            },
-          },
+        interpreter_options = {
+          -- Generic = {
+          --   error_truncate = 'long',
+          --
+          --   OzConfig = {
+          --     supported_filetypes = { 'oz' },
+          --     extension = '.oz',
+          --     boilerplate_pre = 'declare\n',
+          --     boilerplate_post = '\n',
+          --
+          --     interpreter = '',
+          --   },
+          -- },
         }, -- "specific options for interpreters"
         display = {
-          'Classic', -- "display results in the command area"
-          'VirtualTextOk', -- "display ok results as virtual text (multiline is shortened)"
-          'VirtualTextErr', -- "display error results as virtual text"
-          'TempFloatingWindow', -- "display results in a floating window"
-          'LongTempFloatingWindow', -- "same as above but only long results"
+          -- 'Classic', -- "display results in the command area"
+          -- 'VirtualTextOk', -- "display ok results as virtual text (multiline is shortened)"
+          -- 'VirtualTextErr', -- "display error results as virtual text"
+          -- 'TempFloatingWindow', -- "display results in a floating window"
+          -- 'LongTempFloatingWindow', -- "same as above but only long results"
           'Terminal', -- "display results in a vertical split"
-          'TerminalWithCode', -- "display results and code history in a vertical split"
-          'NvimNotify', -- "display results with the nvim-notify plugin"
+          -- 'TerminalWithCode', -- "display results and code history in a vertical split"
+          -- 'NvimNotify', -- "display results with the nvim-notify plugin"
         },
         display_options = {
           terminal_width = 45, -- "change the terminal display option width"
@@ -444,11 +531,36 @@ require('lazy').setup({
     'Procrat/oz.vim',
     ft = 'oz',
   },
+
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({
+        'css',
+        'javascript',
+        html = {
+          mode = 'foreground',
+        },
+      }, {
+        RGB = true, -- Enable #RGB hex codes
+        RRGGBB = true, -- Enable #RRGGBB hex codes
+        names = true, -- Enable "Name" codes like Blue
+        RRGGBBAA = false, -- Disable #RRGGBBAA hex codes
+        rgb_fn = false, -- Disable CSS rgb() and rgba() functions
+        hsl_fn = false, -- Disable CSS hsl() and hsla() functions
+        css = false, -- Disable all CSS features
+        css_fn = false, -- Disable all CSS *functions*
+        mode = 'background', -- Set the display mode.
+      })
+    end,
+  },
   -------------------------------
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
     opts = {
+      ignore = '^$',
+      ignore = '^%s*$',
       timeoutlen = 1000,
     },
     lazy = false,
@@ -790,15 +902,6 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = 'strict',
-              },
-            },
-          },
-        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -823,6 +926,7 @@ require('lazy').setup({
             },
           },
         },
+        pyright = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -1015,17 +1119,31 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-storm'
+    -- init = function()
+    -- Load the colorscheme here.
+    -- Like many other themes, this one has different styles, and you could load
+    -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+    -- vim.cmd.colorscheme 'tokyonight-storm',
 
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+    -- You can configure highlights by doing something like:
+    -- vim.cmd.hi 'Comment gui=none'
+    -- end,
+  },
+  { 'Mofiqul/dracula.nvim' },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+
+    config = function()
+      -- You can configure Catppuccin options here if needed
+      require('catppuccin').setup {
+        flavour = 'frappe', -- Can be 'latte', 'frappe', 'macchiato', 'mocha'
+      }
+      -- Set the colorscheme
+      vim.cmd.colorscheme 'catppuccin-frappe'
     end,
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 

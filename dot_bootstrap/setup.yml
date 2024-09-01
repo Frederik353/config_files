@@ -7,6 +7,16 @@
   vars:
     flyctl_version: "0.1.130"
     pulumi_version: "v3.94.2"
+    qutebrowser_repo: https://github.com/qutebrowser/qutebrowser.git
+    venv_path: /opt/qutebrowser-venv
+    user_home: "/home/{{ ansible_user }}"
+    #
+    # ghidra_version: 11.1.2
+    # ghidra_url: "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_{{ ghidra_version }}_build.zip"
+    # ghidra_download_path: "/tmp/ghidra_{{ ghidra_version }}_build.zip"
+    # ghidra_install_path: "/opt/ghidra"
+    # java_package: openjdk-17-jdk
+    #
 
   tasks:
     - name: Get my user
@@ -25,6 +35,15 @@
           - libxml2-dev
           - doxygen
           - xmlto
+          - libfile-fcntllock-perl
+          - libglvnd-dev
+          - libturbojpeg0-dev 
+          - libwebp-dev
+          - libhyprlang-dev
+          - libhyprutils-dev
+          - libsystemd-dev 
+        
+
         state: present
 
     - name: Install packages
@@ -78,7 +97,6 @@
           - libdrm-dev
           - libxkbcommon-x11-dev
           - libxkbregistry-dev
-          - libxkbcommon-dev
           - libpixman-1-dev
           - libudev-dev
           - libseat-dev
@@ -108,7 +126,7 @@
           - wireplumber
           - xdg-desktop-portal 
           - xdg-desktop-portal-gtk
-          - polkit-kde-agent-1
+          # - polkit-kde-agent-1
           - qtwayland5
           - qt6-wayland
           - zoxide
@@ -129,10 +147,289 @@
           - emacs
           - openjdk-11-jdk
           - scala
-          - acpica-tools
+          - ca-certificates
+          - python3
+          - python3-pip
+          - python3-venv
+          - aptitude
+          - pipx
+          - libgl1
+          - libxkbcommon-x11-0
+          - libegl1
+          - libfontconfig1
+          - libdbus-1-3
+          - libdbus-1-dev
+          - libxcb-cursor0
+          - libxcb-icccm4
+          - libxcb-keysyms1
+          - libxcb-shape0
+          - libnss3
+          - libxcomposite1
+          - libxdamage1
+          - libxrender1
+          - libxrandr2
+          - libxtst6
+          - libxi6
+          - qutebrowser
+          - nvidia-detect
+          - linux-headers-amd64
+          - hyprpaper
+          - unzip 
+          - openjdk-17-jdk
+          # - gnome-keyring
+          # - seahorse
+          # - libgnome-keyring0
+          - ghidra
+          - wlr-randr
+          - libpango1.0-dev 
+          - libcairo2-dev 
+          - wayland-protocols 
+          - libpugixml-dev
+          - swayidle
+          - libzip-dev
+          - librsvg2-dev
+          # - libtoml++-dev
         state: present
         update_cache: yes
         # when: ansible_os_family == "Debian"
+
+    - name: Get the number of processors
+      ansible.builtin.set_fact:
+        num_processors: "{{ ansible_processor_vcpus }}"
+
+    - name: Debug number of processors
+      ansible.builtin.debug:
+        msg: "Number of processors: {{ num_processors }}"
+
+
+    # - name: Clone sdbus-c++ repository
+    #   ansible.builtin.git:
+    #     repo: https://github.com/Kistler-Group/sdbus-cpp.git
+    #     dest: /tmp/sdbus-cpp
+    #     clone: yes
+    #     update: yes
+
+    # - name: Build sdbus-c++sdbus-c++
+    #   ansible.builtin.command:
+    #     cmd: >
+    #       cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
+    #     chdir: /tmp/sdbus-cpp
+    #     creates: /tmp/sdbus-cpp/build
+
+
+    # - name: Compile sdbus-c++
+    #   ansible.builtin.command:
+    #     cmd: "cmake --build build -j{{ num_processors }}"
+    #     chdir: /tmp/sdbus-cpp
+
+    # - name: Install sdbus-c++
+    #   ansible.builtin.command:
+    #     cmd: cmake --install build
+    #     chdir: /tmp/sdbus-cpp
+
+    # - name: Clone hyprwayland-scanner repository
+    #   ansible.builtin.git:
+    #     repo: https://github.com/hyprwm/hyprwayland-scanner.git
+    #     dest: /tmp/hyprwayland-scanner
+    #     clone: yes
+    #     update: yes
+
+    # - name: Build hyprwayland-scanner
+    #   ansible.builtin.command:
+    #     cmd: >
+    #       cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
+    #     chdir: /tmp/hyprwayland-scanner
+    #     creates: /tmp/hyprwayland-scanner/build
+
+    
+
+    # - name: Compile hyprwayland-scanner
+    #   ansible.builtin.command:
+    #     cmd: "cmake --build build -j$(nproc)"
+    #     chdir: /tmp/hyprwayland-scanner
+    #   register: cmake_build
+    #   failed_when: "'error' in cmake_build.stderr.lower()"
+    #   changed_when: "'Built target' in cmake_build.stdout"
+
+
+    # - name: Compile hyprwayland-scanner
+    #   ansible.builtin.command:
+    #     cmd: "cmake --build build --target hyprwayland-scanner -j$(nproc)"
+    #     chdir: /tmp/hyprwayland-scanner
+    #   register: cmake_build
+    #   failed_when: "'error' in cmake_build.stderr.lower()"
+
+    - name: Clone hyprutils repository
+      ansible.builtin.git:
+        repo: https://github.com/hyprwm/hyprutils.git
+        dest: /tmp/hyprutils
+        clone: yes
+        update: yes
+
+    - name: Build hyprutils
+      ansible.builtin.command:
+        cmd: >
+          cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release 
+          -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+        chdir: /tmp/hyprutils
+        creates: /tmp/hyprutils/build
+
+    
+    - name: Compile hyprutils
+      ansible.builtin.command:
+        cmd: "cmake --build ./build --config Release --target all -j{{ num_processors }}"
+        chdir: /tmp/hyprutils
+      register: cmake_build
+      failed_when: "'error' in cmake_build.stderr.lower()"
+
+    - name: Install hyprutils
+      ansible.builtin.command:
+        cmd: cmake --install ./build
+        chdir: /tmp/hyprutils
+
+
+
+
+    
+    - name: Clone hyprpicker repository
+      ansible.builtin.git:
+        repo: https://github.com/hyprwm/hyprpicker.git
+        dest: /tmp/hyprpicker
+        clone: yes
+        update: yes
+
+    - name: Install required packages
+      ansible.builtin.package:
+        name:
+          - libjpeg-dev
+          - pkg-config
+        state: present
+
+    - name: Build hyprpicker
+      ansible.builtin.command:
+        cmd: >
+          cmake
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_INSTALL_PREFIX=/usr
+          -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu
+          -DCMAKE_CXX_FLAGS="-I/usr/include -L/usr/lib/x86_64-linux-gnu"
+          -S . -B ./build
+        chdir: /tmp/hyprpicker
+      register: cmake_build
+      failed_when: "'error' in cmake_build.stderr.lower()"
+
+    - name: Compile hyprpicker
+      ansible.builtin.command:
+        cmd: "cmake --build ./build --config Release --target all -j{{ num_processors }}"
+        chdir: /tmp/hyprpicker
+      register: cmake_compile
+      failed_when: "'error' in cmake_compile.stderr.lower()"
+
+    - name: Install hyprpicker
+      ansible.builtin.command:
+        cmd: cmake --install ./build
+        chdir: /tmp/hyprpicker
+      become: yes
+
+
+
+
+
+
+    - name: Clone tomlplusplus repository
+      ansible.builtin.git:
+        repo: https://github.com/marzer/tomlplusplus.git
+        dest: /tmp/tomlplusplus
+        clone: yes
+        update: yes
+
+    - name: Create build directory for tomlplusplus
+      ansible.builtin.file:
+        path: /tmp/tomlplusplus/build
+        state: directory
+
+    - name: Configure tomlplusplus build
+      ansible.builtin.shell:
+        cmd: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B ./build
+        chdir: /tmp/tomlplusplus
+
+    - name: Build tomlplusplus
+      ansible.builtin.shell:
+        cmd: cmake --build ./build --config Release --target all -j{{ ansible_processor_cores }}
+        chdir: /tmp/tomlplusplus
+
+    - name: Install tomlplusplus
+      ansible.builtin.shell:
+        cmd: cmake --install ./build
+        chdir: /tmp/tomlplusplus
+
+
+    - name: Clone hyprcursor repository
+      ansible.builtin.git:
+        repo: https://github.com/hyprwm/hyprcursor.git
+        dest: /tmp/hyprcursor
+        clone: yes
+        update: yes
+
+
+    - name: Create build directory for hyprcursor
+      ansible.builtin.file:
+        path: /tmp/hyprcursor/build
+        state: directory
+
+    - name: Configure hyprcursor build
+      ansible.builtin.shell:
+        cmd: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B ./build
+        chdir: /tmp/hyprcursor
+
+    - name: Build hyprcursor
+      ansible.builtin.shell:
+        cmd: cmake --build ./build --config Release --target all -j{{ ansible_processor_cores }}
+        chdir: /tmp/hyprcursor
+
+    - name: Install hyprcursor
+      ansible.builtin.shell:
+        cmd: cmake --install ./build
+        chdir: /tmp/hyprcursor
+
+
+    # - name: Clone hypridle repository
+    #   ansible.builtin.git:
+    #     repo: https://github.com/hyprwm/hypridle.git
+    #     dest: /tmp/hypridle
+    #     clone: yes
+    #     update: yes
+
+    # - name: Build hypridle
+    #   ansible.builtin.command:
+    #     cmd: >
+    #       cmake --no-warn-unused-cli
+    #       -DCMAKE_BUILD_TYPE:STRING=Release
+    #       -S . -B ./build
+    #     chdir: /tmp/hypridle
+    #   register: cmake_build
+    #   failed_when: "'error' in cmake_build.stderr.lower()"
+
+    # - name: Compile hypridle
+    #   ansible.builtin.command:
+    #     cmd: "cmake --build ./build --config Release --target hypridle -j{{ num_processors }}"
+    #     chdir: /tmp/hypridle
+    #   register: cmake_compile
+    #   failed_when: "'error' in cmake_compile.stderr.lower()"
+
+    # - name: Install hypridle
+    #   ansible.builtin.command:
+    #     cmd: cmake --install ./build
+    #     chdir: /tmp/hypridle
+    #   become: yes
+
+
+
+
+
+
+
+
 
     - name: Change shell to zsh
       ansible.builtin.user:
@@ -296,10 +593,6 @@
     #     state: started
     #   become: true
     
-    # - name: Install Hyprland on Kali Linux
-      # hosts: localhost
-      # become: yes
-      # tasks:
     - name: Update APT package index
       apt:
         update_cache: yes
@@ -328,10 +621,6 @@
         remote_src: yes
 
 
-    # - name: Install Google Chrome on Kali Linux
-      # hosts: localhost
-      # become: yes
-      # tasks:
     - name: Add Google Chrome GPG key
       apt_key:
         url: 'https://dl.google.com/linux/linux_signing_key.pub'
@@ -381,31 +670,13 @@
     #   file:
     #     path: /tmp/walker
     #     state: absent
+
     - name: Install hyprls using go install
       command: /usr/bin/go install github.com/ewen-lbh/hyprls/cmd/hyprls@latest
       environment:
         GOPATH: "{{ ansible_env.HOME }}/go"
         GOBIN: /usr/bin
 
-    - name: Ensure Python 3 and pip are installed (Debian/Ubuntu)
-      apt:
-        name:
-          - python3
-          - python3-pip
-          - python3-venv
-          - pipx
-        state: present
-      when: ansible_os_family == "Debian"
-
-    - name: Ensure Python 3 and pip are installed (RedHat/CentOS)
-      yum:
-        name:
-          - python3
-          - python3-pip
-          - python3-virtualenv
-          - pipx
-        state: present
-      when: ansible_os_family == "RedHat"
 
     - name: Ensure pipx path is set up
       shell: pipx ensurepath
@@ -439,3 +710,236 @@
         path: /tmp/mozart2-2.0.1-x86_64-linux.deb
         state: absent
 
+    # - name: Clone the Qutebrowser repository
+    #   git:
+    #     repo: "{{ qutebrowser_repo }}"
+    #     dest: /opt/qutebrowser
+    #     version: master
+    #
+    # - name: Create a Python virtual environment
+    #   command: python3 -m venv "{{ venv_path }}"
+    #   args:
+    #     creates: "{{ venv_path }}"
+    #
+    # - name: Install Qutebrowser and dependencies in the virtual environment
+    #   command: "{{ venv_path }}/bin/python3 /opt/qutebrowser/scripts/mkvenv.py --pyqt-type link"
+    #   args:
+    #     chdir: /opt/qutebrowser
+    #
+    # - name: Create a symbolic link for easier access
+    #   file:
+    #     src: "{{ venv_path }}/bin/qutebrowser"
+    #     dest: /usr/local/bin/qutebrowser
+    #     state: link
+        #
+    
+    - name: Download Ripes AppImage
+      get_url:
+        url: "https://github.com/mortbopet/Ripes/releases/download/v2.2.6/Ripes-v2.2.6-linux-x86_64.AppImage"
+        dest: "/usr/local/bin/Ripes.AppImage"
+        mode: '0755'
+
+    - name: Make the Ripes AppImage executable
+      file:
+        path: "/usr/local/bin/Ripes.AppImage"
+        mode: '0755'
+
+    - name: Create a symbolic link for Ripes
+      file:
+        src: "/usr/local/bin/Ripes.AppImage"
+        dest: "/usr/local/bin/ripes"
+        state: link
+
+    - name: Create a .desktop file for Ripes
+      copy:
+        dest: "/usr/share/applications/ripes.desktop"
+        content: |
+          [Desktop Entry]
+          Name=Ripes
+          Comment=RISC-V CPU Simulator
+          Exec=/usr/local/bin/ripes
+          Icon=ripes
+          Terminal=false
+          Type=Application
+          Categories=Development;Education;
+
+
+    - name: Update the desktop database
+      command: update-desktop-database
+      become: true
+
+    - name: Verify Ripes installation
+      command: ripes --version
+      register: ripes_version
+      ignore_errors: yes
+
+    - debug:
+        msg: "Ripes installation verification output: {{ ripes_version.stdout }}"
+
+    # - name: Check if Obsidian is already installed
+    #   ansible.builtin.command: dpkg -l | grep obsidian
+    #   register: obsidian_installed
+    #   ignore_errors: yes
+    #
+    # - name: Download Obsidian .deb package
+    #   ansible.builtin.get_url:
+    #     url: "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb"
+    #     dest: "/tmp/obsidian_1.6.7_amd64.deb"
+    #   # when: obsidian_installed.rc != 0    
+    #
+    # - name: Install Obsidian
+    #   ansible.builtin.apt:
+    #     deb: "/tmp/obsidian_1.6.7_amd64.deb"
+    #     update_cache: yes
+    #
+    # - name: Clean up .deb file
+    #   ansible.builtin.file:
+    #     path: "/tmp/obsidian_1.6.7_amd64.deb"
+    #     state: absent
+
+    # - name: Check if Discord is already installed
+    #   ansible.builtin.command: dpkg -l | grep discord
+    #   register: discord_installed
+    #   ignore_errors: yes
+
+    - name: Download Discord .deb package
+      ansible.builtin.get_url:
+        url: "https://discord.com/api/download?platform=linux&format=deb"
+        dest: "/tmp/discord.deb"
+      # when: discord_installed.rc != 0
+
+    - name: Install Discord
+      apt:
+        deb: "/tmp/discord.deb"
+      # when: discord_installed.rc != 0
+
+    - name: Clean up .deb file
+      ansible.builtin.file:
+        path: "/tmp/discord.deb"
+        state: absent
+      # when: discord_installed.rc != 0
+
+
+
+
+
+    # - name: Install NVM (Node Version Manager)
+    #   ansible.builtin.shell: |
+    #     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    #   args:
+    #     creates: "{{ user_home }}/.nvm/nvm.sh"
+    #   become: false
+    #   environment:
+    #     HOME: "{{ user_home }}"
+    #     USER: "{{ remote_regular_user }}"
+
+    # - name: Load NVM
+    #   ansible.builtin.shell: |
+    #     export NVM_DIR="{{ user_home }}/.nvm"
+    #     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    #   args:
+    #     executable: /bin/bash
+    #   become: false
+    #   environment:
+    #     HOME: "{{ user_home }}"
+    #     USER: "{{ remote_regular_user }}"
+    #   register: nvm_loaded
+
+    # - name: Install Node.js version 20
+    #   ansible.builtin.shell: |
+    #     source "{{ user_home }}/.nvm/nvm.sh"
+    #     nvm install 20
+    #   args:
+    #     executable: /bin/bash
+    #   become: false
+    #   when: nvm_loaded is succeeded
+    #   environment:
+    #     HOME: "{{ user_home }}"
+    #     USER: "{{ remote_regular_user }}"
+
+    # - name: Verify Node.js version
+    #   ansible.builtin.shell: |
+    #     source "{{ user_home }}/.nvm/nvm.sh"
+    #     node -v
+    #   args:
+    #     executable: /bin/bash
+    #   become: false
+    #   when: nvm_loaded is succeeded
+    #   environment:
+    #     HOME: "{{ user_home }}"
+    #     USER: "{{ remote_regular_user }}"
+    #   register: node_version_output
+
+    # - name: Verify npm version
+    #   ansible.builtin.shell: |
+    #     source "{{ user_home }}/.nvm/nvm.sh"
+    #     npm -v
+    #   args:
+    #     executable: /bin/bash
+    #   become: false
+    #   when: nvm_loaded is succeeded
+    #   environment:
+    #     HOME: "{{ user_home }}"
+    #     USER: "{{ remote_regular_user }}"
+    #   register: npm_version_output
+
+    # - name: Debug Node.js and npm versions
+    #   ansible.builtin.debug:
+    #     msg:
+    #       - "Node.js version: {{ node_version_output.stdout }}"
+    #       - "npm version: {{ npm_version_output.stdout }}"
+
+        
+
+    # - name: download ghidra
+    #   get_url:
+    #     url: "{{ ghidra_url }}"
+    #     dest: "{{ ghidra_download_path }}"
+    #
+    # - name: create installation directory for ghidra
+    #   file:
+    #     path: "{{ ghidra_install_path }}"
+    #     state: directory
+    #
+    # - name: unzip ghidra
+    #   unarchive:
+    #     src: "{{ ghidra_download_path }}"
+    #     dest: "{{ ghidra_install_path }}"
+    #     remote_src: yes
+    #
+    # - name: clean up downloaded ghidra archive
+    #   file:
+    #     path: "{{ ghidra_download_path }}"
+    #     state: absent
+    #
+    # - name: create a symlink to ghidra
+    #   file:
+    #     src: "{{ ghidra_install_path }}/ghidra-ghidra_{{ ghidra_version }}_build/ghidra/runtimescripts/linux/ghidraRun"
+    #     dest: "/usr/local/bin/ghidra"
+    #     state: link
+    #
+    # - name: ensure ghidra is executable
+    #   file:
+    #     path: "/usr/local/bin/ghidra"
+    #     mode: '0755'
+    #
+    # - name: set java_home environment variable
+    #   lineinfile:
+    #     path: /etc/environment
+    #     line: 'java_home=/usr/lib/jvm/java-17-openjdk-amd64'
+    #     create: yes
+    #
+    # - name: ensure java_home is set for the user
+    #   lineinfile:
+    #     path: /home/{{ remote_regular_user }}/.zshrc
+    #     line: 'export java_home=/usr/lib/jvm/java-17-openjdk-amd64'
+    #     create: yes
+    #     state: present
+    #     insertafter: eof
+    #
+    # - name: ensure ghidra launcher script is executable
+    #   file:
+    #     path: "{{ ghidra_install_path }}/ghidra-ghidra_{{ ghidra_version }}_build/ghidra/runtimescripts/linux/ghidraRun"
+    #     mode: '0755'
+    #
+    #

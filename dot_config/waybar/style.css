@@ -32,9 +32,9 @@
 /* Colors (Dracula) */
 @define-color black        #282a36;
 @define-color red          #ff5555;
-@define-color green        #50fa7b;
+@define-color green        #5FFF87;
 @define-color yellow       #f1fa8c;
-@define-color blue         #5C5FAD;
+@define-color dablue       #5F5FAF;
 @define-color purple       #bd93f9;
 @define-color aqua         #8be9fd;
 @define-color gray         #44475a;
@@ -47,8 +47,11 @@
 @define-color braqua       #a4ffff;
 @define-color white        #f8f8f2;
 @define-color bg2          #44475a;
-@define-color orange       #ffb86c;
+@define-color orange       #F5A03C;
 @define-color pink         #F58FEC;
+@define-color grblue       #087FA5;
+@define-color blue         #0496DC;
+
 
 
 @define-color warning 	@bryellow;
@@ -56,16 +59,17 @@
 @define-color mode	@black;
 @define-color unfocused	@bg2;
 @define-color focused	@braqua;
-@define-color inactive	@purple;
+@define-color inactive	@dablue;
 @define-color sound	@orange;
-@define-color network	@pink;
+@define-color network	@grblue;
 @define-color memory	@braqua;
 @define-color cpu	@green;
+@define-color gpu	@blue;
 @define-color temp	@brgreen;
 @define-color layout	@brgreen;
-@define-color battery	@aqua;
+@define-color battery	@braqua;
 @define-color date	@brgreen;
-@define-color time	@blue;
+@define-color time	@dablue;
 
 /* Reset all styles */
 * {
@@ -84,7 +88,7 @@
 	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
 	color: @white;
 	font-family: Hack Nerd Font Mono, JetBrains Mono, Siji;
-	font-size: 11pt;
+	font-size: 16pt;
 	/*font-weight: bold;*/
 }
 
@@ -92,6 +96,7 @@
 #battery,
 #clock,
 #cpu,
+#custom-gpu,
 #language,
 #memory,
 #mode,
@@ -185,7 +190,7 @@
 
 #network.essid {
 	background: @network;
-	color: @black;
+	color: @white;
 }
 
 #memory {
@@ -196,6 +201,11 @@
 #cpu {
 	background: @cpu;
 	color: @black;
+}
+
+#custom-gpu {
+	background: @gpu;
+	color: @white;
 }
 
 #temperature {
@@ -237,61 +247,61 @@
 }
 
 #custom-arrow1 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @time;
 	background: @date;
 }
 
 #custom-arrow2 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @date;
 	background: @layout;
 }
 
 #custom-arrow3 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @layout;
 	background: @battery;
 }
 
 #custom-arrow4 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @battery;
-	background: @temp;
+	background: @gpu;
 }
 
 #custom-arrow5 {
-	font-size: 12pt;
-	color: @temp;
+	font-size: 17pt;
+	color: @gpu;
 	background: @cpu;
 }
 
 #custom-arrow6 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @cpu;
 	background: @memory;
 }
 
 #custom-arrow7 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @memory;
 	background: @network;
 }
 
 #custom-arrow8 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @network;
 	background: @sound;
 }
 
 #custom-arrow9 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @sound;
 	background: transparent;
 }
 
 #custom-arrow10 {
-	font-size: 12pt;
+	font-size: 17pt;
 	color: @unfocused;
 	background: transparent;
 }
