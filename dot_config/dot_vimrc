@@ -80,6 +80,12 @@ nmap K 5k
 nmap J 5j
 nnoremap <Leader>j J
 
+nnoremap H ^
+nnoremap L $
+
+vnoremap H :<C-u>normal! V^<CR>
+vnoremap L :<C-u>normal! V$<CR>
+
 imap jk <Esc>
 
 " Toggle paste mode on and off

@@ -89,6 +89,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.python3_host_prog = '/home/frederik/venv/bin/python'
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -101,13 +103,15 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+
+vim.opt.conceallevel = 1
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -116,6 +120,8 @@ vim.opt.showmode = false
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 vim.opt.termguicolors = true
+
+vim.opt.termsync = false
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -156,6 +162,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- line max width
+vim.opt.textwidth = 100
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -192,6 +201,97 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+--------------
+--
+-- >>> oo # from shell, navigate to vault (optional)
+--
+-- # NEW NOTE
+-- >>> on "Note Name" # call my "obsidian new note" shell script (~/bin/on)
+-- >>>
+-- >>> ))) <leader>on # inside vim now, format note as template
+-- >>> ))) # add tag, e.g. fact / blog / video / etc..
+-- >>> ))) # add hubs, e.g. [[python]], [[machine-learning]], etc...
+-- >>> ))) <leader>of # format title
+--
+-- # END OF DAY/WEEK REVIEW
+-- >>> or # review notes in inbox
+-- >>>
+-- >>> ))) <leader>ok # inside vim now, move to zettelkasten
+-- >>> ))) <leader>odd # or delete
+-- >>>
+-- >>> og # organize saved notes from zettelkasten into notes/[tag] folders
+-- >>> ou # sync local with Notion
+--
+-- navigate to vault
+-- vim.keymap.set('n', '<leader>oo', ':cd ~/vaults/main')
+
+-- convert note to template and remove leading white space
+-- vim.keymap.set('n', '<leader>on', ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>')
+
+-- Keybinding to create note with Telescope
+-- vim.api.nvim_set_keymap('n', '<leader>on', ':lua CreateNoteWithTelescope()<CR>', { noremap = true, silent = true })
+
+-- vim.keymap.set('n', 'gf', function()
+--   if require('obsidian').util.cursor_on_markdown_link() then
+--     return '<cmd>ObsidianFollowLink<CR>'
+--   else
+--     return 'gf'
+--   end
+-- end, { noremap = false, expr = true })
+
+vim.api.nvim_set_keymap('n', '<leader>ob', ':b#<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>ob', ':ObsidianBacklinks<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>on', ':lua CreateNote()<CR>', { noremap = true, silent = true })
+
+function CreateNote()
+  local file_name = vim.fn.input 'Note Title: '
+  if file_name == '' then
+    print 'Error: A file name must be set.'
+    return
+  end
+
+  -- Call the shell script to create the note, passing the flag to not open Neovim
+  local handle = io.popen('~/scripts/on.sh -n "' .. file_name .. '"')
+  local file_path = handle:read('*a'):gsub('%s+', '') -- Trim whitespace
+  handle:close()
+
+  if file_path ~= '' then
+    -- Open the new file in Neovim
+    vim.cmd('edit ' .. file_path)
+  end
+end
+
+-- strip date from note title and replace dashes with spaces
+-- must have cursor on title
+-- vim.keymap.set('n', '<leader>of', ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>')
+--
+-- search for files in full vault
+vim.keymap.set('n', '<leader>zo', ':ObsidianSearch<enter>')
+vim.keymap.set('n', '<leader>so', ':Telescope find_files search_dirs={"~/vaults/main/"}<cr>')
+
+-- vim.keymap.set('n', '<leader>oz', ':Telescope live_grep search_dirs={"~/vaults/main/"}<cr>')
+
+-- twilight
+vim.api.nvim_set_keymap('n', 'tw', ':Twilight<enter>', { noremap = false })
+
+-- ZenMode
+vim.api.nvim_set_keymap('n', 'tt', ':ZenMode<enter>', { noremap = false })
+
+--
+-- search for files in notes (ignore zettelkasten)
+-- vim.keymap.set("n", "<leader>ois", ":Telescope find_files search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
+-- vim.keymap.set("n", "<leader>oiz", ":Telescope live_grep search_dirs={\"/Users/alex/library/Mobile\\ Documents/iCloud~md~obsidian/Documents/ZazenCodes/notes\"}<cr>")
+--
+-- for review workflow
+-- move file in current buffer to zettelkasten folder
+vim.keymap.set('n', '<leader>ok', ":!mv '%:p' ~/vaults/main/zettelkasten<cr>:bd<cr>")
+-- delete file in current buffer
+vim.keymap.set('n', '<leader>odd', ":!rm '%:p'<cr>:bd<cr>")
+
+-- markdown preview
+vim.keymap.set('n', '<leader>p', ':MarkdownPreviewToggle<cr>', { noremap = false, silent = true })
+
 -- sniprun
 vim.keymap.set('v', '<leader>n', '<cmd>SnipRun<CR>', { noremap = true, silent = true })
 -- vim. eymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
@@ -200,57 +300,110 @@ vim.keymap.set('v', '<leader>n', '<cmd>SnipRun<CR>', { noremap = true, silent = 
 local filetype_run_cmds = {
   python = 'python3 %',
   javascript = 'node %',
-  c = 'gcc % -o %<.out && ./%<.out',
+  c = 'gcc % -o %<.out && %<.out',
   lua = 'lua %',
-  java = 'javac % && java %<',
+  -- java = 'javac % && java %<',
+  java = 'java %',
   ruby = 'ruby %',
   oz = 'ozc -c % -o %<.oza && ozengine %<.oza',
 }
 
--- Define a function to manage and reuse terminal buffer
+-- Define a function to manage and reuse or create terminal buffers
 function _G.run_in_split(cmd)
   -- Save the current window and buffer
   local current_win = vim.api.nvim_get_current_win()
   local current_buf = vim.api.nvim_get_current_buf()
 
-  -- Search for existing terminal window
+  -- Get current file path
+  local file_path = vim.fn.expand '%:p'
+
+  -- Search for an existing terminal window with a different buffer
   local found_terminal = false
   local terminal_win = nil
   local term_buf = nil
+
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     local buf = vim.api.nvim_win_get_buf(win)
-    if vim.api.nvim_buf_get_option(buf, 'buftype') == 'term' then
-      -- If a terminal window is found, use it
-      terminal_win = win
-      term_buf = buf
-      found_terminal = true
-      break
+    if vim.api.nvim_buf_get_option(buf, 'buftype') == 'terminal' then
+      -- Check if the terminal is running a command for the same file
+      local term_job_name = vim.b[buf].term_job_name or ''
+      if term_job_name == file_path then
+        terminal_win = win
+        term_buf = buf
+        found_terminal = true
+        break
+      end
     end
   end
 
   if not found_terminal then
-    vim.cmd 'vsplit | terminal'
+    vim.cmd 'vsplit | term'
     terminal_win = vim.api.nvim_get_current_win()
     term_buf = vim.api.nvim_win_get_buf(terminal_win)
+
+    -- Save the file path in the terminal buffer variable
+    vim.b[term_buf].term_job_name = file_path
   end
 
   vim.api.nvim_set_current_win(terminal_win)
 
-  vim.cmd 'vertical resize 60'
+  vim.cmd 'vertical resize 80'
 
   local job_id = vim.api.nvim_buf_get_var(term_buf, 'terminal_job_id')
 
   vim.defer_fn(function()
-    vim.fn.jobsend(job_id, 'clear\n')
+    vim.fn.chansend(job_id, 'clear\n')
 
-    local file_path = vim.fn.expand '%:p'
     local file_path_without_ext = vim.fn.expand '%:p:r'
-
     local final_cmd = cmd:gsub('%%<', file_path_without_ext):gsub('%%', file_path)
 
-    vim.fn.jobsend(job_id, final_cmd .. '\n')
-  end, 40) -- Adjust the delay if necessary
+    vim.fn.chansend(job_id, final_cmd .. '\n')
+  end, 100) -- Adjust the delay if necessary
 
+  vim.api.nvim_set_current_win(current_win)
+  vim.api.nvim_set_current_buf(current_buf)
+end
+
+-- Define a function to manage and reuse or create terminal buffers in tmux
+function _G.run_in_tmux_pane(cmd)
+  -- Save the current window and buffer
+  local current_win = vim.api.nvim_get_current_win()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  -- Get current file path
+  local file_path = vim.fn.expand '%:p'
+
+  -- Check if a tmux pane already exists with the given name
+  local pane_id = nil
+  local panes = vim.fn.systemlist "tmux list-panes -F '#{pane_id} #{pane_title}'"
+
+  for _, pane in ipairs(panes) do
+    local parts = vim.split(pane, ' ')
+    local id = parts[1]
+    local title = parts[2]
+    if title == file_path then
+      pane_id = id
+      break
+    end
+  end
+
+  if not pane_id then
+    -- Create a new vertical split pane and set the title to the file path
+    vim.fn.system(string.format("tmux split-window -v -P -F '#{pane_id}' -t %s", vim.fn.expand '$TMUX_PANE'))
+    pane_id = vim.fn.trim(vim.fn.system "tmux last-pane -t %s; tmux display-message -p '#{pane_id}'")
+
+    -- Set the pane title to the file path
+    vim.fn.system(string.format("tmux select-pane -t %s; tmux select-pane -T '%s'", pane_id, file_path))
+  end
+
+  -- Send the command to the tmux pane
+  local file_path_without_ext = vim.fn.expand '%:p:r'
+  local final_cmd = cmd:gsub('%%<', file_path_without_ext):gsub('%%', file_path)
+
+  vim.fn.system(string.format("tmux send-keys -t %s 'clear' C-m", pane_id))
+  vim.fn.system(string.format("tmux send-keys -t %s '%s' C-m", pane_id, final_cmd))
+
+  -- Restore the current window and buffer
   vim.api.nvim_set_current_win(current_win)
   vim.api.nvim_set_current_buf(current_buf)
 end
@@ -262,9 +415,43 @@ for filetype, cmd in pairs(filetype_run_cmds) do
     callback = function()
       -- Ensure the function is accessible when called
       vim.api.nvim_buf_set_keymap(0, 'n', '<leader>n', ":w<CR>:lua run_in_split('" .. cmd .. "')<CR>", { noremap = true, silent = true })
+      -- vim.api.nvim_buf_set_keymap(0, 'n', '<leader>n', ":w<CR>:run_in_tmux_pane('" .. cmd .. "')<CR>", { noremap = true, silent = true })
     end,
   })
 end
+
+-- insert template in inbox md note files for obsidian
+
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePost' }, {
+  pattern = vim.fn.expand '$HOME' .. '/vaults/main/inbox/*.md',
+  callback = function()
+    local file_path = vim.fn.expand '%:p'
+
+    -- Read the first few lines of the file to check for frontmatter
+    local file_content = vim.fn.readfile(file_path)
+
+    -- Check if file contains frontmatter
+    local has_frontmatter = file_content[1] == '---' and vim.tbl_contains(vim.list_slice(file_content, 2), '---')
+
+    -- If frontmatter is not present, insert the template
+    if not has_frontmatter then
+      vim.fn.system('zsh ~/scripts/insert-template.sh ' .. vim.fn.shellescape(file_path))
+
+      -- Optionally, notify the user
+      -- print('Template inserted into file: ' .. file_path)
+      vim.cmd('e! ' .. vim.fn.fnameescape(file_path))
+      -- else
+      -- print 'Frontmatter already exists, skipping template insertion.'
+    end
+  end,
+})
+
+-- saves markdown / obsidian files
+vim.api.nvim_create_autocmd({ 'FocusLost' }, {
+  pattern = { '*.md' },
+  command = 'w',
+})
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -293,6 +480,21 @@ vim.api.nvim_set_keymap('x', '>', '>gv', { noremap = true, silent = true })
 
 -- Remap << to outdent and stay in visual mode
 vim.api.nvim_set_keymap('x', '<', '<gv', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>ee', '<cmd>GoIfErr<cr>', { silent = true, noremap = true })
+
+-- Macro
+vim.keymap.set('n', 'q', function()
+  if vim.fn.reg_recording() == '' then
+    -- Start recording
+    vim.cmd 'normal! qa'
+  else
+    -- Stop recording
+    vim.cmd 'normal! q'
+  end
+end)
+
+vim.keymap.set('n', '<leader>r', '@a', { desc = 'Execute macro' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -355,6 +557,7 @@ require('lazy').setup({
       'TmuxNavigateRight',
       'TmuxNavigatePrevious',
     },
+
     keys = {
       { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
       { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
@@ -460,26 +663,24 @@ require('lazy').setup({
       return require 'custom.configs.none_ls'
     end,
   },
+
   {
     'rcarriga/nvim-notify',
     config = function()
-      -- Configuration for nvim-notify can go here
       require('notify').setup {
-        -- Example configuration options
         stages = 'fade_in_slide_out',
-        timeout = 5000,
-        -- Add other options here
+        render = 'wrapped-compact',
       }
-      -- Set the notify function as the default notification function
+
       vim.notify = require 'notify'
     end,
   },
+
   { -- coderunner/ sniprun
     'michaelb/sniprun',
     build = 'sh install.sh',
     config = function()
       require('sniprun').setup {
-
         selected_interpreters = { 'Generic' }, -- "use those instead of the default for the current filetype" -- Enable the Generic interpreter
         repl_enable = {}, -- "enable REPL-like behavior for the given interpreters"
 
@@ -529,7 +730,7 @@ require('lazy').setup({
   {
     -- syntax highlighting for mozart-oz
     'Procrat/oz.vim',
-    ft = 'oz',
+    ft = { 'oz', 'markdown' },
   },
 
   {
@@ -552,6 +753,257 @@ require('lazy').setup({
         css_fn = false, -- Disable all CSS *functions*
         mode = 'background', -- Set the display mode.
       })
+    end,
+  },
+  {
+    'epwalsh/obsidian.nvim',
+    version = '*', -- recommended, use latest release instead of latest commit
+    lazy = false,
+    ft = 'markdown',
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    -- event = {
+    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+    --   -- refer to `:h file-pattern` for more examples
+    --   "BufReadPre path/to/my-vault/*.md",
+    --   "BufNewFile path/to/my-vault/*.md",
+    -- },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {
+      workspaces = {
+        {
+          name = 'main',
+          path = '~/vaults/main',
+        },
+      },
+      ui = { enable = false },
+
+      disable_frontmatter = true,
+      notes_subdir = 'inbox',
+      completion = {
+        nvim_cmp = true,
+        min_chars = 2,
+      },
+      ---@param url string
+      follow_url_func = function(url)
+        -- Open the URL in the default web browser.
+        -- vim.fn.jobstart { 'xdg-open', url } -- linux
+
+        vim.fn.jobstart { 'firefox', '--new-window', url }
+        -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+        -- vim.ui.open(url) -- need Neovim 0.10.0+
+      end,
+
+      note_id_func = function(title)
+        local name_gen_output = vim.fn.systemlist('zsh ~/scripts/name-gen.sh ' .. vim.fn.shellescape(title))
+
+        local formatted_file_name = name_gen_output[1]
+        -- local file_path = vim.fn.expand '$HOME' .. '/vaults/main/inbox/' .. formatted_file_name
+        return formatted_file_name
+      end,
+
+      note_path_func = function(spec)
+        -- Generate the file name using the name generation script
+        local name_gen_output = vim.fn.systemlist('zsh ~/scripts/name-gen.sh ' .. vim.fn.shellescape(spec.title))
+
+        -- The generated file name will be the first item in the output
+        local formatted_file_name = name_gen_output[1]
+        local file_path = vim.fn.expand '$HOME' .. '/vaults/main/inbox/' .. formatted_file_name
+
+        -- Run the template filling function on the generated file path
+        -- vim.fn.system('zsh ~/scripts/insert-template.sh ' .. vim.fn.shellescape(file_path))
+
+        -- Return the full path for the new note
+        return file_path
+      end,
+
+      -- templates = {
+      --   folder = 'templates',
+      --   date_format = '%Y-%m-%d',
+      --   time_format = '%H:%M',
+      --   -- A map for custom variables, the key should be the variable and the value a function
+      --   substitutions = {},
+      -- },
+    },
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {
+      code = {
+        -- style = 'language',
+        style = 'none',
+        sign = false,
+        position = 'left',
+        language_pad = 0,
+        -- disable_background = { 'diff' },
+        -- width = 'full',
+        -- left_pad = 0,
+        -- right_pad = 0,
+        -- min_width = 0,
+        --  thin:  when lines are empty overlay the above & below icons
+        -- border = 'thin',
+        -- above = '▄',
+        -- below = '▀',
+        -- Highlight for code blocks
+        highlight = 'RenderMarkdownCode',
+        highlight_inline = 'RenderMarkdownCodeInline',
+
+        --
+        -- vim.cmd [[highlight Folded guibg=NONE ctermbg=NONE]]
+      },
+      heading = {
+        sign = false,
+        position = 'inline',
+        width = 'block',
+        -- left_pad = 0,
+        right_pad = 1,
+        -- min_width = 0,
+        max_width = 100,
+      },
+    },
+
+    -- config = function()
+    --   -- vim.cmd [[highlight RenderMarkdownH1Bg guibg=NONE ctermbg=NONE]]
+    --   vim.cmd [[
+    --       highlight RenderMarkdownH1Bg guibg=NONE
+    --       highlight RenderMarkdownH2Bg guibg=NONE
+    --       highlight RenderMarkdownH3Bg guibg=NONE
+    --       highlight RenderMarkdownH4Bg guibg=NONE
+    --       highlight RenderMarkdownH5Bg guibg=NONE
+    --       highlight RenderMarkdownH6Bg guibg=NONE
+    --       highlight RenderMarkdownCode guibg=NONE
+    --     ]]
+    -- end,
+
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    build = 'cd app && yarn install',
+    init = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+      vim.g.mkdp_auto_start = 0
+      vim.g.mkdp_auto_close = 1
+      vim.g.mkdp_browser = 'firefox'
+    end,
+    ft = { 'markdown' },
+  },
+  {
+    'folke/twilight.nvim',
+    opts = {},
+  },
+  {
+    'folke/zen-mode.nvim',
+    opts = {
+      window = {
+        backdrop = 0.95,
+        width = 120, -- width of the Zen window
+        height = 1, -- height of the Zen window
+        options = {
+          signcolumn = 'no', -- disable signcolumn
+          number = false, -- disable number column
+          relativenumber = false, -- disable relative numbers
+          -- cursorline = false, -- disable cursorline
+          -- cursorcolumn = false, -- disable cursor column
+          -- foldcolumn = "0", -- disable fold column
+          -- list = false, -- disable whitespace characters
+        },
+      },
+
+      plugins = {
+        twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+        gitsigns = { enabled = false }, -- disables git signs
+        -- tmux = { enabled = true }, -- disables the tmux statusline
+        alacritty = {
+          enabled = true,
+          font = '+20', -- (10% increase per step)
+        },
+      },
+    },
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+
+    config = function()
+      -- Define the custom handler function for fold text
+      local handler = function(virtText, lnum, endLnum, width, truncate)
+        local newVirtText = {}
+        local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+        local sufWidth = vim.fn.strdisplaywidth(suffix)
+        local targetWidth = width - sufWidth
+        local curWidth = 0
+        for _, chunk in ipairs(virtText) do
+          local chunkText = chunk[1]
+          local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+          if targetWidth > curWidth + chunkWidth then
+            table.insert(newVirtText, chunk)
+          else
+            chunkText = truncate(chunkText, targetWidth - curWidth)
+            local hlGroup = chunk[2]
+            table.insert(newVirtText, { chunkText, hlGroup })
+            chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            -- str width returned from truncate() may less than 2nd argument, need padding
+            if curWidth + chunkWidth < targetWidth then
+              suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+            end
+            break
+          end
+          curWidth = curWidth + chunkWidth
+        end
+        table.insert(newVirtText, { suffix, 'MoreMsg' })
+        return newVirtText
+      end
+
+      -- Setup nvim-ufo
+      require('ufo').setup {
+        provider_selector = function(bufnr, filetype, buftype)
+          return { 'lsp', 'indent' }
+        end,
+        fold_virt_text_handler = handler,
+      }
+
+      -- Fold settings
+      vim.o.foldcolumn = '0' -- Shows the fold column on the left side
+      vim.o.foldlevel = 99 -- Use a high fold level (UFO recommends this)
+      vim.o.foldlevelstart = 99 -- Open all folds by default
+      vim.o.foldenable = true -- Enable folding
+
+      -- Customize the Folded highlight group to remove background color
+      vim.cmd [[highlight Folded guibg=NONE ctermbg=NONE]]
+      vim.cmd [[highlight UfoFoldedBg guibg=NONE ctermbg=NONE]]
+
+      -- Setup LSP servers with folding capabilities
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
+      -- Use default `za` functionality for <leader>c
+      vim.keymap.set('n', '<leader>c', 'za', { noremap = true, silent = true })
+    end,
+  },
+  {
+    'goolord/alpha-nvim',
+    -- dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local startify = require 'alpha.themes.startify'
+      startify.file_icons.provider = 'devicons'
+      require('alpha').setup(startify.config)
+    end,
+  },
+  {
+    'lervag/vimtex',
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
     end,
   },
   -------------------------------
@@ -603,24 +1055,55 @@ require('lazy').setup({
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+    opts = {
+      icons = {
+        -- set icon mappings to true if you have a Nerd Font
+        mappings = vim.g.have_nerd_font,
+        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+        -- default whick-key.nvim defined Nerd Font icons, otherwise define a string table
+        keys = vim.g.have_nerd_font and {} or {
+          Up = '<Up> ',
+          Down = '<Down> ',
+          Left = '<Left> ',
+          Right = '<Right> ',
+          C = '<C-…> ',
+          M = '<M-…> ',
+          D = '<D-…> ',
+          S = '<S-…> ',
+          CR = '<CR> ',
+          Esc = '<Esc> ',
+          ScrollWheelDown = '<ScrollWheelDown> ',
+          ScrollWheelUp = '<ScrollWheelUp> ',
+          NL = '<NL> ',
+          BS = '<BS> ',
+          Space = '<Space> ',
+          Tab = '<Tab> ',
+          F1 = '<F1>',
+          F2 = '<F2>',
+          F3 = '<F3>',
+          F4 = '<F4>',
+          F5 = '<F5>',
+          F6 = '<F6>',
+          F7 = '<F7>',
+          F8 = '<F8>',
+          F9 = '<F9>',
+          F10 = '<F10>',
+          F11 = '<F11>',
+          F12 = '<F12>',
+        },
+      },
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
-    end,
+      -- spec = {
+      --   { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+      --   { '<leader>d', group = '[D]ocument' },
+      --   { '<leader>r', group = '[R]ename' },
+      --   { '<leader>s', group = '[S]earch' },
+      --   { '<leader>w', group = '[W]orkspace' },
+      --   { '<leader>t', group = '[T]oggle' },
+      --   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      -- },
+    },
   },
 
   -- NOTE: Plugins can specify dependencies.
@@ -926,7 +1409,11 @@ require('lazy').setup({
             },
           },
         },
-        pyright = {},
+        -- pyright = {},
+        asm_lsp = {
+          cmd = { 'asm-lsp' },
+          filetypes = { 'asm', 'vmasm', 's', 'S' },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -947,6 +1434,9 @@ require('lazy').setup({
         'isort', -- Python import sorter
         'yapf', -- Python formatter
         'clangd', -- c++ formatter
+        'jdtls', -- java
+        'clangd', -- c / c++
+        'sqlls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -984,7 +1474,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, markdown = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -1123,8 +1613,10 @@ require('lazy').setup({
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load
     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-    -- vim.cmd.colorscheme 'tokyonight-storm',
 
+    -- config = function()
+    -- vim.cmd.colorscheme 'tokyonight-storm'
+    -- end,
     -- You can configure highlights by doing something like:
     -- vim.cmd.hi 'Comment gui=none'
     -- end,
@@ -1147,6 +1639,13 @@ require('lazy').setup({
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
+  {
+    'wilmanbarrios/palenight.nvim',
+
+    -- config = function()
+    -- vim.cmd.colorscheme 'palenight'
+    -- end,
+  },
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -1188,7 +1687,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'hyprlang', 'jsonc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc', 'hyprlang', 'jsonc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -1196,7 +1695,7 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { 'ruby', 'latex' },
       },
       indent = { enable = true, disable = { 'ruby' } },
     },

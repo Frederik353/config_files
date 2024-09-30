@@ -43,20 +43,20 @@ rebuild initramfs
 sudo mkinitcpio -P
 
 
-for performance
+<!-- for performance -->
 
-sudo apt install xorg-xwayland wayland-protocols
+<!-- sudo apt install xorg-xwayland wayland-protocols -->
 
-for VA-API
+<!-- for VA-API -->
 
-sudo apt install nvidia-vaapi-driver
+<!-- sudo apt install nvidia-vaapi-driver -->
 
 
 sudo systemctl --user enable pipewire.service
 sudo systemctl --user enable wireplumber.service
 
 
-make shure swap file is larger than ram
+make sure swap file is larger than ram
 free -h
 sleep wont work if not
 
@@ -64,11 +64,9 @@ sleep wont work if not
 sudo reboot
 
 
-
 seems font have to be reloaded to work in sway and hyprland
 rebuild from scrach
 fc-cache -fv
-
 
 
 change to natural scroll
@@ -76,15 +74,15 @@ fix taskbar if needed
 change audio settings, notification sound 0
 
 
-
 nvidia?
+
 sudo apt update
 sudo apt-get dist-upgrade
 sudo apt -y full-upgrade -y
 sudo apt install linux-headers-$(uname -r) -y
 [ -f /var/run/reboot-required ] && sudo reboot -f
 sudo apt install -y linux-headers-amd64
-sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+<!-- sudo apt install -y nvidia-driver nvidia-cuda-toolkit -->
 sudo reboot -f
 
 check if nvidia card is recognised
@@ -96,7 +94,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset nouveau.modeset=0 nvidia-drm.
 
 sudo update-grub
 sudo reboot
-sudo apt install nvidia-kernel-dkms
+<!-- sudo apt install nvidia-kernel-dkms -->
 
 fix dpi
 xrdb -q
@@ -104,8 +102,6 @@ xrdb -q
 xdpyinfo | grep -B 2 resolution
 
 sudo nano /etc/X11/xorg.conf.d/90-monitor.conf
-
-
 
 
 fix hibernation graphics glitch?
@@ -126,7 +122,6 @@ sudo apt-get install --reinstall linux-image-$(uname -r)
 sudo update-grub
 
 sudo reboot
-
 
 
 installs nvm (Node Version Manager)
@@ -151,4 +146,74 @@ sudo git clone https://github.com/jeffreytse/zsh-vi-mode ~/.config/ohmyposh/plug
 sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/ohmyposh/plugins/zsh-syntax-highlighting
 sudo git clone https://github.com/marlonrichert/zsh-autocomplete.git ~/.config/ohmyposh/plugins/zsh-autocomplete
 sudo git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.config/ohmyposh/plugins/you-should-use
+
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub engineer.atlas.Nyxt
+
+cargo install asm-lsp
+
+python3 -m pip install --upgrade pwntools
+
+
+sudo apt-get install libssl-dev pkg-config
+
+cargo install asm-lsp
+# or to get the latest version from github
+
+cargo install --git https://github.com/bergercookie/asm-lsp asm-lsp
+
+
+GDB GEF
+# via the install script
+## using curl
+$ bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+
+## using wget
+$ bash -c "$(wget https://gef.blah.cat/sh -O -)"
+
+# or manually
+$ wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
+$ echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+
+# or alternatively from inside gdb directly
+$ gdb -q
+(gdb) pi import urllib.request as u, tempfile as t; g=t.NamedTemporaryFile(suffix='-gef.py'); open(g.name, 'wb+').write(u.urlopen('https://tinyurl.com/gef-main').read()); gdb.execute('source %s' % g.name)
+
+sudo apt install obs-studio
+
+
+
+<!-- flatpak install flathub org.flatpak.Builder -->
+<!-- flatpak install flathub org.gnome.Builder -->
+<!-- open builder with -->
+<!-- flatpak run org.gnome.Builder -->
+<!-- Clone https://gitlab.com/adhami3310/Footage.git (or your fork) -->
+<!-- Press "Run Project" (▶) at the top, or Ctrl+Shift+[Spacebar]. -->
+
+
+<!-- snap install gifcurry -->
+<!-- sudo snap connect gifcurry:removable-media -->
+<!-- gifcurry -->
+
+
+flatpak install flathub org.kde.kdenlive
+flatpak run org.kde.kdenlive
+
+
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
+
+
+pip install pylatexenc
+npm install -g @fsouza/prettierd
+npm install --global yarn
+
+sudo apt-get install mbpoll
+
+sudo apt install ffuf
+
+
+npm install -g @ast-grep/cli
 

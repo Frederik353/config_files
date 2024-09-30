@@ -1,4 +1,3 @@
-
 - name: Machine setup
   hosts: localhost
   become: true
@@ -10,6 +9,12 @@
     qutebrowser_repo: https://github.com/qutebrowser/qutebrowser.git
     venv_path: /opt/qutebrowser-venv
     user_home: "/home/{{ ansible_user }}"
+    cfr_version: "0.152"
+    cfr_jar_url: "https://github.com/leibnitz27/cfr/releases/download/{{ cfr_version }}/cfr-{{ cfr_version }}.jar"
+    cfr_install_path: /opt/cfr
+    # docker_compose_version: "v2.18.2"
+    # docker_compose_url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_os_family | lower }}-{{ ansible_processor_architecture | lower }}"
+
     #
     # ghidra_version: 11.1.2
     # ghidra_url: "https://github.com/NationalSecurityAgency/ghidra/archive/refs/tags/Ghidra_{{ ghidra_version }}_build.zip"
@@ -37,12 +42,12 @@
           - xmlto
           - libfile-fcntllock-perl
           - libglvnd-dev
-          - libturbojpeg0-dev 
+          - libturbojpeg0-dev
           - libwebp-dev
           - libhyprlang-dev
           - libhyprutils-dev
-          - libsystemd-dev 
-        
+          - libsystemd-dev
+          - blender
 
         state: present
 
@@ -124,7 +129,7 @@
           - dunst
           - pipewire
           - wireplumber
-          - xdg-desktop-portal 
+          - xdg-desktop-portal
           - xdg-desktop-portal-gtk
           # - polkit-kde-agent-1
           - qtwayland5
@@ -174,21 +179,43 @@
           - nvidia-detect
           - linux-headers-amd64
           - hyprpaper
-          - unzip 
+          - unzip
           - openjdk-17-jdk
           # - gnome-keyring
           # - seahorse
           # - libgnome-keyring0
           - ghidra
           - wlr-randr
-          - libpango1.0-dev 
-          - libcairo2-dev 
-          - wayland-protocols 
+          - libpango1.0-dev
+          - libcairo2-dev
+          - wayland-protocols
           - libpugixml-dev
           - swayidle
           - libzip-dev
           - librsvg2-dev
           # - libtoml++-dev
+          - sublist3r
+          - firefox
+          - swappy
+          - tesseract-ocr
+          - cliphist
+          - gimp
+          - brightnessctl
+          - flatpak
+          - blender
+          - zathura
+          - latexmk
+          # - nvidia-dkms
+          # - nvidia-utils
+          # - egl-wayland
+          # - lib32-nvidia-utils
+          # - xorg-xwayland
+          - wayland-protocols
+          - nvidia-vaapi-driver
+          - nvidia-driver
+          - nvidia-cuda-toolkit
+          - nvidia-kernel-dkms
+          - docker-compose
         state: present
         update_cache: yes
         # when: ansible_os_family == "Debian"
@@ -201,6 +228,18 @@
       ansible.builtin.debug:
         msg: "Number of processors: {{ num_processors }}"
 
+    # Add CFR installation task here
+    - name: Create CFR install directory
+      ansible.builtin.file:
+        path: "{{ cfr_install_path }}"
+        state: directory
+        mode: "0755"
+
+    - name: Download CFR decompiler
+      ansible.builtin.get_url:
+        url: "{{ cfr_jar_url }}"
+        dest: "{{ cfr_install_path }}/cfr-{{ cfr_version }}.jar"
+        mode: "0755"
 
     # - name: Clone sdbus-c++ repository
     #   ansible.builtin.git:
@@ -215,7 +254,6 @@
     #       cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
     #     chdir: /tmp/sdbus-cpp
     #     creates: /tmp/sdbus-cpp/build
-
 
     # - name: Compile sdbus-c++
     #   ansible.builtin.command:
@@ -241,8 +279,6 @@
     #     chdir: /tmp/hyprwayland-scanner
     #     creates: /tmp/hyprwayland-scanner/build
 
-    
-
     # - name: Compile hyprwayland-scanner
     #   ansible.builtin.command:
     #     cmd: "cmake --build build -j$(nproc)"
@@ -250,7 +286,6 @@
     #   register: cmake_build
     #   failed_when: "'error' in cmake_build.stderr.lower()"
     #   changed_when: "'Built target' in cmake_build.stdout"
-
 
     # - name: Compile hyprwayland-scanner
     #   ansible.builtin.command:
@@ -274,7 +309,6 @@
         chdir: /tmp/hyprutils
         creates: /tmp/hyprutils/build
 
-    
     - name: Compile hyprutils
       ansible.builtin.command:
         cmd: "cmake --build ./build --config Release --target all -j{{ num_processors }}"
@@ -287,10 +321,6 @@
         cmd: cmake --install ./build
         chdir: /tmp/hyprutils
 
-
-
-
-    
     - name: Clone hyprpicker repository
       ansible.builtin.git:
         repo: https://github.com/hyprwm/hyprpicker.git
@@ -331,11 +361,6 @@
         chdir: /tmp/hyprpicker
       become: yes
 
-
-
-
-
-
     - name: Clone tomlplusplus repository
       ansible.builtin.git:
         repo: https://github.com/marzer/tomlplusplus.git
@@ -363,35 +388,32 @@
         cmd: cmake --install ./build
         chdir: /tmp/tomlplusplus
 
+    # - name: Clone hyprcursor repository
+    #   ansible.builtin.git:
+    #     repo: https://github.com/hyprwm/hyprcursor.git
+    #     dest: /tmp/hyprcursor
+    #     clone: yes
+    #     update: yes
 
-    - name: Clone hyprcursor repository
-      ansible.builtin.git:
-        repo: https://github.com/hyprwm/hyprcursor.git
-        dest: /tmp/hyprcursor
-        clone: yes
-        update: yes
+    # - name: Create build directory for hyprcursor
+    #   ansible.builtin.file:
+    #     path: /tmp/hyprcursor/build
+    #     state: directory
 
+    # - name: Configure hyprcursor build
+    #   ansible.builtin.shell:
+    #     cmd: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B ./build
+    #     chdir: /tmp/hyprcursor
 
-    - name: Create build directory for hyprcursor
-      ansible.builtin.file:
-        path: /tmp/hyprcursor/build
-        state: directory
+    # - name: Build hyprcursor
+    #   ansible.builtin.shell:
+    #     cmd: cmake --build ./build --config Release --target all -j{{ ansible_processor_cores }}
+    #     chdir: /tmp/hyprcursor
 
-    - name: Configure hyprcursor build
-      ansible.builtin.shell:
-        cmd: cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B ./build
-        chdir: /tmp/hyprcursor
-
-    - name: Build hyprcursor
-      ansible.builtin.shell:
-        cmd: cmake --build ./build --config Release --target all -j{{ ansible_processor_cores }}
-        chdir: /tmp/hyprcursor
-
-    - name: Install hyprcursor
-      ansible.builtin.shell:
-        cmd: cmake --install ./build
-        chdir: /tmp/hyprcursor
-
+    # - name: Install hyprcursor
+    #   ansible.builtin.shell:
+    #     cmd: cmake --install ./build
+    #     chdir: /tmp/hyprcursor
 
     # - name: Clone hypridle repository
     #   ansible.builtin.git:
@@ -422,14 +444,6 @@
     #     cmd: cmake --install ./build
     #     chdir: /tmp/hypridle
     #   become: yes
-
-
-
-
-
-
-
-
 
     - name: Change shell to zsh
       ansible.builtin.user:
@@ -472,17 +486,16 @@
         remote_src: true
         creates: "/home/{{ remote_regular_user }}/.fonts/Hack Regular Nerd Font Complete.ttf"
 
-
     - name: Ensure TPM is installed
       git:
-        repo: 'https://github.com/tmux-plugins/tpm'
+        repo: "https://github.com/tmux-plugins/tpm"
         dest: "/home/{{ remote_regular_user }}/.tmux/plugins/tpm"
         version: master
         update: yes
         force: yes
       become: yes
       become_user: "{{ remote_regular_user }}"
-     
+
     # - name: Check if tmux is running
     #   ansible.builtin.shell: "pgrep -x tmux || true"
     #   register: tmux_running
@@ -592,7 +605,7 @@
     #     enabled: yes
     #     state: started
     #   become: true
-    
+
     - name: Update APT package index
       apt:
         update_cache: yes
@@ -620,15 +633,14 @@
         dest: /usr/share/wayland-sessions/hyprland.desktop
         remote_src: yes
 
-
     - name: Add Google Chrome GPG key
       apt_key:
-        url: 'https://dl.google.com/linux/linux_signing_key.pub'
+        url: "https://dl.google.com/linux/linux_signing_key.pub"
         state: present
 
     - name: Add Google Chrome repository
       apt_repository:
-        repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+        repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
         state: present
 
     - name: Update apt cache
@@ -677,7 +689,6 @@
         GOPATH: "{{ ansible_env.HOME }}/go"
         GOBIN: /usr/bin
 
-
     - name: Ensure pipx path is set up
       shell: pipx ensurepath
       environment:
@@ -694,7 +705,6 @@
     - name: Display hyprshade version if installed successfully
       debug:
         msg: "hyprshade version: {{ hyprshade_version.stdout }}"
-
 
     - name: Download Mozart2 .deb package
       get_url:
@@ -731,18 +741,18 @@
     #     src: "{{ venv_path }}/bin/qutebrowser"
     #     dest: /usr/local/bin/qutebrowser
     #     state: link
-        #
-    
+    #
+
     - name: Download Ripes AppImage
       get_url:
         url: "https://github.com/mortbopet/Ripes/releases/download/v2.2.6/Ripes-v2.2.6-linux-x86_64.AppImage"
         dest: "/usr/local/bin/Ripes.AppImage"
-        mode: '0755'
+        mode: "0755"
 
     - name: Make the Ripes AppImage executable
       file:
         path: "/usr/local/bin/Ripes.AppImage"
-        mode: '0755'
+        mode: "0755"
 
     - name: Create a symbolic link for Ripes
       file:
@@ -762,7 +772,6 @@
           Terminal=false
           Type=Application
           Categories=Development;Education;
-
 
     - name: Update the desktop database
       command: update-desktop-database
@@ -785,7 +794,7 @@
     #   ansible.builtin.get_url:
     #     url: "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb"
     #     dest: "/tmp/obsidian_1.6.7_amd64.deb"
-    #   # when: obsidian_installed.rc != 0    
+    #   # when: obsidian_installed.rc != 0
     #
     # - name: Install Obsidian
     #   ansible.builtin.apt:
@@ -796,12 +805,10 @@
     #   ansible.builtin.file:
     #     path: "/tmp/obsidian_1.6.7_amd64.deb"
     #     state: absent
-
     # - name: Check if Discord is already installed
     #   ansible.builtin.command: dpkg -l | grep discord
     #   register: discord_installed
     #   ignore_errors: yes
-
     - name: Download Discord .deb package
       ansible.builtin.get_url:
         url: "https://discord.com/api/download?platform=linux&format=deb"
@@ -818,10 +825,6 @@
         path: "/tmp/discord.deb"
         state: absent
       # when: discord_installed.rc != 0
-
-
-
-
 
     # - name: Install NVM (Node Version Manager)
     #   ansible.builtin.shell: |
@@ -888,8 +891,6 @@
     #     msg:
     #       - "Node.js version: {{ node_version_output.stdout }}"
     #       - "npm version: {{ npm_version_output.stdout }}"
-
-        
 
     # - name: download ghidra
     #   get_url:

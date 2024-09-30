@@ -46,6 +46,14 @@ style = "Regular"
 # y = 5
 
 
+
+[window]
+# opacity = 0.9
+opacity = 1
+
+
+
+# enable_rgb = true
 # open tmux when opening alacritty
 # [shell]
 # program = "/usr/bin/tmux"

@@ -1,19 +1,20 @@
 export PATH=$PATH:/root/bin
 export PATH=$PATH:/home/frederik/bin
 export PATH=$PATH:/home/frederik/.local/bin
+export PATH=$PATH:/opt/nvim-linux64/bin
 
-export XDG_SESSION_TYPE=wayland
-export GDK_BACKEND=wayland
-export QT_QPA_PLATFORM=wayland
+# export XDG_SESSION_TYPE=wayland
+# export GDK_BACKEND=wayland
+# export QT_QPA_PLATFORM=wayland
 
-export XDG_CURRENT_DESKTOP=Hyprland
+# export XDG_CURRENT_DESKTOP=Hyprland
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export CHROME_PASSWORD_STORE=kwallet 
-export KDE_APPLICATIONS_DISABLE=1
-export QT_QPA_PLATFORMTHEME=kwallet
+# export CHROME_PASSWORD_STORE=kwallet 
+# export KDE_APPLICATIONS_DISABLE=1
+# export QT_QPA_PLATFORMTHEME=kwallet
 
 source ~/venv/bin/activate
 
@@ -32,9 +33,7 @@ setopt hist_ignore_space    # do not record an event starting with a space
 setopt hist_save_no_dups    # do not write a duplicate event to the history file
 setopt inc_append_history   # write to the history file immediately, not when the shell exits
 setopt share_history        # share history between terminals
-
-
-
+# export FUNCNEST=1000
 
 
 # cd to folder when quitting lf (terminal file manager)
@@ -42,20 +41,11 @@ lfcd () {
 	cd "$(command lf -print-last-dir "$@")"
 }
 
-# fix vi plugin conflicting with fzf
-export ZVM_INIT_MODE=sourcing
+function zvm_config() {
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
-
-
-
-# plugins
-source "$HOME/.config/ohmyposh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-source "$HOME/.config/ohmyposh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$HOME/.config/ohmyposh/plugins/you-should-use/you-should-use.plugin.zsh"
-source "$HOME/.config/ohmyposh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-# source "~/.config/ohmyposh/plugins/"
-
-
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# ZVM_VI_VISUAL_ESCAPE_BINDKEY=v
 # vi mode keys
 zvm_bindkey vicmd 'H' vi-beginning-of-line
 zvm_bindkey vicmd 'L' vi-end-of-line
@@ -63,24 +53,44 @@ zvm_bindkey vicmd 'L' vi-end-of-line
 zvm_bindkey visual 'H' vi-beginning-of-line
 zvm_bindkey visual 'L' vi-end-of-line
 
+zvm_bindkey vicmd 'j' vi-cmd-mode
+zvm_bindkey vicmd 'k' vi-cmd-mode
 # # Bind Ctrl-P to previous command and Ctrl-N to next command
 # bindkey '^P' history-beginning-search-backward
 # bindkey '^N' history-beginning-search-forward
+# bindkey '^R' .history-incremental-search-backward
+# bindkey '^S' .history-incremental-search-forward
+
+ZVM_VI_HIGHLIGHT_BACKGROUND=blue
+ZVM_VI_HIGHLIGHT_FOREGROUND=white 
+ZVM_VI_EDITOR=nvim
+
+}
+
+# fix vi plugin conflicting with fzf
+# export ZVM_INIT_MODE=sourcing
 
 
-zvm_bindkey vicmd 'j' vi-cmd-mode
-zvm_bindkey vicmd 'k' vi-cmd-mode
+
+
+# To avoid conflicts, load these plugins in the following order if you use them:
+
+# zsh-autosuggestions
+# zsh-syntax-highlighting
+# zsh-vim-mode
+
+# plugins
+source "$HOME/.config/ohmyposh/plugins/you-should-use/you-should-use.plugin.zsh"
+# source "$HOME/.config/ohmyposh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "$HOME/.config/ohmyposh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+source "$HOME/.config/ohmyposh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+# source "~/.config/ohmyposh/plugins/"
 
 
 
 
 
 
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-
-bindkey '^R' .history-incremental-search-backward
-bindkey '^S' .history-incremental-search-forward
 
 # tab autocompletions
 autoload -Uz compinit
@@ -88,6 +98,8 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+
 
 # use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -133,15 +145,52 @@ alias lt='eza --tree --level=2'
 alias df='duf'
 
 
-alias cat='batcat'
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias cat='batcat -pp'
+alias -g -- -h='-h 2>&1 | batcat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
+
+
+
+# alias cfr='java -jar /opt/cfr/cfr-0.152.jar "$@" 2>/dev/null | batcat --language=java --paging=never --decorations=never'
+# alias cfr='java -jar /opt/cfr/cfr-0.152.jar "$@"'
+
+cfr() {
+    java -jar /opt/cfr/cfr-0.152.jar "$@" | batcat --language=java --paging=never --decorations=never
+}
+
+
+# Obsidian
+alias oo='nvim $HOME/vaults/main/'
+alias on='~/scripts/on.sh'
+alias og='~/scripts/og.sh'
+alias or='nvim $HOME/vaults/main/inbox/*.md'
+
+
+alias finished='~/scripts/finished.sh'
+
+alias gdb='gdb -q'
+
+
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+
+
 
 eval "$(zoxide init zsh)"
 # eval "$(fzf --zsh)"
 
 # fucks up font if not -u to force utf 8
 alias tmux='tmux -u'
+alias t=tmux
+alias ta="tmux attach"
+alias n=nvim
+export VISUAL=nvim
+
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="~/.cargo/bin:$PATH"
