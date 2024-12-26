@@ -1,0 +1,36 @@
+#User Preferences
+#Wed Dec 25 00:53:21 CET 2024
+G_FILE_CHOOSER.HEIGHT.Open\ a\ Ghidra\ Project=1572
+G_FILE_CHOOSER.HEIGHT.Select\ File\ to\ Import=1572
+G_FILE_CHOOSER.HEIGHT.Select\ a\ Ghidra\ Project\ Directory=781
+G_FILE_CHOOSER.VIEW_STYLE.Open\ a\ Ghidra\ Project=SimpleView
+G_FILE_CHOOSER.VIEW_STYLE.Select\ File\ to\ Import=SimpleView
+G_FILE_CHOOSER.VIEW_STYLE.Select\ a\ Ghidra\ Project\ Directory=SimpleView
+G_FILE_CHOOSER.WIDTH.Open\ a\ Ghidra\ Project=1275
+G_FILE_CHOOSER.WIDTH.Select\ File\ to\ Import=1275
+G_FILE_CHOOSER.WIDTH.Select\ a\ Ghidra\ Project\ Directory=1275
+GhidraShowWhatsNew=false
+LAST_USED_OPTIONS_CONFIG=Standard Defaults
+LastImportFile=/home/frederik/projects/ctf/picoCTF/binary-exploitation/babygame01/game
+LastNewProjectDirectory=/home/frederik/projects/ctf/ghidra-ctf/
+LastOpenedProject=/home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf
+OPEN_PROGRAM_DIALOG.HEIGHT=1572
+OPEN_PROGRAM_DIALOG.SHOW_HISTORY=false
+OPEN_PROGRAM_DIALOG.WIDTH_NO_HISTORY=1275
+ProjectDirectory=/home/frederik/projects/ctf/ghidra-ctf/
+RECENT_0=/home/frederik/projects/ctf/picoCTF/binary-exploitation/babygame01
+RECENT_1=/home/frederik/projects/ctf/cyberlandslaget-julekalender/klarzmas
+RECENT_2=/home/frederik/projects/ctf/s2g/20-11-24/carixo-auth-system
+RECENT_3=/home/frederik/projects/ctf/s2g/20-11-24/chirp
+RECENT_4=/home/frederik/projects/iik3100/final_exam/lemon_tree
+RECENT_5=/home/frederik/projects/ctf/s2g/6-11-24/just-print
+RECENT_6=/home/frederik/projects/iik3100/I-Guess-It
+RECENT_7=/home/frederik/projects/iik3100/How2libc
+RECENT_8=/home/frederik/projects/ctf/s2g/23-10-24/pokemon
+RECENT_9=/home/frederik/projects/ctf/ghidra-ctf
+RecentProjects=/home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf;/home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding
+SHOW_TIPS=false
+TIP_INDEX=30
+Theme=File\:/home/frederik/.ghidra/.ghidra_11.0_DEV/themes/Flat_Dark_Theme_2.theme
+USER_AGREEMENT=ACCEPT
+ViewedProjects=

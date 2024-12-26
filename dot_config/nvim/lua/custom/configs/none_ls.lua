@@ -6,9 +6,11 @@ local opts = {
   sources = {
     null_ls.builtins.formatting.prettierd,
     -- python
-    null_ls.builtins.formatting.yapf,
-    null_ls.builtins.formatting.isort,
-    null_ls.builtins.diagnostics.mypy,
+    -- null_ls.builtins.formatting.yapf,
+    -- null_ls.builtins.formatting.isort,
+    -- null_ls.builtins.formatting.goimports,
+    null_ls.builtins.formatting.gofmt,
+    -- null_ls.builtins.diagnostics.mypy,
   },
   on_attach = function(client, bufnr)
     if client.supports_method 'TextDocument/formatting' then

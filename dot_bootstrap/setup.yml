@@ -185,6 +185,9 @@
           # - seahorse
           # - libgnome-keyring0
           - ghidra
+          - jadx
+          - gdbserver
+          - virtualbox
           - wlr-randr
           - libpango1.0-dev
           - libcairo2-dev
@@ -205,6 +208,9 @@
           - blender
           - zathura
           - latexmk
+          - xelatex
+          - texlive-full
+
           # - nvidia-dkms
           # - nvidia-utils
           # - egl-wayland
@@ -216,6 +222,13 @@
           - nvidia-cuda-toolkit
           - nvidia-kernel-dkms
           - docker-compose
+          - thunar
+          - wabt
+          - zaproxy
+          - zip
+          - ghc
+          - cabal-install
+          - ent
         state: present
         update_cache: yes
         # when: ansible_os_family == "Debian"

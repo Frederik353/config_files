@@ -10,3 +10,22 @@ fi
 
 mesg n 2> /dev/null || true
 . "$HOME/.cargo/env"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/frederik/.local/share/coursier/bin"
+# <<< coursier install directory <<<
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/frederik/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/frederik/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<

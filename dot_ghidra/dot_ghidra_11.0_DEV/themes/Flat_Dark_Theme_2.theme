@@ -1,0 +1,4 @@
+name = Flat Dark Theme 2
+lookAndFeel = Flat Dark
+useDarkDefaults = true
+font.listing.base = Monospaced-PLAIN-16

@@ -89,7 +89,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.python3_host_prog = '/home/frederik/venv/bin/python'
+vim.g.python3_host_prog = '/home/frederik/venv/bin/python3'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -121,7 +121,7 @@ vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 
 vim.opt.termguicolors = true
 
-vim.opt.termsync = false
+-- vim.opt.termsync = false
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -164,6 +164,8 @@ vim.opt.scrolloff = 10
 
 -- line max width
 vim.opt.textwidth = 100
+
+vim.o.list = false
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -240,7 +242,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- end, { noremap = false, expr = true })
 
 vim.api.nvim_set_keymap('n', '<leader>ob', ':b#<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>ob', ':ObsidianBacklinks<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ol', ':ObsidianBacklinks<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>on', ':lua CreateNote()<CR>', { noremap = true, silent = true })
 
@@ -306,6 +308,11 @@ local filetype_run_cmds = {
   java = 'java %',
   ruby = 'ruby %',
   oz = 'ozc -c % -o %<.oza && ozengine %<.oza',
+  scala = 'scala %',
+  go = 'go run %',
+  haskell = 'ghc -o %< % && %<',
+  cuda = 'nvcc % -o %< && %<',
+  julia = 'julia %',
 }
 
 -- Define a function to manage and reuse or create terminal buffers
@@ -450,6 +457,16 @@ vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePost' }, {
 vim.api.nvim_create_autocmd({ 'FocusLost' }, {
   pattern = { '*.md' },
   command = 'w',
+})
+
+-- fix tabzise go
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.expandtab = false -- Go typically uses tabs instead of spaces
+  end,
 })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -854,13 +871,13 @@ require('lazy').setup({
         -- vim.cmd [[highlight Folded guibg=NONE ctermbg=NONE]]
       },
       heading = {
-        sign = false,
-        position = 'inline',
-        width = 'block',
+        -- sign = false,
+        -- position = 'inline',
+        -- width = 'block',
         -- left_pad = 0,
-        right_pad = 1,
+        -- right_pad = 1,
         -- min_width = 0,
-        max_width = 100,
+        -- max_width = 100,
       },
     },
 
@@ -1005,6 +1022,45 @@ require('lazy').setup({
     init = function()
       vim.g.vimtex_view_method = 'zathura'
     end,
+  },
+  {
+    'scalameta/nvim-metals',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    ft = { 'scala', 'sbt', 'java' },
+    opts = function()
+      local metals_config = require('metals').bare_config()
+      metals_config.on_attach = function(client, bufnr)
+        -- your on_attach function
+      end
+
+      return metals_config
+    end,
+    config = function(self, metals_config)
+      local nvim_metals_group = vim.api.nvim_create_augroup('nvim-metals', { clear = true })
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = self.ft,
+        callback = function()
+          require('metals').initialize_or_attach(metals_config)
+        end,
+        group = nvim_metals_group,
+      })
+    end,
+  },
+  {
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
   -------------------------------
   -- "gc" to comment visual regions/lines
@@ -1395,6 +1451,17 @@ require('lazy').setup({
         -- tsserver = {},
         --
         hyprls = {},
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+          format = {
+            tabWidth = 4,
+            useTabs = true, -- Set to false if you prefer spaces
+          },
+        }, -- go
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -1409,11 +1476,30 @@ require('lazy').setup({
             },
           },
         },
-        -- pyright = {},
+
+        pyright = {},
+
         asm_lsp = {
           cmd = { 'asm-lsp' },
           filetypes = { 'asm', 'vmasm', 's', 'S' },
         },
+        jdtls = {}, -- java
+        clangd = {}, -- c / c++
+        sqlls = {},
+        texlab = {}, -- latex
+        -- denols = {}, -- javascript
+        ast_grep = {},
+        -- hls = {}, -- haskell
+        -- mypy = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         typeCheckingMode = 'off',
+        --         reportWildcardImports = 'none',
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       -- Ensure the servers and tools above are installed
@@ -1429,14 +1515,12 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Lua formatter
-        'ruff', -- Python linting
-        'mypy', -- Python type checker
-        'isort', -- Python import sorter
-        'yapf', -- Python formatter
+        -- 'ruff', -- Python linting
+        -- 'mypy', -- Python type checker
+        -- 'isort', -- Python import sorter
+        -- 'yapf', -- Python formatter
         'clangd', -- c++ formatter
-        'jdtls', -- java
-        'clangd', -- c / c++
-        'sqlls',
+        'eslint', -- javascript linter
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1483,7 +1567,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'yapf' },
+        -- python = { 'isort', 'yapf' },
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
@@ -1664,6 +1748,8 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.cursorword').setup()
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -1734,7 +1820,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',

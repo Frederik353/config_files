@@ -1,0 +1,2064 @@
+2024-08-28 20:44:43 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-08-28 20:44:43 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-08-28 20:44:44 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-08-28 20:44:49 INFO  (ClassSearcher) Searching for classes...  
+2024-08-28 20:44:50 INFO  (ClassSearcher) Class search complete (1125 ms)  
+2024-08-28 20:44:50 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-08-28 20:44:50 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-08-28 20:44:50 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-08-28 20:44:50 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-08-28 20:44:50 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-08-28 20:44:50 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2024-08-28 20:44:50 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2024-08-28 20:44:51 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-08-28 20:44:51 ERROR (SwingExceptionHandler) Error: Uncaught Exception! 
+IllegalArgumentException - view is invalid java.lang.IllegalArgumentException: view is invalid
+	at javax.help.search.MergingSearchEngine.merge(MergingSearchEngine.java:91)
+	at javax.help.JHelpSearchNavigator.merge(JHelpSearchNavigator.java:168)
+	at javax.help.plaf.basic.BasicSearchNavigatorUI.addSubHelpSets(BasicSearchNavigatorUI.java:275)
+	at javax.help.plaf.basic.BasicSearchNavigatorUI.reloadData(BasicSearchNavigatorUI.java:225)
+	at javax.help.plaf.basic.BasicSearchNavigatorUI.installUI(BasicSearchNavigatorUI.java:174)
+	at java.desktop/javax.swing.JComponent.setUI(JComponent.java:730)
+	at javax.help.JHelpNavigator.setUI(JHelpNavigator.java:257)
+	at help.CustomSearchView$CustomHelpSearchNavigator.setUI(CustomSearchView.java:52)
+	at javax.help.JHelpNavigator.updateUI(JHelpNavigator.java:276)
+	at javax.help.JHelpNavigator.<init>(JHelpNavigator.java:105)
+	at javax.help.JHelpSearchNavigator.<init>(JHelpSearchNavigator.java:66)
+	at help.CustomSearchView$CustomHelpSearchNavigator.<init>(CustomSearchView.java:47)
+	at help.CustomSearchView.createNavigator(CustomSearchView.java:37)
+	at javax.help.JHelp.setupNavigators(JHelp.java:148)
+	at javax.help.JHelp.<init>(JHelp.java:126)
+	at javax.help.WindowPresentation.createJHelp(WindowPresentation.java:853)
+	at javax.help.WindowPresentation.createHelpWindow(WindowPresentation.java:889)
+	at help.GHelpBroker.updateWindowSize(GHelpBroker.java:335)
+	at help.GHelpBroker.setDisplayed(GHelpBroker.java:160)
+	at docking.help.HelpManager.displayHelp(HelpManager.java:455)
+	at docking.help.HelpManager.showHelp(HelpManager.java:232)
+	at ghidra.framework.main.FrontEndTool.checkWhatsNewPreference(FrontEndTool.java:822)
+	at ghidra.framework.main.FrontEndTool.setVisible(FrontEndTool.java:613)
+	at ghidra.GhidraRun.openProject(GhidraRun.java:172)
+	at ghidra.GhidraRun.lambda$launch$0(GhidraRun.java:92)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-09-03 16:40:16 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-03 16:40:16 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-03 16:40:16 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-03 16:40:17 INFO  (ClassSearcher) Searching for classes...  
+2024-09-03 16:40:18 INFO  (ClassSearcher) Class search complete (1090 ms)  
+2024-09-03 16:40:18 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-03 16:40:18 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-03 16:40:18 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-03 16:40:18 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-03 16:40:18 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-03 16:40:18 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-03 16:44:09 INFO  (DefaultProject) Creating project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-03 16:44:18 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-09-03 16:44:18 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-09-03 16:44:43 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-09-03 16:44:43 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-09-03 16:44:43 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-09-03 16:44:43 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-09-03 16:44:49 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-09-03 16:44:49 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-09-03 16:44:49 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-09-03 16:44:49 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_4.2 at 0010201a  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 5-byte alignment/filler segment_3.2 at 0010101b  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.7 at 001012f5  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00100334  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0010039c  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.9 at 001003c4  
+2024-09-03 16:44:49 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.12 at 00100545  
+2024-09-03 16:46:23 DEBUG (ToolTaskManager) Background processing started...  
+2024-09-03 16:46:23 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-09-03 16:46:24 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=069ecffcd7e6a6a7431d1c68705c10b3ec88ed3a]  
+2024-09-03 16:46:24 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-09-03 16:46:24 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-09-03 16:46:24 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-09-03 16:46:24 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-03 16:46:24 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb7B038F24/db.1.gbf  
+2024-09-03 16:46:24 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-03 16:46:24 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-09-03 16:46:25 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.332 secs
+    Apply Data Archives                        0.301 secs
+    Call Convention ID                         0.043 secs
+    Call-Fixup Installer                       0.004 secs
+    Create Address Tables                      0.005 secs
+    Create Function                            0.003 secs
+    DWARF                                      0.008 secs
+    Data Reference                             0.003 secs
+    Decompiler Switch Analysis                 0.025 secs
+    Decompiler Switch Analysis - One Time      0.117 secs
+    Demangler GNU                              0.012 secs
+    Disassemble Entry Points                   0.045 secs
+    ELF Scalar Operand References              0.006 secs
+    Embedded Media                             0.015 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.000 secs
+    Function ID                                0.037 secs
+    Function Start Search                      0.026 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.040 secs
+    Non-Returning Functions - Discovered       0.003 secs
+    Non-Returning Functions - Known            0.006 secs
+    Reference                                  0.013 secs
+    Shared Return Calls                        0.009 secs
+    Stack                                      0.048 secs
+    Subroutine References                      0.004 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.056 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-09-03 16:46:25 DEBUG (ToolTaskManager) Auto Analysis task finish (1.765 secs)  
+2024-09-03 16:46:25 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-09-03 16:46:25 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-09-03 16:46:25 DEBUG (ToolTaskManager) Auto Analysis task complete (1.797 secs)  
+2024-09-03 16:46:25 DEBUG (ToolTaskManager) Background processing complete (1.798 secs)  
+2024-09-03 16:49:09 INFO  (RecoveryMgr) Tue Sep 03 16:49:09 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/reverse/ghidratest.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-09-03 16:53:03 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-03 16:53:03 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-03 16:53:07 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-03 16:53:07 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-03 16:53:07 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-03 16:53:07 INFO  (ClassSearcher) Searching for classes...  
+2024-09-03 16:53:08 INFO  (ClassSearcher) Class search complete (997 ms)  
+2024-09-03 16:53:08 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-03 16:53:09 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-03 16:53:09 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-03 16:53:09 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-03 16:53:09 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-03 16:53:09 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-03 16:53:09 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-03 16:53:09 INFO  (IndexJournal) restoring data storage index...  
+2024-09-03 16:54:58 DEBUG (ToolTaskManager) Background processing started...  
+2024-09-03 16:54:58 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-09-03 16:54:58 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=069ecffcd7e6a6a7431d1c68705c10b3ec88ed3a]  
+2024-09-03 16:54:58 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-09-03 16:54:58 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-09-03 16:54:58 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-09-03 16:54:58 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-03 16:54:59 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-09-03 16:54:59 INFO  (FormatStringAnalyzer) No functions detected that make variadic function calls with format strings containing format specifiers  
+2024-09-03 16:54:59 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.295 secs
+    Aggressive Instruction Finder              0.011 secs
+    Apply Data Archives                        0.205 secs
+    Call Convention ID                         0.037 secs
+    Call-Fixup Installer                       0.005 secs
+    Condense Filler Bytes                      0.003 secs
+    Create Address Tables                      0.003 secs
+    Create Function                            0.002 secs
+    DWARF                                      0.008 secs
+    Data Reference                             0.003 secs
+    Decompiler Parameter ID                    0.237 secs
+    Decompiler Switch Analysis                 0.024 secs
+    Decompiler Switch Analysis - One Time      0.108 secs
+    Demangler GNU                              0.009 secs
+    Disassemble Entry Points                   0.057 secs
+    ELF Scalar Operand References              0.006 secs
+    Embedded Media                             0.013 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.003 secs
+    Function ID                                0.030 secs
+    Function Start Search                      0.032 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.044 secs
+    Non-Returning Functions - Discovered       0.002 secs
+    Non-Returning Functions - Known            0.007 secs
+    Reference                                  0.018 secs
+    Shared Return Calls                        0.009 secs
+    Stack                                      0.056 secs
+    Subroutine References                      0.002 secs
+    Subroutine References - One Time           0.000 secs
+    Variadic Function Signature Override       0.009 secs
+    x86 Constant Reference Analyzer            0.051 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-09-03 16:54:59 DEBUG (ToolTaskManager) Auto Analysis task finish (1.514 secs)  
+2024-09-03 16:54:59 DEBUG (ToolTaskManager) Auto Analysis task complete (1.519 secs)  
+2024-09-03 16:54:59 DEBUG (ToolTaskManager) Background processing complete (1.52 secs)  
+2024-09-03 16:56:15 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-03 16:56:15 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-03 16:56:23 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-03 16:56:23 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-03 16:56:24 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-03 16:56:24 INFO  (ClassSearcher) Searching for classes...  
+2024-09-03 16:56:25 INFO  (ClassSearcher) Class search complete (1046 ms)  
+2024-09-03 16:56:25 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-03 16:56:25 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-03 16:56:25 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-03 16:56:25 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-03 16:56:25 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-03 16:56:25 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-03 16:56:26 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-03 16:56:32 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-09-03 16:56:32 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-03 16:58:04 DEBUG (ToolTaskManager) Background processing started...  
+2024-09-03 16:58:04 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-09-03 16:58:05 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=069ecffcd7e6a6a7431d1c68705c10b3ec88ed3a]  
+2024-09-03 16:58:05 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-09-03 16:58:05 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-09-03 16:58:05 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-09-03 16:58:06 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.334 secs
+    Apply Data Archives                        0.168 secs
+    Call Convention ID                         0.030 secs
+    Call-Fixup Installer                       0.004 secs
+    Create Address Tables                      0.004 secs
+    Create Function                            0.004 secs
+    DWARF                                      0.009 secs
+    Data Reference                             0.003 secs
+    Decompiler Switch Analysis                 0.020 secs
+    Decompiler Switch Analysis - One Time      0.100 secs
+    Demangler GNU                              0.007 secs
+    Disassemble Entry Points                   0.070 secs
+    ELF Scalar Operand References              0.005 secs
+    Embedded Media                             0.016 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.002 secs
+    Function ID                                0.022 secs
+    Function Start Search                      0.132 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.062 secs
+    Non-Returning Functions - Discovered       0.002 secs
+    Non-Returning Functions - Known            0.005 secs
+    Reference                                  0.013 secs
+    Shared Return Calls                        0.005 secs
+    Stack                                      0.026 secs
+    Subroutine References                      0.002 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.046 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-09-03 16:58:06 DEBUG (ToolTaskManager) Auto Analysis task finish (1.647 secs)  
+2024-09-03 16:58:06 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-09-03 16:58:06 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-09-03 16:58:06 DEBUG (ToolTaskManager) Auto Analysis task complete (1.71 secs)  
+2024-09-03 16:58:06 DEBUG (ToolTaskManager) Background processing complete (1.711 secs)  
+2024-09-03 17:01:26 INFO  (RecoveryMgr) Tue Sep 03 17:01:26 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/reverse/ghidratest.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-09-04 09:08:35 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:08:35 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:08:36 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:08:36 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:08:37 INFO  (ClassSearcher) Class search complete (1017 ms)  
+2024-09-04 09:08:37 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:08:37 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:08:37 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:08:37 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:08:37 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:08:38 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:08:38 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:08:38 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/reverse/ghidratest.rep/idata/00/~00000000.db/tmp7473772178653206246.ps  
+2024-09-04 09:08:38 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/reverse/ghidratest.rep/user/00/~00000000.db/tmp11293893141228270965.ps  
+2024-09-04 09:08:45 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:08:45 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:09:58 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:09:58 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:09:58 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:09:58 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:09:59 INFO  (ClassSearcher) Class search complete (926 ms)  
+2024-09-04 09:09:59 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:09:59 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:09:59 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:09:59 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:09:59 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:10:00 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:10:00 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:10:08 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:10:08 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:10:22 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:10:22 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:10:22 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:10:22 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:10:23 INFO  (ClassSearcher) Class search complete (969 ms)  
+2024-09-04 09:10:23 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:10:23 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:10:23 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:10:23 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:10:23 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:10:24 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:10:24 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:10:29 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:10:29 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:10:48 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:10:48 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:10:48 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:10:48 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:10:49 INFO  (ClassSearcher) Class search complete (974 ms)  
+2024-09-04 09:10:49 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:10:49 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:10:49 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:10:49 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:10:49 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:10:50 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:10:50 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:14:59 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:14:59 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:16:46 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:16:46 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:16:46 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:16:46 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:16:47 INFO  (ClassSearcher) Class search complete (933 ms)  
+2024-09-04 09:16:47 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:16:47 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:16:47 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:16:47 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:16:47 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:16:48 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:16:48 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:20:12 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:20:12 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:20:18 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:20:18 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:20:18 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:20:18 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:20:19 INFO  (ClassSearcher) Class search complete (939 ms)  
+2024-09-04 09:20:19 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:20:19 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:20:19 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:20:19 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:20:19 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:20:19 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:20:19 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:24:35 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:24:35 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:26:52 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-04 09:26:52 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-04 09:26:52 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-04 09:26:52 INFO  (ClassSearcher) Searching for classes...  
+2024-09-04 09:26:53 INFO  (ClassSearcher) Class search complete (939 ms)  
+2024-09-04 09:26:53 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-04 09:26:53 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-04 09:26:53 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-04 09:26:53 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-04 09:26:53 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-04 09:26:54 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-04 09:26:54 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-04 09:27:12 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-09-04 09:27:12 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-04 09:27:12 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb7B47F297/db.1.gbf  
+2024-09-04 09:27:12 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-04 09:27:23 DEBUG (ToolTaskManager) Background processing started...  
+2024-09-04 09:27:23 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-09-04 09:27:24 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=069ecffcd7e6a6a7431d1c68705c10b3ec88ed3a]  
+2024-09-04 09:27:24 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-09-04 09:27:24 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-09-04 09:27:24 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-09-04 09:27:25 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.312 secs
+    Apply Data Archives                        0.151 secs
+    Call Convention ID                         0.037 secs
+    Call-Fixup Installer                       0.003 secs
+    Create Address Tables                      0.004 secs
+    Create Function                            0.003 secs
+    DWARF                                      0.009 secs
+    Data Reference                             0.003 secs
+    Decompiler Switch Analysis                 0.026 secs
+    Decompiler Switch Analysis - One Time      0.086 secs
+    Demangler GNU                              0.009 secs
+    Disassemble Entry Points                   0.066 secs
+    ELF Scalar Operand References              0.005 secs
+    Embedded Media                             0.015 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.003 secs
+    Function ID                                0.033 secs
+    Function Start Search                      0.094 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.051 secs
+    Non-Returning Functions - Discovered       0.001 secs
+    Non-Returning Functions - Known            0.005 secs
+    Reference                                  0.013 secs
+    Shared Return Calls                        0.007 secs
+    Stack                                      0.032 secs
+    Subroutine References                      0.003 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.051 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-09-04 09:27:25 DEBUG (ToolTaskManager) Auto Analysis task finish (1.719 secs)  
+2024-09-04 09:27:25 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-09-04 09:27:25 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-09-04 09:27:25 DEBUG (ToolTaskManager) Auto Analysis task complete (1.799 secs)  
+2024-09-04 09:27:25 DEBUG (ToolTaskManager) Background processing complete (1.801 secs)  
+2024-09-04 09:50:25 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-04 09:50:25 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-05 13:46:38 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-05 13:46:38 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-05 13:46:38 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-05 13:46:39 INFO  (ClassSearcher) Searching for classes...  
+2024-09-05 13:46:40 INFO  (ClassSearcher) Class search complete (1024 ms)  
+2024-09-05 13:46:40 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-05 13:46:40 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-05 13:46:40 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-05 13:46:40 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-05 13:46:40 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-05 13:46:40 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-05 13:46:40 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-05 13:46:41 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-05 13:46:41 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-07 12:29:00 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-09-07 12:29:00 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-09-07 12:29:00 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-09-07 12:29:00 INFO  (ClassSearcher) Searching for classes...  
+2024-09-07 12:29:01 INFO  (ClassSearcher) Class search complete (1083 ms)  
+2024-09-07 12:29:01 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-09-07 12:29:01 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-09-07 12:29:01 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-09-07 12:29:01 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-09-07 12:29:01 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-09-07 12:29:02 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-09-07 12:29:02 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: baby_rev2  
+2024-09-07 12:29:12 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/reverse/ghidratest  
+2024-09-07 12:30:10 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-07 12:30:10 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/reverse/ghidratest.rep  
+2024-09-07 12:30:10 INFO  (FileActionManager) Closed project: ghidratest  
+2024-09-07 12:30:10 INFO  (DefaultProject) Creating project: /home/frederik/projects/ctf/reverse/csaw_baby_rev  
+2024-09-07 12:30:13 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-09-07 12:30:13 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-09-07 12:31:06 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-09-07 12:31:06 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-09-07 12:31:06 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-09-07 12:31:06 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-09-07 12:31:14 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-09-07 12:31:14 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-09-07 12:31:14 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-09-07 12:31:14 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_4.3 at 001020ec  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 5-byte alignment/filler segment_3.2 at 0010101b  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 00101557  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00100334  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 001003ac  
+2024-09-07 12:31:14 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.11 at 00100621  
+2024-09-07 12:31:33 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-09-07 12:31:33 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-07 12:31:33 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb29520CB9/db.1.gbf  
+2024-09-07 12:31:33 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-09-07 12:31:41 DEBUG (ToolTaskManager) Background processing started...  
+2024-09-07 12:31:41 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-09-07 12:31:41 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=0d1b01effb08ad924b14efc1ba22cc36f331af0f]  
+2024-09-07 12:31:41 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-09-07 12:31:41 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-09-07 12:31:42 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-09-07 12:31:42 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.256 secs
+    Apply Data Archives                        0.228 secs
+    Call Convention ID                         0.051 secs
+    Call-Fixup Installer                       0.004 secs
+    Create Address Tables                      0.007 secs
+    Create Function                            0.004 secs
+    DWARF                                      0.006 secs
+    Data Reference                             0.004 secs
+    Decompiler Switch Analysis                 0.023 secs
+    Decompiler Switch Analysis - One Time      0.111 secs
+    Demangler GNU                              0.011 secs
+    Disassemble Entry Points                   0.047 secs
+    ELF Scalar Operand References              0.007 secs
+    Embedded Media                             0.013 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.001 secs
+    Function ID                                0.039 secs
+    Function Start Search                      0.047 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.030 secs
+    Non-Returning Functions - Discovered       0.001 secs
+    Non-Returning Functions - Known            0.002 secs
+    Reference                                  0.013 secs
+    Shared Return Calls                        0.006 secs
+    Stack                                      0.044 secs
+    Subroutine References                      0.001 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.066 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-09-07 12:31:42 DEBUG (ToolTaskManager) Auto Analysis task finish (1.541 secs)  
+2024-09-07 12:31:42 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-09-07 12:31:42 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-09-07 12:31:42 DEBUG (ToolTaskManager) Auto Analysis task complete (1.581 secs)  
+2024-09-07 12:31:42 DEBUG (ToolTaskManager) Background processing complete (1.582 secs)  
+2024-09-07 12:35:10 INFO  (RecoveryMgr) Sat Sep 07 12:35:10 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/reverse/csaw_baby_rev.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-09-07 12:55:10 INFO  (RecoveryMgr) Sat Sep 07 12:55:10 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/reverse/csaw_baby_rev.rep/idata/00/~00000000.db/snapshotB.grf  
+2024-10-14 11:29:34 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-14 11:29:34 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-14 11:29:34 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-14 11:29:34 INFO  (ClassSearcher) Searching for classes...  
+2024-10-14 11:29:35 INFO  (ClassSearcher) Class search complete (1082 ms)  
+2024-10-14 11:29:35 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-14 11:29:35 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-14 11:29:35 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-14 11:29:35 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-14 11:29:35 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-14 11:29:36 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-14 11:29:36 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: ./strawberry  
+2024-10-14 11:30:48 INFO  (DefaultProject) Creating project: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding  
+2024-10-14 11:30:58 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-14 11:30:58 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-14 11:30:58 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb03ABBDB5/db.1.gbf  
+2024-10-14 11:30:58 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-14 11:31:05 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-14 11:31:05 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-14 11:31:13 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-14 11:31:13 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-14 11:31:14 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-14 11:31:14 INFO  (ClassSearcher) Searching for classes...  
+2024-10-14 11:31:15 INFO  (ClassSearcher) Class search complete (943 ms)  
+2024-10-14 11:31:15 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-14 11:31:15 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-14 11:31:15 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-14 11:31:15 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-14 11:31:15 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-14 11:31:15 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-14 11:31:15 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: ./strawberry  
+2024-10-14 11:31:19 INFO  (DefaultProject) Opening project: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding  
+2024-10-14 11:31:21 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-14 11:31:21 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-14 11:31:51 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-10-14 11:31:51 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-10-14 11:32:06 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-14 11:32:06 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-14 11:32:06 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-14 11:32:06 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-14 11:32:13 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-14 11:32:13 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-14 11:32:13 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-14 11:32:13 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-14 11:32:13 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_4.2 at 0804a219  
+2024-10-14 11:32:13 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_3.4 at 0804940e  
+2024-10-14 11:32:13 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.3 at 08048187  
+2024-10-14 11:32:13 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.9 at 08048317  
+2024-10-14 11:32:21 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-14 11:32:21 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-14 11:32:22 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=f76dae2bc031bfb760f9dd13aedb98a61d0f1609]  
+2024-10-14 11:32:22 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-10-14 11:32:22 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-10-14 11:32:22 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbF6A1AC9C/db.1.gbf  
+2024-10-14 11:32:22 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-10-14 11:32:23 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-10-14 11:32:23 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.253 secs
+    Apply Data Archives                        0.225 secs
+    Call Convention ID                         0.038 secs
+    Call-Fixup Installer                       0.005 secs
+    Create Address Tables                      0.007 secs
+    Create Function                            0.003 secs
+    DWARF                                      0.017 secs
+    Data Reference                             0.003 secs
+    Decompiler Switch Analysis                 0.201 secs
+    Demangler GNU                              0.012 secs
+    Disassemble Entry Points                   0.048 secs
+    ELF Scalar Operand References              0.009 secs
+    Embedded Media                             0.008 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.001 secs
+    Function ID                                0.042 secs
+    Function Start Search                      0.006 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.032 secs
+    Non-Returning Functions - Discovered       0.004 secs
+    Non-Returning Functions - Known            0.001 secs
+    Reference                                  0.009 secs
+    Shared Return Calls                        0.005 secs
+    Stack                                      0.048 secs
+    Subroutine References                      0.003 secs
+    Subroutine References - One Time           0.000 secs
+    X86 Function Callee Purge                  0.002 secs
+    x86 Constant Reference Analyzer            0.037 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-10-14 11:32:23 DEBUG (ToolTaskManager) Auto Analysis task finish (1.578 secs)  
+2024-10-14 11:32:23 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-14 11:32:23 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-14 11:32:23 DEBUG (ToolTaskManager) Auto Analysis task complete (1.639 secs)  
+2024-10-14 11:32:23 DEBUG (ToolTaskManager) Background processing complete (1.64 secs)  
+2024-10-14 11:36:22 INFO  (RecoveryMgr) Mon Oct 14 11:36:22 CEST 2024 Recovery snapshot created: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-10-16 00:07:07 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-16 00:07:07 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-21 17:39:50 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-21 17:39:50 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-21 17:39:50 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-21 17:39:50 INFO  (ClassSearcher) Searching for classes...  
+2024-10-21 17:39:51 INFO  (ClassSearcher) Class search complete (1150 ms)  
+2024-10-21 17:39:51 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-21 17:39:51 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-21 17:39:51 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-21 17:39:51 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-21 17:39:51 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-21 17:39:52 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-21 17:39:52 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: cyoa  
+2024-10-21 17:39:53 INFO  (DefaultProject) Opening project: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding  
+2024-10-21 17:40:53 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-21 17:40:53 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/iik3100/Strawberry-Padding/strawberry padding.rep  
+2024-10-21 17:40:53 INFO  (FileActionManager) Closed project: strawberry padding  
+2024-10-21 17:40:53 INFO  (DefaultProject) Creating project: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa  
+2024-10-21 17:42:02 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-21 17:42:02 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-21 17:42:02 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbB08B990A/db.1.gbf  
+2024-10-21 17:42:02 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-21 17:42:04 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep  
+2024-10-21 17:42:04 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep  
+2024-10-21 17:42:08 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-21 17:42:08 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-21 17:42:08 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-21 17:42:09 INFO  (ClassSearcher) Searching for classes...  
+2024-10-21 17:42:10 INFO  (ClassSearcher) Class search complete (988 ms)  
+2024-10-21 17:42:10 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-21 17:42:10 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-21 17:42:10 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-21 17:42:10 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-21 17:42:10 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-21 17:42:10 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-21 17:42:10 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: cyoa  
+2024-10-21 17:42:12 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa  
+2024-10-21 17:42:14 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-21 17:42:14 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-21 17:42:59 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-10-21 17:42:59 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-10-21 17:43:23 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-21 17:43:23 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-21 17:43:23 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-21 17:43:27 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-21 17:43:27 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-21 17:43:27 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_4.2 at 001020eb  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 5-byte alignment/filler segment_3.2 at 0010101b  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.7 at 00101475  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00100334  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0010039c  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.9 at 001003c4  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.12 at 00100575  
+2024-10-21 17:43:28 DEBUG (ElfProgramBuilder) Discarding 6-byte alignment/filler segment_2.14 at 0010058a  
+2024-10-21 17:43:34 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-21 17:43:34 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-21 17:43:34 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=2d3e3500264cd421a581786c22cd607ca3475727]  
+2024-10-21 17:43:34 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-10-21 17:43:34 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-10-21 17:43:35 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-10-21 17:43:35 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.323 secs
+    Apply Data Archives                        0.244 secs
+    Call Convention ID                         0.002 secs
+    Call-Fixup Installer                       0.003 secs
+    Create Address Tables                      0.008 secs
+    Create Function                            0.002 secs
+    DWARF                                      0.010 secs
+    Data Reference                             0.005 secs
+    Decompiler Switch Analysis                 0.027 secs
+    Decompiler Switch Analysis - One Time      0.116 secs
+    Demangler GNU                              0.012 secs
+    Disassemble Entry Points                   0.085 secs
+    ELF Scalar Operand References              0.010 secs
+    Embedded Media                             0.009 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.001 secs
+    Function ID                                0.051 secs
+    Function Start Search                      0.020 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.040 secs
+    Non-Returning Functions - Discovered       0.003 secs
+    Non-Returning Functions - Known            0.005 secs
+    Reference                                  0.015 secs
+    Shared Return Calls                        0.006 secs
+    Stack                                      0.053 secs
+    Subroutine References                      0.004 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.079 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-10-21 17:43:35 DEBUG (ToolTaskManager) Auto Analysis task finish (1.506 secs)  
+2024-10-21 17:43:35 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-21 17:43:35 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-21 17:43:35 DEBUG (ToolTaskManager) Auto Analysis task complete (1.516 secs)  
+2024-10-21 17:43:35 DEBUG (ToolTaskManager) Background processing complete (1.517 secs)  
+2024-10-21 17:47:15 INFO  (RecoveryMgr) Mon Oct 21 17:47:15 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-10-21 17:58:24 WARN  (ProgramDB) Failed to save user data for: cyoa  
+2024-10-21 17:58:24 ERROR (ClientUtil) Error During Save File: File error during save java.io.IOException: File error during save
+	at db.buffers.LocalManagedBufferFile.saveCompleted(LocalManagedBufferFile.java:721)
+	at db.buffers.BufferMgr.save(BufferMgr.java:1825)
+	at db.DBHandle.save(DBHandle.java:754)
+	at ghidra.framework.data.DomainObjectAdapterDB.save(DomainObjectAdapterDB.java:521)
+	at ghidra.framework.data.GhidraFile.save(GhidraFile.java:261)
+	at ghidra.app.plugin.core.progmgr.ProgramSaveManager$SaveFileTask.run(ProgramSaveManager.java:488)
+	at ghidra.util.task.Task.monitoredRun(Task.java:134)
+	at ghidra.util.task.TaskRunner.lambda$startTaskThread$0(TaskRunner.java:106)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+ 
+2024-10-21 17:58:27 ERROR (DefaultProject) Error: Error saving project java.io.FileNotFoundException: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep/projectState (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at ghidra.framework.project.DefaultProject.save(DefaultProject.java:564)
+	at ghidra.framework.main.FileActionManager.doSaveProject(FileActionManager.java:479)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:446)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-21 17:58:29 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep  
+2024-10-21 17:58:29 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep  
+2024-10-21 17:58:29 ERROR (IndexedV1LocalFileSystem) Failed to flush index file java.io.FileNotFoundException: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep/versioned/~index.tmp (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:224)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:364)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.writeIndex(IndexedLocalFileSystem.java:278)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.flushIndex(IndexedLocalFileSystem.java:251)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.dispose(IndexedLocalFileSystem.java:180)
+	at ghidra.framework.data.DefaultProjectData.dispose(DefaultProjectData.java:1335)
+	at ghidra.framework.data.DefaultProjectData.close(DefaultProjectData.java:1270)
+	at ghidra.framework.project.DefaultProject.close(DefaultProject.java:399)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:451)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-21 17:58:29 ERROR (IndexedV1LocalFileSystem) Failed to flush index file java.io.FileNotFoundException: /home/frederik/projects/ctf/etterening-kurs/CYOA/cyoa.rep/idata/~index.tmp (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:224)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:364)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.writeIndex(IndexedLocalFileSystem.java:278)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.flushIndex(IndexedLocalFileSystem.java:251)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.dispose(IndexedLocalFileSystem.java:180)
+	at ghidra.framework.data.DefaultProjectData.dispose(DefaultProjectData.java:1337)
+	at ghidra.framework.data.DefaultProjectData.close(DefaultProjectData.java:1270)
+	at ghidra.framework.project.DefaultProject.close(DefaultProject.java:399)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:451)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-21 20:29:31 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-21 20:29:31 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-21 20:29:31 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-21 20:29:31 INFO  (ClassSearcher) Searching for classes...  
+2024-10-21 20:29:32 INFO  (ClassSearcher) Class search complete (928 ms)  
+2024-10-21 20:29:32 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-21 20:29:32 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-21 20:29:32 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-21 20:29:32 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-21 20:29:32 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-21 20:29:33 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-21 20:29:33 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: cyoa  
+2024-10-21 22:22:48 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-21 22:22:48 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-21 22:22:48 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-21 22:22:49 INFO  (ClassSearcher) Searching for classes...  
+2024-10-21 22:22:49 INFO  (ClassSearcher) Class search complete (929 ms)  
+2024-10-21 22:22:50 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-21 22:22:50 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-21 22:22:50 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-21 22:22:50 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-21 22:22:50 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-21 22:22:50 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-21 22:22:50 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: bin  
+2024-10-21 22:25:36 INFO  (DefaultProject) Creating project: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck  
+2024-10-21 22:25:44 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-21 22:25:44 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-21 22:26:13 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-21 22:26:13 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-21 22:26:13 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-21 22:26:13 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-21 22:26:18 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-21 22:26:18 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-21 22:26:18 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-21 22:26:18 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_4.2 at 00102041  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 5-byte alignment/filler segment_3.2 at 0010101b  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.7 at 00101d35  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00100334  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0010039c  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.9 at 001003c4  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.12 at 0010081b  
+2024-10-21 22:26:18 DEBUG (ElfProgramBuilder) Discarding 6-byte alignment/filler segment_2.14 at 00100842  
+2024-10-21 22:26:22 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-21 22:26:22 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-21 22:26:22 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=c68af08423860a5d8165d5380f4ab2281f88e01d]  
+2024-10-21 22:26:22 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-10-21 22:26:23 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-10-21 22:26:23 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-10-21 22:26:24 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.316 secs
+    Apply Data Archives                        0.149 secs
+    Call Convention ID                         0.069 secs
+    Call-Fixup Installer                       0.006 secs
+    Create Address Tables                      0.007 secs
+    Create Function                            0.005 secs
+    DWARF                                      0.006 secs
+    Data Reference                             0.009 secs
+    Decompiler Switch Analysis                 0.029 secs
+    Decompiler Switch Analysis - One Time      0.097 secs
+    Demangler GNU                              0.048 secs
+    Disassemble Entry Points                   0.023 secs
+    ELF Scalar Operand References              0.010 secs
+    Embedded Media                             0.009 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.001 secs
+    Function ID                                0.046 secs
+    Function Start Search                      0.019 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.129 secs
+    Non-Returning Functions - Discovered       0.004 secs
+    Non-Returning Functions - Known            0.003 secs
+    Reference                                  0.015 secs
+    Shared Return Calls                        0.009 secs
+    Stack                                      0.057 secs
+    Subroutine References                      0.005 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.111 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-10-21 22:26:24 DEBUG (ToolTaskManager) Auto Analysis task finish (1.469 secs)  
+2024-10-21 22:26:24 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-21 22:26:24 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-21 22:26:24 DEBUG (ToolTaskManager) Auto Analysis task complete (1.478 secs)  
+2024-10-21 22:26:24 DEBUG (ToolTaskManager) Background processing complete (1.479 secs)  
+2024-10-21 22:30:36 INFO  (RecoveryMgr) Mon Oct 21 22:30:36 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-10-21 22:40:36 INFO  (RecoveryMgr) Mon Oct 21 22:40:36 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/idata/00/~00000000.db/snapshotB.grf  
+2024-10-21 22:50:36 INFO  (RecoveryMgr) Mon Oct 21 22:50:36 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-10-21 22:55:36 INFO  (RecoveryMgr) Mon Oct 21 22:55:36 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/idata/00/~00000000.db/snapshotB.grf  
+2024-10-22 09:54:34 WARN  (ProgramDB) Failed to save user data for: bin  
+2024-10-22 10:01:13 ERROR (DefaultProject) Error: Error saving project java.io.FileNotFoundException: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/projectState (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at ghidra.framework.project.DefaultProject.save(DefaultProject.java:564)
+	at ghidra.framework.main.FileActionManager.doSaveProject(FileActionManager.java:479)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:446)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-22 10:01:14 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep  
+2024-10-22 10:01:14 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep  
+2024-10-22 10:01:14 ERROR (IndexedV1LocalFileSystem) Failed to flush index file java.io.FileNotFoundException: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/versioned/~index.tmp (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:224)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:364)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.writeIndex(IndexedLocalFileSystem.java:278)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.flushIndex(IndexedLocalFileSystem.java:251)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.dispose(IndexedLocalFileSystem.java:180)
+	at ghidra.framework.data.DefaultProjectData.dispose(DefaultProjectData.java:1335)
+	at ghidra.framework.data.DefaultProjectData.close(DefaultProjectData.java:1270)
+	at ghidra.framework.project.DefaultProject.close(DefaultProject.java:399)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:451)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-22 10:01:14 ERROR (IndexedV1LocalFileSystem) Failed to flush index file java.io.FileNotFoundException: /home/frederik/projects/ctf/picoCTF/reverse-engeneering/FactCheck/factCheck.rep/idata/~index.tmp (No such file or directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:295)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:185)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:224)
+	at java.base/java.io.PrintWriter.<init>(PrintWriter.java:364)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.writeIndex(IndexedLocalFileSystem.java:278)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.flushIndex(IndexedLocalFileSystem.java:251)
+	at ghidra.framework.store.local.IndexedLocalFileSystem.dispose(IndexedLocalFileSystem.java:180)
+	at ghidra.framework.data.DefaultProjectData.dispose(DefaultProjectData.java:1337)
+	at ghidra.framework.data.DefaultProjectData.close(DefaultProjectData.java:1270)
+	at ghidra.framework.project.DefaultProject.close(DefaultProject.java:399)
+	at ghidra.framework.main.FileActionManager.closeProject(FileActionManager.java:451)
+	at ghidra.framework.main.FrontEndPlugin.closeActiveProject(FrontEndPlugin.java:453)
+	at ghidra.framework.main.FrontEndTool.canClose(FrontEndTool.java:396)
+	at ghidra.framework.plugintool.PluginTool.close(PluginTool.java:1157)
+	at docking.DockingWindowManager.close(DockingWindowManager.java:1170)
+	at docking.RootNode$JFrameWindowWrapper$1.windowClosing(RootNode.java:814)
+	at java.desktop/java.awt.AWTEventMulticaster.windowClosing(AWTEventMulticaster.java:357)
+	at java.desktop/java.awt.Window.processWindowEvent(Window.java:2085)
+	at java.desktop/javax.swing.JFrame.processWindowEvent(JFrame.java:298)
+	at java.desktop/java.awt.Window.processEvent(Window.java:2044)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2780)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+ 
+2024-10-23 18:23:53 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-23 18:23:53 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-23 18:23:54 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-23 18:23:54 INFO  (ClassSearcher) Searching for classes...  
+2024-10-23 18:23:55 INFO  (ClassSearcher) Class search complete (1187 ms)  
+2024-10-23 18:23:55 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-23 18:23:55 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-23 18:23:55 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-23 18:23:55 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-23 18:23:55 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-23 18:23:56 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-23 18:26:03 INFO  (DefaultProject) Creating project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-10-23 18:26:16 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-10-23 18:26:16 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-10-23 18:26:28 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-23 18:26:28 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-23 18:26:28 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-23 18:26:28 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-23 18:26:37 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-23 18:26:37 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-23 18:26:37 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-23 18:26:37 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_4.2 at 00402367  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_4.4 at 004023cc  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_3.2 at 00401017  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.5 at 00401a85  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00400334  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0040039c  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.11 at 00400681  
+2024-10-23 18:26:37 DEBUG (ElfProgramBuilder) Discarding 6-byte alignment/filler segment_2.13 at 004006aa  
+2024-10-23 18:26:59 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-23 18:26:59 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-23 18:26:59 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb3B94FA3A/db.1.gbf  
+2024-10-23 18:26:59 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-23 18:27:12 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-23 18:27:18 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-23 18:27:18 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-23 18:27:18 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=6555c96f92c9ce9bca9b34e02723dabfb99bbd5c]  
+2024-10-23 18:27:18 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-10-23 18:27:19 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-10-23 18:27:20 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-10-23 18:27:23 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.488 secs
+    Apply Data Archives                        0.427 secs
+    Call Convention ID                         0.052 secs
+    Call-Fixup Installer                       0.011 secs
+    Create Address Tables                      0.024 secs
+    Create Function                            0.020 secs
+    DWARF                                      0.011 secs
+    Data Reference                             0.008 secs
+    Decompiler Switch Analysis                 0.047 secs
+    Decompiler Switch Analysis - One Time      0.149 secs
+    Demangler GNU                              0.069 secs
+    Disassemble Entry Points                   0.368 secs
+    ELF Scalar Operand References              0.019 secs
+    Embedded Media                             0.028 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.002 secs
+    Function ID                                0.071 secs
+    Function Start Search                      0.032 secs
+    Function Start Search After Code           0.019 secs
+    Function Start Search After Data           0.010 secs
+    GCC Exception Handlers                     0.070 secs
+    Non-Returning Functions - Discovered       0.009 secs
+    Non-Returning Functions - Known            0.005 secs
+    Reference                                  0.021 secs
+    Shared Return Calls                        0.016 secs
+    Stack                                      0.130 secs
+    Subroutine References                      0.012 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.166 secs
+-----------------------------------------------------
+     Total Time   2 secs
+-----------------------------------------------------
+  
+2024-10-23 18:27:23 DEBUG (ToolTaskManager) Auto Analysis task finish (5.021 secs)  
+2024-10-23 18:27:23 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-23 18:27:23 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-23 18:27:23 DEBUG (ToolTaskManager) Auto Analysis task complete (5.027 secs)  
+2024-10-23 18:27:23 DEBUG (ToolTaskManager) Background processing complete (5.028 secs)  
+2024-10-23 18:31:03 INFO  (RecoveryMgr) Wed Oct 23 18:31:03 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000000.db/snapshotA.grf  
+2024-10-23 20:20:36 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-23 20:20:36 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-23 20:20:36 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-23 20:20:36 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-23 20:20:38 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-23 20:20:38 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-23 20:20:38 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-23 20:20:38 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_4.2 at 00403362  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_3.2 at 00401017  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.5 at 00401621  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.4 at 004002e4  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.6 at 00400334  
+2024-10-23 20:20:38 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.11 at 00400566  
+2024-10-23 20:20:58 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-23 20:21:09 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-23 20:21:09 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-23 20:21:10 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-10-23 20:21:16 DEBUG (ToolTaskManager) Auto Analysis task finish (6.472 secs)  
+2024-10-23 20:21:16 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-23 20:21:16 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-23 20:21:16 DEBUG (ToolTaskManager) Auto Analysis task complete (6.836 secs)  
+2024-10-23 20:21:16 DEBUG (ToolTaskManager) Background processing complete (6.837 secs)  
+2024-10-23 20:26:03 INFO  (RecoveryMgr) Wed Oct 23 20:26:03 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000001.db/snapshotA.grf  
+2024-10-25 00:06:41 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-25 00:06:41 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-25 00:06:41 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-25 00:06:42 INFO  (ClassSearcher) Searching for classes...  
+2024-10-25 00:06:43 INFO  (ClassSearcher) Class search complete (1135 ms)  
+2024-10-25 00:06:43 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-25 00:06:43 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-25 00:06:43 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-25 00:06:43 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-25 00:06:43 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-25 00:06:43 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-25 00:06:44 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-10-25 00:06:44 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000001.db/tmp17392250069040628082.ps  
+2024-10-25 00:06:55 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-10-25 00:06:55 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-10-25 00:07:32 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-25 00:07:32 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-25 00:07:32 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-25 00:07:32 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-25 00:07:36 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-10-25 00:07:36 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-10-25 00:07:36 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-10-25 00:07:36 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-10-25 00:07:36 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_11.2 at 004021ed  
+2024-10-25 00:07:36 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_11.4 at 00402224  
+2024-10-25 00:07:36 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_10.2 at 00401017  
+2024-10-25 00:07:36 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.11 at 003fe55e  
+2024-10-25 00:08:00 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-25 00:08:00 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-25 00:08:00 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb12708CAE/db.1.gbf  
+2024-10-25 00:08:00 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-25 00:08:06 DEBUG (ToolTaskManager) Background processing started...  
+2024-10-25 00:08:06 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-10-25 00:08:06 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=fdb93db6069982839320b2d2393c424c77a5d7b9]  
+2024-10-25 00:08:06 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-10-25 00:08:07 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-10-25 00:08:07 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.300 secs
+    Apply Data Archives                        0.207 secs
+    Call Convention ID                         0.049 secs
+    Call-Fixup Installer                       0.005 secs
+    Create Address Tables                      0.004 secs
+    Create Function                            0.004 secs
+    DWARF                                      0.008 secs
+    Data Reference                             0.003 secs
+    Decompiler Switch Analysis                 0.146 secs
+    Demangler GNU                              0.009 secs
+    Disassemble Entry Points                   0.038 secs
+    ELF Scalar Operand References              0.006 secs
+    Embedded Media                             0.007 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.000 secs
+    Function ID                                0.043 secs
+    Function Start Search                      0.061 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.029 secs
+    Non-Returning Functions - Discovered       0.002 secs
+    Non-Returning Functions - Known            0.002 secs
+    Reference                                  0.012 secs
+    Shared Return Calls                        0.004 secs
+    Stack                                      0.033 secs
+    Subroutine References                      0.002 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.065 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-10-25 00:08:07 DEBUG (ToolTaskManager) Auto Analysis task finish (1.52 secs)  
+2024-10-25 00:08:07 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-10-25 00:08:07 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-10-25 00:08:07 DEBUG (ToolTaskManager) Auto Analysis task complete (1.527 secs)  
+2024-10-25 00:08:07 DEBUG (ToolTaskManager) Background processing complete (1.528 secs)  
+2024-10-25 00:11:44 INFO  (RecoveryMgr) Fri Oct 25 00:11:44 CEST 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000002.db/snapshotA.grf  
+2024-10-27 19:08:48 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-10-27 19:08:48 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-10-27 19:08:48 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-10-27 19:08:49 INFO  (ClassSearcher) Searching for classes...  
+2024-10-27 19:08:50 INFO  (ClassSearcher) Class search complete (1091 ms)  
+2024-10-27 19:08:50 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-10-27 19:08:50 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-10-27 19:08:50 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-10-27 19:08:50 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-10-27 19:08:50 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-10-27 19:08:50 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-10-27 19:08:50 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-10-27 19:08:50 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000002.db/tmp17939171966898838893.ps  
+2024-10-27 19:08:57 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-10-27 19:08:57 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-27 19:08:57 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb170CD254/db.1.gbf  
+2024-10-27 19:08:58 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-10-27 19:09:22 INFO  (RecoveryMgr) Applying buffer file recovery data: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000001.db/db.1.gbf  
+2024-11-06 16:24:48 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-06 16:24:48 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-06 16:24:48 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-06 16:24:48 INFO  (ClassSearcher) Searching for classes...  
+2024-11-06 16:24:49 INFO  (ClassSearcher) Class search complete (1204 ms)  
+2024-11-06 16:24:49 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-06 16:24:50 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-06 16:24:50 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-06 16:24:50 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-06 16:24:50 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-06 16:24:50 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-06 16:24:50 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-06 16:24:50 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000001.db/tmp6160363822747701958.ps  
+2024-11-06 16:25:08 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-11-06 16:25:08 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-11-06 16:25:29 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-06 16:25:29 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-06 16:25:29 DEBUG (ElfHeader) Elf relocation table section .relr.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-06 16:25:39 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-06 16:25:39 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-06 16:25:39 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-06 16:25:39 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-06 16:25:43 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-06 16:25:43 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-06 16:25:43 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-06 16:25:43 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-06 16:25:43 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_11.3 at 00402044  
+2024-11-06 16:25:43 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_10.2 at 00401017  
+2024-11-06 16:25:43 DEBUG (ElfProgramBuilder) Discarding 6-byte alignment/filler segment_9.2 at 0040057a  
+2024-11-06 16:25:43 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.11 at 003fe5d5  
+2024-11-06 16:25:52 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-11-06 16:25:52 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-06 16:25:52 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbE3B67E1E/db.1.gbf  
+2024-11-06 16:25:53 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-06 16:26:00 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-06 16:26:00 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-06 16:26:00 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=c3cd4f2c9283b9bdcae0d166030c925694d5fd02]  
+2024-11-06 16:26:00 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-06 16:26:00 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-11-06 16:26:01 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-11-06 16:26:01 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.417 secs
+    Apply Data Archives                        0.187 secs
+    Call Convention ID                         0.030 secs
+    Call-Fixup Installer                       0.002 secs
+    Create Address Tables                      0.005 secs
+    Create Function                            0.004 secs
+    DWARF                                      0.009 secs
+    Data Reference                             0.002 secs
+    Decompiler Switch Analysis                 0.017 secs
+    Decompiler Switch Analysis - One Time      0.092 secs
+    Demangler GNU                              0.008 secs
+    Disassemble Entry Points                   0.035 secs
+    ELF Scalar Operand References              0.003 secs
+    Embedded Media                             0.013 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.001 secs
+    Function ID                                0.033 secs
+    Function Start Search                      0.020 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.042 secs
+    Non-Returning Functions - Discovered       0.005 secs
+    Non-Returning Functions - Known            0.003 secs
+    Reference                                  0.011 secs
+    Shared Return Calls                        0.008 secs
+    Stack                                      0.020 secs
+    Subroutine References                      0.003 secs
+    Subroutine References - One Time           0.000 secs
+    x86 Constant Reference Analyzer            0.031 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-11-06 16:26:01 DEBUG (ToolTaskManager) Auto Analysis task finish (1.433 secs)  
+2024-11-06 16:26:01 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-06 16:26:01 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-11-06 16:26:01 DEBUG (ToolTaskManager) Auto Analysis task complete (1.482 secs)  
+2024-11-06 16:26:01 DEBUG (ToolTaskManager) Background processing complete (1.483 secs)  
+2024-11-06 16:29:50 INFO  (RecoveryMgr) Wed Nov 06 16:29:50 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/snapshotA.grf  
+2024-11-09 13:40:12 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-09 13:40:12 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-09 13:40:12 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-09 13:40:13 INFO  (ClassSearcher) Searching for classes...  
+2024-11-09 13:40:14 INFO  (ClassSearcher) Class search complete (1114 ms)  
+2024-11-09 13:40:14 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-09 13:40:14 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-09 13:40:14 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-09 13:40:14 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-09 13:40:14 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-09 13:40:14 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-09 13:40:14 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-09 13:40:15 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/tmp9268487947031973037.ps  
+2024-11-09 13:40:21 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-11-09 13:40:21 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-09 13:40:21 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb12263195/db.1.gbf  
+2024-11-09 13:40:21 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-09 13:40:27 INFO  (RecoveryMgr) Applying buffer file recovery data: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/db.1.gbf  
+2024-11-09 13:41:43 WARN  (DecompileCallback) Decompiling 00405008, pcode error at 00405008: Unable to disassemble EXTERNAL block location: 00405008  
+2024-11-15 13:11:40 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-15 13:11:40 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-15 13:11:40 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-15 13:11:41 INFO  (ClassSearcher) Searching for classes...  
+2024-11-15 13:11:42 INFO  (ClassSearcher) Class search complete (1112 ms)  
+2024-11-15 13:11:42 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-15 13:11:42 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-15 13:11:42 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-15 13:11:42 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-15 13:11:42 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-15 13:11:42 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-15 13:11:42 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-15 13:11:43 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/tmp1006056624761794455.ps  
+2024-11-15 13:12:10 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-11-15 13:12:10 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-11-15 13:12:34 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-15 13:12:34 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-15 13:12:34 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-15 13:12:34 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-11-15 13:12:37 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-15 13:12:37 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-15 13:12:37 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-15 13:12:37 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-11-15 13:12:37 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.4 at 08049385  
+2024-11-15 13:12:37 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.3 at 08048187  
+2024-11-15 13:12:37 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.10 at 0804832a  
+2024-11-15 13:12:49 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-11-15 13:12:49 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-15 13:12:49 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbE3C4B2FD/db.1.gbf  
+2024-11-15 13:12:49 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-15 13:12:55 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-15 13:12:55 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-15 13:12:56 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=623a6268dd4fd13e6e644eeff1599e707ef2865f]  
+2024-11-15 13:12:56 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-15 13:12:56 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-11-15 13:12:56 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbFD2F23BE/db.1.gbf  
+2024-11-15 13:12:56 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-11-15 13:12:56 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-11-15 13:12:57 DEBUG (ToolTaskManager) Auto Analysis task finish (1.323 secs)  
+2024-11-15 13:12:57 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-15 13:12:57 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-11-15 13:12:57 DEBUG (ToolTaskManager) Auto Analysis task complete (1.331 secs)  
+2024-11-15 13:12:57 DEBUG (ToolTaskManager) Background processing complete (1.332 secs)  
+2024-11-15 13:16:43 INFO  (RecoveryMgr) Fri Nov 15 13:16:43 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000004.db/snapshotA.grf  
+2024-11-15 21:11:42 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-15 21:11:42 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-15 21:11:42 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-15 21:11:42 INFO  (ClassSearcher) Searching for classes...  
+2024-11-15 21:11:43 INFO  (ClassSearcher) Class search complete (970 ms)  
+2024-11-15 21:11:43 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-15 21:11:43 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-15 21:11:43 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-15 21:11:43 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-15 21:11:43 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-15 21:11:44 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-15 21:11:44 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-15 21:11:44 INFO  (DefaultProjectData) Project Locked: Project is locked. You have another instance of Ghidra 
+already running with this project open (locally or remotely). 
+ 
+Project: /home/frederik/projects/ctf/ghidra-ctf//ghidra-ctf 
+ 
+Lock information:
+       Username:            frederik
+       Hostname:             pc
+       Timestamp:           11/15/24, 1:11 PM
+       OS Name:              Linux
+       OS Architecture:   amd64
+       OS Version:            6.10.11-amd64  
+2024-11-15 21:11:46 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-15 21:11:55 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-15 21:11:55 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-15 21:11:55 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-15 21:11:56 INFO  (ClassSearcher) Searching for classes...  
+2024-11-15 21:11:57 INFO  (ClassSearcher) Class search complete (954 ms)  
+2024-11-15 21:11:57 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-15 21:11:57 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-15 21:11:57 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-15 21:11:57 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-15 21:11:57 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-15 21:11:57 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-15 21:11:57 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-15 21:11:57 INFO  (DefaultProjectData) Project Locked: Project is locked. You have another instance of Ghidra 
+already running with this project open (locally or remotely). 
+ 
+Project: /home/frederik/projects/ctf/ghidra-ctf//ghidra-ctf 
+ 
+Lock information:
+       Username:            frederik
+       Hostname:             pc
+       Timestamp:           11/15/24, 1:11 PM
+       OS Name:              Linux
+       OS Architecture:   amd64
+       OS Version:            6.10.11-amd64  
+2024-11-15 21:12:02 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-15 21:12:16 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-15 21:12:16 INFO  (DefaultProjectData) Project Locked: Project is locked. You have another instance of Ghidra 
+already running with this project open (locally or remotely). 
+ 
+Project: /home/frederik/projects/ctf/ghidra-ctf//ghidra-ctf 
+ 
+Lock information:
+       Username:            frederik
+       Hostname:             pc
+       Timestamp:           11/15/24, 1:11 PM
+       OS Name:              Linux
+       OS Architecture:   amd64
+       OS Version:            6.10.11-amd64  
+2024-11-15 21:12:18 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-15 21:12:18 ERROR (FileActionManager) Error opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-16 00:29:48 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-16 00:29:52 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=623a6268dd4fd13e6e644eeff1599e707ef2865f]  
+2024-11-16 00:29:52 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-16 00:29:52 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-11-16 00:29:52 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Auto Analysis task finish (0.645 secs)  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Auto Analysis task complete (0.662 secs)  
+2024-11-16 00:29:52 DEBUG (ToolTaskManager) Background processing complete (0.663 secs)  
+2024-11-16 00:30:48 INFO  (RecoveryMgr) Sat Nov 16 00:30:48 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000004.db/snapshotA.grf  
+2024-11-16 04:05:54 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-16 04:05:54 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-16 14:49:35 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-16 14:49:35 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-16 14:49:35 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-16 14:49:35 INFO  (ClassSearcher) Searching for classes...  
+2024-11-16 14:49:36 INFO  (ClassSearcher) Class search complete (1112 ms)  
+2024-11-16 14:49:36 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-16 14:49:36 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-16 14:49:36 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-16 14:49:36 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-16 14:49:36 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-16 14:49:37 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-16 14:49:37 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-16 14:49:39 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-11-16 14:49:39 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-16 14:49:47 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-16 14:49:47 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-16 14:49:47 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=623a6268dd4fd13e6e644eeff1599e707ef2865f]  
+2024-11-16 14:49:47 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-16 14:49:48 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-11-16 14:49:48 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-11-16 14:49:54 DEBUG (ToolTaskManager) Auto Analysis task finish (6.604 secs)  
+2024-11-16 14:49:54 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-16 14:49:54 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-11-16 14:49:54 DEBUG (ToolTaskManager) Auto Analysis task complete (6.95 secs)  
+2024-11-16 14:49:54 DEBUG (ToolTaskManager) Background processing complete (6.952 secs)  
+2024-11-16 14:54:47 INFO  (RecoveryMgr) Sat Nov 16 14:54:47 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000004.db/snapshotA.grf  
+2024-11-18 09:37:03 INFO  (RecoveryMgr) Mon Nov 18 09:37:03 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000004.db/snapshotB.grf  
+2024-11-18 09:37:11 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-18 09:37:11 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-11-20 16:26:56 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-11-20 16:26:56 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-11-20 16:26:56 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-11-20 16:26:56 INFO  (ClassSearcher) Searching for classes...  
+2024-11-20 16:26:57 INFO  (ClassSearcher) Class search complete (1083 ms)  
+2024-11-20 16:26:57 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-11-20 16:26:57 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-11-20 16:26:57 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-11-20 16:26:57 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-11-20 16:26:57 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-11-20 16:26:58 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-11-20 16:26:58 INFO  (GhidraRun) Invalid Project: The specified file is not a project file: ./chirp  
+2024-11-20 16:27:04 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-11-20 16:27:25 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-11-20 16:27:25 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-11-20 16:28:04 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-20 16:28:04 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-20 16:28:04 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-20 16:28:04 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-20 16:28:09 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-20 16:28:09 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-20 16:28:09 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-20 16:28:09 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_3.2 at 00401017  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_3.5 at 00401088  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_3.7 at 00401342  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00400334  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0040039c  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.9 at 004003d4  
+2024-11-20 16:28:09 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.13 at 004005b6  
+2024-11-20 16:28:27 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-11-20 16:28:27 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-20 16:28:27 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb020F765F/db.1.gbf  
+2024-11-20 16:28:27 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-20 16:29:03 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-20 16:29:08 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-20 16:29:08 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-20 16:29:08 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=689792b60eedda0d71fa79d3f77b064127a12b62]  
+2024-11-20 16:29:08 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-20 16:29:08 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-11-20 16:29:09 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-11-20 16:29:09 DEBUG (ToolTaskManager) Auto Analysis task finish (1.381 secs)  
+2024-11-20 16:29:09 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-20 16:29:09 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-11-20 16:29:09 DEBUG (ToolTaskManager) Auto Analysis task complete (1.387 secs)  
+2024-11-20 16:29:09 DEBUG (ToolTaskManager) Background processing complete (1.387 secs)  
+2024-11-20 16:32:04 INFO  (RecoveryMgr) Wed Nov 20 16:32:04 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000005.db/snapshotA.grf  
+2024-11-20 16:32:16 ERROR (RenameVariableTask) Rename Failed: Symbol name contains invalid characters: stack canary  
+2024-11-20 16:37:04 INFO  (RecoveryMgr) Wed Nov 20 16:37:04 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000005.db/snapshotB.grf  
+2024-11-20 17:25:35 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-20 17:25:35 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-20 17:25:35 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-20 17:25:35 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-20 17:25:37 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-11-20 17:25:37 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-11-20 17:25:37 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-11-20 17:25:37 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 9-byte alignment/filler segment_3.2 at 00101017  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_3.5 at 00101168  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.7 at 00101e35  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.3 at 00100334  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 4-byte alignment/filler segment_2.7 at 0010039c  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.11 at 001007e3  
+2024-11-20 17:25:37 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.13 at 0010081e  
+2024-11-20 17:25:43 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-20 17:25:46 DEBUG (ToolTaskManager) Background processing started...  
+2024-11-20 17:25:46 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-11-20 17:25:47 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=bbfbe4c4bb4e34e42a05033177e6ba9ea1d60974]  
+2024-11-20 17:25:47 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-11-20 17:25:47 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib_64  
+2024-11-20 17:25:47 DEBUG (ToolTaskManager) Auto Analysis task finish (0.962 secs)  
+2024-11-20 17:25:47 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-11-20 17:25:47 DEBUG (ToolTaskManager) (0.001 secs)  
+2024-11-20 17:25:47 DEBUG (ToolTaskManager) Auto Analysis task complete (1.002 secs)  
+2024-11-20 17:25:47 DEBUG (ToolTaskManager) Background processing complete (1.002 secs)  
+2024-11-20 17:27:04 INFO  (RecoveryMgr) Wed Nov 20 17:27:04 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000006.db/snapshotA.grf  
+2024-11-20 19:32:00 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-11-20 19:32:04 INFO  (RecoveryMgr) Applying buffer file recovery data: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/db.1.gbf  
+2024-12-05 20:01:57 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-05 20:01:57 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-05 20:01:57 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-05 20:01:59 INFO  (ClassSearcher) Searching for classes...  
+2024-12-05 20:02:00 INFO  (ClassSearcher) Class search complete (1111 ms)  
+2024-12-05 20:02:00 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-05 20:02:00 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-05 20:02:00 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-05 20:02:00 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-05 20:02:00 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-05 20:02:01 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-05 20:02:01 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-05 20:02:01 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000003.db/tmp9286526256385257597.ps  
+2024-12-05 20:02:01 INFO  (LocalBufferFile) Removed old presave file: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~00000006.db/tmp9365371592934826094.ps  
+2024-12-05 20:02:09 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-05 20:02:09 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-05 20:02:09 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdbE31EC222/db.1.gbf  
+2024-12-05 20:02:09 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-05 20:03:13 WARN  (DecompileCallback) Decompiling 00405010, pcode error at 00405010: Unable to disassemble EXTERNAL block location: 00405010  
+2024-12-05 20:04:04 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-05 20:04:04 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-23 20:45:50 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-23 20:45:50 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-23 20:45:50 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-23 20:45:51 INFO  (ClassSearcher) Searching for classes...  
+2024-12-23 20:45:52 INFO  (ClassSearcher) Class search complete (1109 ms)  
+2024-12-23 20:45:52 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-23 20:45:52 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-23 20:45:52 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-23 20:45:52 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-23 20:45:52 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-23 20:45:52 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-23 20:45:53 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-23 20:45:54 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-23 20:45:54 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-23 20:45:54 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb85544B7E/db.1.gbf  
+2024-12-23 20:45:54 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-23 20:46:36 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /tmp/frederik-Ghidra/fscache2  
+2024-12-23 20:46:36 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2024-12-23 20:47:00 INFO  (TLSDirectory) TLS callbacks at 1451c8038  
+2024-12-23 20:47:26 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-23 20:47:53 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-23 20:47:58 DEBUG (ToolTaskManager) Background processing started...  
+2024-12-23 20:47:58 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-12-23 20:47:59 ERROR (MingwRelocationAnalyzer) MinGW pseudo-relocation list not found  
+2024-12-23 20:47:59 INFO  (PdbUniversalAnalyzer) Skipping PDB processing: missing PDB information in program metadata  
+2024-12-23 20:48:16 INFO  (FileSystemInstanceManager) Evicting 5 filesystems from cache  
+2024-12-23 20:48:16 DEBUG (FileSystemInstanceManager) Closing unused filesystem [file:///usr/bin]  
+2024-12-23 20:48:16 DEBUG (FileSystemInstanceManager) Closing unused filesystem [file:///usr/lib/x86_64-linux-gnu/jni]  
+2024-12-23 20:48:16 DEBUG (FileSystemInstanceManager) Closing unused filesystem [file:///usr/lib64]  
+2024-12-23 20:48:16 DEBUG (FileSystemInstanceManager) Closing unused filesystem [file:///usr/lib]  
+2024-12-23 20:48:16 DEBUG (FileSystemInstanceManager) Closing unused filesystem [file:///usr/lib/x86_64-linux-gnu]  
+2024-12-23 20:48:36 ERROR (PngDataType) Invalid PNG data at 140e63a32  
+2024-12-23 20:48:36 ERROR (PngDataType) Invalid PNG data at 144223380  
+2024-12-23 20:49:00 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-12-23 20:52:27 WARN  (AddressMapDB) More than 100 address segments have been created!  
+2024-12-23 21:05:24 WARN  (DecompileCallback) Decompiling 140687e60: Unable to read bytes at ram:a65959e6  
+2024-12-23 21:05:24 WARN  (DecompileCallback) Decompiling 140687e60: Unable to read bytes at ram:a65959ee  
+2024-12-23 21:05:24 WARN  (DecompileCallback) Decompiling 140687e60: Unable to read bytes at ram:a65959e6  
+2024-12-23 21:05:24 WARN  (DecompileCallback) Decompiling 140687e60: Unable to read bytes at ram:a65959ee  
+2024-12-23 21:05:24 WARN  (DecompileCallback) Decompiling 140696120: Unable to read bytes at ram:a65959ae  
+2024-12-23 21:09:03 WARN  (DecompileCallback) Decompiling 143e702f0: Unable to read bytes at ram:1b32f0a67  
+2024-12-23 21:09:03 WARN  (DecompileCallback) Decompiling 143e702f0, pcode error at 144c7ab0e: Unable to resolve constructor at 144c7ab0e  
+2024-12-23 21:09:03 WARN  (DecompileCallback) Decompiling 143e702f0, pcode error at 143e7944d: Unable to resolve constructor at 143e7944d  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e96d60: Unable to read bytes at ram:1b3360603  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e96eb0: Unable to read bytes at ram:1b3360023  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e96c10: Unable to read bytes at ram:1b335ffcb  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e96c10, pcode error at 143e96ee8: Unable to resolve constructor at 143e96ee8  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e96c10: Unable to read bytes at ram:1b3360023  
+2024-12-23 21:09:04 WARN  (DecompileCallback) Decompiling 143e97000: Unable to read bytes at ram:1b336065b  
+2024-12-23 21:09:22 WARN  (DecompileCallback) Decompiling 140658a60: Unable to read bytes at ram:a65959e6  
+2024-12-23 21:26:31 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/win32/windows_vs12_64.gdt  
+2024-12-23 21:26:31 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/win32/windows_vs12_64.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb322BADB5/db.1.gbf  
+2024-12-23 21:26:31 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/win32/windows_vs12_64.gdt  
+2024-12-23 21:26:32 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: windows_vs12_64  
+2024-12-23 21:26:52 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: windows_vs12_64  
+2024-12-23 21:27:54 WARN  (java file: WindowsResourceReference) ghidra.app.script.GhidraScriptLoadException: The class could not be found. It must be the public class of the .java file: WindowsResourceReference  
+2024-12-23 21:28:26 DEBUG (NewFunctionStackAnalysisCmd) Failed to create variable (instruction at 140629668, stack-offset=-8, size=16): Data type does not fit within stack frame constraints (stack offset=-8, size=16  
+2024-12-23 21:28:26 DEBUG (NewFunctionStackAnalysisCmd) Failed to create variable (instruction at 140629951, stack-offset=-8, size=16): Data type does not fit within stack frame constraints (stack offset=-8, size=16  
+2024-12-23 21:32:58 INFO  (AutoAnalysisManager) Analysis Log Messages
+MinGW Relocations: MinGW pseudo-relocation list not found
+  
+2024-12-23 21:32:58 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                             26.117 secs
+    Apply Data Archives                        0.850 secs
+    Call Convention ID                         0.137 secs
+    Call-Fixup Installer                       0.350 secs
+    Create Address Tables                      5.422 secs
+    Create Address Tables - One Time          23.320 secs
+    Create Function                           48.299 secs
+    Data Reference                           176.694 secs
+    Decompiler Switch Analysis               461.095 secs
+    Decompiler Switch Analysis - One Time     63.128 secs
+    Demangler GNU                              0.088 secs
+    Demangler Microsoft                        0.075 secs
+    Disassemble                                1.922 secs
+    Disassemble Entry Points                  33.321 secs
+    Disassemble Entry Points - One Time        0.006 secs
+    Embedded Media                             0.624 secs
+    External Entry References                  0.000 secs
+    Function ID                               81.561 secs
+    Function Start Search                      0.658 secs
+    MinGW Relocations                          0.001 secs
+    Non-Returning Functions - Discovered     131.804 secs
+    Non-Returning Functions - Known            0.004 secs
+    PDB Universal                              0.002 secs
+    Reference                                276.492 secs
+    Scalar Operand References                 92.667 secs
+    Shared Return Calls                       18.567 secs
+    Stack                                    277.704 secs
+    Subroutine References                    182.366 secs
+    Subroutine References - One Time           0.090 secs
+    WindowsResourceReference                   2.873 secs
+    x86 Constant Reference Analyzer          767.726 secs
+-----------------------------------------------------
+     Total Time   2673 secs
+-----------------------------------------------------
+  
+2024-12-23 21:32:58 DEBUG (ToolTaskManager) Auto Analysis task finish (2699.443 secs)  
+2024-12-23 21:32:58 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-12-23 21:32:58 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-12-23 21:32:58 DEBUG (ToolTaskManager) Auto Analysis task complete (2699.498 secs)  
+2024-12-23 21:32:58 DEBUG (ToolTaskManager) Background processing complete (2699.705 secs)  
+2024-12-23 21:33:13 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-23 21:33:13 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-24 16:20:04 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-24 16:20:04 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-24 16:20:04 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-24 16:20:05 INFO  (ClassSearcher) Searching for classes...  
+2024-12-24 16:20:06 INFO  (ClassSearcher) Class search complete (1104 ms)  
+2024-12-24 16:20:06 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-24 16:20:06 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-24 16:20:06 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-24 16:20:06 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-24 16:20:06 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-24 16:20:07 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-24 16:20:07 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-24 16:20:07 INFO  (IndexJournal) restoring data storage index...  
+2024-12-24 16:20:52 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:20:52 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:20:52 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:20:52 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:20:55 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:20:55 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:20:55 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:20:55 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:20:55 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_4.2 at 0804a097  
+2024-12-24 16:20:55 DEBUG (ElfProgramBuilder) Discarding 12-byte alignment/filler segment_3.2 at 08049024  
+2024-12-24 16:20:55 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.3 at 080481a7  
+2024-12-24 16:20:55 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.9 at 080483c9  
+2024-12-24 16:20:55 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.11 at 080483ea  
+2024-12-24 16:21:06 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-24 16:21:06 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:21:21 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:27:15 INFO  (LocalFileSystem) /game: file deleted (frederik)  
+2024-12-24 16:27:15 INFO  (GhidraFileData) Deleted local file game  
+2024-12-24 16:27:26 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:27:26 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:27:26 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:27:26 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:27:29 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:27:29 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:27:29 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:27:29 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:27:29 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_4.2 at 0804a097  
+2024-12-24 16:27:29 DEBUG (ElfProgramBuilder) Discarding 12-byte alignment/filler segment_3.2 at 08049024  
+2024-12-24 16:27:29 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.3 at 080481a7  
+2024-12-24 16:27:29 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.9 at 080483c9  
+2024-12-24 16:27:29 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.11 at 080483ea  
+2024-12-24 16:27:42 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:28:21 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:28:48 INFO  (LocalFileSystem) /game: file deleted (frederik)  
+2024-12-24 16:28:48 INFO  (GhidraFileData) Deleted local file game  
+2024-12-24 16:29:10 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:29:10 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:29:10 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:29:10 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:29:17 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2024-12-24 16:29:17 DEBUG (ElfHeader) Elf symbol table section .symtab linked to string table section .strtab  
+2024-12-24 16:29:17 DEBUG (ElfHeader) Elf relocation table section .rel.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2024-12-24 16:29:17 DEBUG (ElfHeader) Elf relocation table section .rel.plt linked to symbol table section .dynsym affecting .got.plt  
+2024-12-24 16:29:17 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_4.2 at 0804a097  
+2024-12-24 16:29:17 DEBUG (ElfProgramBuilder) Discarding 12-byte alignment/filler segment_3.2 at 08049024  
+2024-12-24 16:29:17 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.3 at 080481a7  
+2024-12-24 16:29:17 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_2.9 at 080483c9  
+2024-12-24 16:29:17 DEBUG (ElfProgramBuilder) Discarding 2-byte alignment/filler segment_2.11 at 080483ea  
+2024-12-24 16:29:30 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:29:42 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-24 16:29:42 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-24 16:29:45 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-24 16:29:45 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-24 16:29:45 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-24 16:29:45 INFO  (ClassSearcher) Searching for classes...  
+2024-12-24 16:29:46 INFO  (ClassSearcher) Class search complete (978 ms)  
+2024-12-24 16:29:46 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-24 16:29:47 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-24 16:29:47 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-24 16:29:47 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-24 16:29:47 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-24 16:29:47 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-24 16:29:47 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-24 16:29:56 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-24 16:29:56 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-24 16:30:02 DEBUG (ToolTaskManager) Background processing started...  
+2024-12-24 16:30:02 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-12-24 16:30:02 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=02a3bb43121b1f6fbc2ab9154ab38a9427e19149]  
+2024-12-24 16:30:02 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-12-24 16:30:03 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-12-24 16:30:03 DEBUG (PackedDatabaseCache) Caching packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-12-24 16:30:03 DEBUG (PackedDatabase) Unpacking database /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt -> /tmp/frederik-Ghidra/packed-db-cache/pdb1D5ED2A8/db.1.gbf  
+2024-12-24 16:30:03 DEBUG (PackedDatabaseCache) Cache update completed: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-12-24 16:30:04 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-12-24 16:30:04 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.314 secs
+    Apply Data Archives                        0.282 secs
+    Call Convention ID                         0.042 secs
+    Call-Fixup Installer                       0.006 secs
+    Create Address Tables                      0.009 secs
+    Create Function                            0.010 secs
+    DWARF                                      0.013 secs
+    Data Reference                             0.005 secs
+    Decompiler Switch Analysis                 0.060 secs
+    Decompiler Switch Analysis - One Time      0.280 secs
+    Demangler GNU                              0.012 secs
+    Disassemble Entry Points                   0.151 secs
+    ELF Scalar Operand References              0.015 secs
+    Embedded Media                             0.007 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.004 secs
+    Function ID                                0.083 secs
+    Function Start Search                      0.012 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.073 secs
+    Non-Returning Functions - Discovered       0.019 secs
+    Non-Returning Functions - Known            0.008 secs
+    Reference                                  0.010 secs
+    Shared Return Calls                        0.010 secs
+    Stack                                      0.119 secs
+    Subroutine References                      0.006 secs
+    Subroutine References - One Time           0.000 secs
+    X86 Function Callee Purge                  0.005 secs
+    x86 Constant Reference Analyzer            0.080 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-12-24 16:30:04 DEBUG (ToolTaskManager) Auto Analysis task finish (2.28 secs)  
+2024-12-24 16:30:04 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-12-24 16:30:04 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-12-24 16:30:04 DEBUG (ToolTaskManager) Auto Analysis task complete (2.329 secs)  
+2024-12-24 16:30:04 DEBUG (ToolTaskManager) Background processing complete (2.331 secs)  
+2024-12-24 16:34:47 INFO  (RecoveryMgr) Tue Dec 24 16:34:47 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~0000000a.db/snapshotA.grf  
+2024-12-25 00:06:04 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:06:04 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:06:07 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-25 00:06:07 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-25 00:06:07 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-25 00:06:07 INFO  (ClassSearcher) Searching for classes...  
+2024-12-25 00:06:08 INFO  (ClassSearcher) Class search complete (1007 ms)  
+2024-12-25 00:06:09 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-25 00:06:09 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-25 00:06:09 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-25 00:06:09 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-25 00:06:09 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-25 00:06:09 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-25 00:06:09 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-25 00:06:22 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-25 00:06:22 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-25 00:06:30 DEBUG (ToolTaskManager) Background processing started...  
+2024-12-25 00:06:30 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-12-25 00:06:31 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=02a3bb43121b1f6fbc2ab9154ab38a9427e19149]  
+2024-12-25 00:06:31 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-12-25 00:06:31 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-12-25 00:06:32 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-12-25 00:06:32 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-12-25 00:06:32 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.305 secs
+    Apply Data Archives                        0.196 secs
+    Call Convention ID                         0.038 secs
+    Call-Fixup Installer                       0.005 secs
+    Create Address Tables                      0.007 secs
+    Create Function                            0.011 secs
+    DWARF                                      0.010 secs
+    Data Reference                             0.005 secs
+    Decompiler Switch Analysis                 0.052 secs
+    Decompiler Switch Analysis - One Time      0.323 secs
+    Demangler GNU                              0.013 secs
+    Disassemble Entry Points                   0.115 secs
+    ELF Scalar Operand References              0.025 secs
+    Embedded Media                             0.006 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.004 secs
+    Function ID                                0.038 secs
+    Function Start Search                      0.010 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.095 secs
+    Non-Returning Functions - Discovered       0.018 secs
+    Non-Returning Functions - Known            0.008 secs
+    Reference                                  0.020 secs
+    Shared Return Calls                        0.010 secs
+    Stack                                      0.087 secs
+    Subroutine References                      0.006 secs
+    Subroutine References - One Time           0.000 secs
+    X86 Function Callee Purge                  0.006 secs
+    x86 Constant Reference Analyzer            0.105 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-12-25 00:06:32 DEBUG (ToolTaskManager) Auto Analysis task finish (2.329 secs)  
+2024-12-25 00:06:33 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-12-25 00:06:33 DEBUG (ToolTaskManager) (0.001 secs)  
+2024-12-25 00:06:33 DEBUG (ToolTaskManager) Auto Analysis task complete (2.442 secs)  
+2024-12-25 00:06:33 DEBUG (ToolTaskManager) Background processing complete (2.444 secs)  
+2024-12-25 00:06:49 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:06:49 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:07:56 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-25 00:07:56 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-25 00:07:56 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-25 00:07:56 INFO  (ClassSearcher) Searching for classes...  
+2024-12-25 00:07:57 INFO  (ClassSearcher) Class search complete (1015 ms)  
+2024-12-25 00:07:57 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-25 00:07:57 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-25 00:07:57 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-25 00:07:57 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-25 00:07:57 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-25 00:07:58 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-25 00:07:58 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-25 00:08:05 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-25 00:08:05 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-25 00:08:15 DEBUG (ToolTaskManager) Background processing started...  
+2024-12-25 00:08:15 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-12-25 00:08:15 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=02a3bb43121b1f6fbc2ab9154ab38a9427e19149]  
+2024-12-25 00:08:15 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-12-25 00:08:16 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-12-25 00:08:16 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-12-25 00:08:17 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-12-25 00:08:17 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.271 secs
+    Apply Data Archives                        0.228 secs
+    Call Convention ID                         0.036 secs
+    Call-Fixup Installer                       0.005 secs
+    Create Address Tables                      0.006 secs
+    Create Function                            0.010 secs
+    DWARF                                      0.014 secs
+    Data Reference                             0.004 secs
+    Decompiler Switch Analysis                 0.054 secs
+    Decompiler Switch Analysis - One Time      0.385 secs
+    Demangler GNU                              0.013 secs
+    Disassemble Entry Points                   0.129 secs
+    ELF Scalar Operand References              0.016 secs
+    Embedded Media                             0.007 secs
+    External Entry References                  0.001 secs
+    External Symbol Resolver                   0.005 secs
+    Function ID                                0.043 secs
+    Function Start Search                      0.014 secs
+    Function Start Search After Code           0.002 secs
+    Function Start Search After Data           0.000 secs
+    GCC Exception Handlers                     0.089 secs
+    Non-Returning Functions - Discovered       0.018 secs
+    Non-Returning Functions - Known            0.034 secs
+    Reference                                  0.011 secs
+    Shared Return Calls                        0.009 secs
+    Stack                                      0.109 secs
+    Subroutine References                      0.008 secs
+    Subroutine References - One Time           0.000 secs
+    X86 Function Callee Purge                  0.005 secs
+    x86 Constant Reference Analyzer            0.091 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-12-25 00:08:17 DEBUG (ToolTaskManager) Auto Analysis task finish (2.448 secs)  
+2024-12-25 00:08:17 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-12-25 00:08:17 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-12-25 00:08:17 DEBUG (ToolTaskManager) Auto Analysis task complete (2.461 secs)  
+2024-12-25 00:08:17 DEBUG (ToolTaskManager) Background processing complete (2.463 secs)  
+2024-12-25 00:08:57 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:08:57 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:09:05 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-25 00:09:05 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-25 00:09:05 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-25 00:09:06 INFO  (ClassSearcher) Searching for classes...  
+2024-12-25 00:09:06 INFO  (ClassSearcher) Class search complete (967 ms)  
+2024-12-25 00:09:07 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-25 00:09:07 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-25 00:09:07 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-25 00:09:07 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-25 00:09:07 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-25 00:09:07 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-25 00:09:07 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-25 00:09:18 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-25 00:09:18 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-25 00:11:53 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:11:53 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:11:57 INFO  (LoggingInitialization) Using log config file: jar:file:/usr/share/ghidra/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2024-12-25 00:11:57 INFO  (LoggingInitialization) Using log file: /home/frederik/.ghidra/.ghidra_11.0_DEV/application.log  
+2024-12-25 00:11:57 INFO  (Preferences) Loading user preferences: /home/frederik/.ghidra/.ghidra_11.0_DEV/preferences  
+2024-12-25 00:11:57 INFO  (ClassSearcher) Searching for classes...  
+2024-12-25 00:11:58 INFO  (ClassSearcher) Class search complete (1017 ms)  
+2024-12-25 00:11:58 INFO  (SSLContextInitializer) Initializing SSL Context  
+2024-12-25 00:11:58 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2024-12-25 00:11:58 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2024-12-25 00:11:58 INFO  (ApplicationTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2024-12-25 00:11:58 INFO  (GhidraRun) User frederik started Ghidra.  
+2024-12-25 00:11:59 DEBUG (RecoverySnapshotMgrPlugin) Recovery snapshot timer set to 5 minute(s)  
+2024-12-25 00:11:59 INFO  (DefaultProject) Opening project: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf  
+2024-12-25 00:12:05 INFO  (PackedDatabaseCache) Packed database cache: /tmp/frederik-Ghidra/packed-db-cache  
+2024-12-25 00:12:05 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib_64.gdt  
+2024-12-25 00:12:16 DEBUG (ToolTaskManager) Background processing started...  
+2024-12-25 00:12:16 DEBUG (ToolTaskManager) Exec Task Auto Analysis  
+2024-12-25 00:12:17 INFO  (ExternalDebugFilesService) DWARF external debug information found: ExternalDebugInfo [filename=null, crc=0, hash=02a3bb43121b1f6fbc2ab9154ab38a9427e19149]  
+2024-12-25 00:12:17 INFO  (DWARFAnalyzer) Unable to find DWARF information, skipping DWARF analysis  
+2024-12-25 00:12:17 INFO  (DecompilerSwitchAnalyzer) hit non-returning function, restarting decompiler switch analyzer later  
+2024-12-25 00:12:18 DEBUG (PackedDatabaseCache) Using cached packed database: /usr/share/ghidra/Ghidra/Features/Base/data/typeinfo/generic/generic_clib.gdt  
+2024-12-25 00:12:18 INFO  (ApplyDataArchiveAnalyzer) Applied data type archive: generic_clib  
+2024-12-25 00:12:18 INFO  (AutoAnalysisManager) -----------------------------------------------------
+    ASCII Strings                              0.347 secs
+    Apply Data Archives                        0.217 secs
+    Call Convention ID                         0.038 secs
+    Call-Fixup Installer                       0.006 secs
+    Create Address Tables                      0.008 secs
+    Create Function                            0.010 secs
+    DWARF                                      0.008 secs
+    Data Reference                             0.004 secs
+    Decompiler Switch Analysis                 0.049 secs
+    Decompiler Switch Analysis - One Time      0.320 secs
+    Demangler GNU                              0.014 secs
+    Disassemble Entry Points                   0.128 secs
+    ELF Scalar Operand References              0.015 secs
+    Embedded Media                             0.006 secs
+    External Entry References                  0.000 secs
+    External Symbol Resolver                   0.003 secs
+    Function ID                                0.029 secs
+    Function Start Search                      0.027 secs
+    Function Start Search After Code           0.001 secs
+    Function Start Search After Data           0.001 secs
+    GCC Exception Handlers                     0.075 secs
+    Non-Returning Functions - Discovered       0.020 secs
+    Non-Returning Functions - Known            0.007 secs
+    Reference                                  0.013 secs
+    Shared Return Calls                        0.012 secs
+    Stack                                      0.104 secs
+    Subroutine References                      0.007 secs
+    Subroutine References - One Time           0.000 secs
+    X86 Function Callee Purge                  0.005 secs
+    x86 Constant Reference Analyzer            0.098 secs
+-----------------------------------------------------
+     Total Time   1 secs
+-----------------------------------------------------
+  
+2024-12-25 00:12:18 DEBUG (ToolTaskManager) Auto Analysis task finish (2.357 secs)  
+2024-12-25 00:12:19 DEBUG (ToolTaskManager) Queue - Auto Analysis  
+2024-12-25 00:12:19 DEBUG (ToolTaskManager) (0.0 secs)  
+2024-12-25 00:12:19 DEBUG (ToolTaskManager) Auto Analysis task complete (2.571 secs)  
+2024-12-25 00:12:19 DEBUG (ToolTaskManager) Background processing complete (2.573 secs)  
+2024-12-25 00:16:59 INFO  (RecoveryMgr) Wed Dec 25 00:16:59 CET 2024 Recovery snapshot created: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep/idata/00/~0000000a.db/snapshotA.grf  
+2024-12-25 00:53:21 INFO  (ThemeUtils) Saving theme to /home/frederik/.ghidra/.ghidra_11.0_DEV/themes/Flat_Dark_Theme_2.theme  
+2024-12-25 00:53:21 DEBUG (DefaultProjectData) Closing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  
+2024-12-25 00:53:21 DEBUG (DefaultProjectData) Disposing ProjectData: /home/frederik/projects/ctf/ghidra-ctf/ghidra-ctf.rep  

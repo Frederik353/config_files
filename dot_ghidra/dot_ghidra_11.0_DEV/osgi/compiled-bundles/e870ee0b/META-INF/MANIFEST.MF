@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Created-By: 23.0.1 (Debian)
+Tool: Bnd-6.2.0.202202251641
+Bnd-LastModified: 1734985674086
+Export-Package: classrecovery;uses:="ghidra.app.decompiler,ghidra.app.pl
+ ugin.core.analysis,ghidra.app.plugin.core.decompile.actions,ghidra.fram
+ ework.plugintool,ghidra.program.flatapi,ghidra.program.model.address,gh
+ idra.program.model.data,ghidra.program.model.listing,ghidra.program.mod
+ el.mem,ghidra.program.model.pcode,ghidra.program.model.symbol,ghidra.pr
+ ogram.util,ghidra.util.exception,ghidra.util.task"
+Import-Package: docking.options,generic.concurrent,generic.jar,generic.t
+ heme,ghidra.app.cmd.function,ghidra.app.cmd.label,ghidra.app.decompiler
+ ,ghidra.app.decompiler.component,ghidra.app.decompiler.parallel,ghidra.
+ app.plugin.core.analysis,ghidra.app.plugin.core.bookmark,ghidra.app.plu
+ gin.core.decompile.actions,ghidra.app.plugin.core.navigation.locationre
+ ferences,ghidra.app.script,ghidra.app.services,ghidra.app.tablechooser,
+ ghidra.app.util,ghidra.app.util.bin.format.dwarf4.next,ghidra.app.util.
+ bin.format.dwarf4.next.sectionprovider,ghidra.app.util.demangler,ghidra
+ .app.util.importer,ghidra.app.util.opinion,ghidra.docking.settings,ghid
+ ra.framework.model,ghidra.framework.options,ghidra.framework.plugintool
+ ,ghidra.program.database,ghidra.program.database.data,ghidra.program.da
+ tabase.mem,ghidra.program.flatapi,ghidra.program.model.address,ghidra.p
+ rogram.model.block,ghidra.program.model.data,ghidra.program.model.lang,
+ ghidra.program.model.listing,ghidra.program.model.mem,ghidra.program.mo
+ del.pcode,ghidra.program.model.scalar,ghidra.program.model.symbol,ghidr
+ a.program.model.util,ghidra.program.util,ghidra.service.graph,ghidra.ut
+ il,ghidra.util.bytesearch,ghidra.util.datastruct,ghidra.util.exception,
+ ghidra.util.task,java.awt,java.io,java.lang,java.lang.invoke,java.util,
+ java.util.function,java.util.regex,java.util.stream,javax.swing,org.apa
+ che.commons.collections4,util,ghidra.app.plugin.core.osgi
+Require-Capability: osgi.ee;filter:="(osgi.ee=UNKNOWN)"
+Bundle-SymbolicName: e870ee0b
+Bundle-Version: 1.0
+Bundle-Name: e870ee0b
+Bundle-Activator: GeneratedActivator
+

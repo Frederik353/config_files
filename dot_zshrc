@@ -3,6 +3,7 @@ export PATH=$PATH:/home/frederik/bin
 export PATH=$PATH:/home/frederik/.local/bin
 export PATH=$PATH:/opt/nvim-linux64/bin
 
+
 # export XDG_SESSION_TYPE=wayland
 # export GDK_BACKEND=wayland
 # export QT_QPA_PLATFORM=wayland
@@ -17,6 +18,8 @@ export LC_ALL=en_US.UTF-8
 # export QT_QPA_PLATFORMTHEME=kwallet
 
 source ~/venv/bin/activate
+
+export PATH=$PATH:$(go env GOPATH)/bin
 
 
 # export SWAYSOCK=$( lsof /run/user/1000/sway-ipc.* 2>/dev/null | awk '{print $9}' | tail -n +2 | sort | uniq )
@@ -42,29 +45,32 @@ lfcd () {
 }
 
 function zvm_config() {
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+    ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-# ZVM_VI_VISUAL_ESCAPE_BINDKEY=v
-# vi mode keys
-zvm_bindkey vicmd 'H' vi-beginning-of-line
-zvm_bindkey vicmd 'L' vi-end-of-line
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
-zvm_bindkey visual 'H' vi-beginning-of-line
-zvm_bindkey visual 'L' vi-end-of-line
+    ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
-zvm_bindkey vicmd 'j' vi-cmd-mode
-zvm_bindkey vicmd 'k' vi-cmd-mode
-# # Bind Ctrl-P to previous command and Ctrl-N to next command
-# bindkey '^P' history-beginning-search-backward
-# bindkey '^N' history-beginning-search-forward
-# bindkey '^R' .history-incremental-search-backward
-# bindkey '^S' .history-incremental-search-forward
+    # ZVM_VI_VISUAL_ESCAPE_BINDKEY=v
+    # vi mode keys
+    zvm_bindkey vicmd 'H' vi-beginning-of-line
+    zvm_bindkey vicmd 'L' vi-end-of-line
 
-ZVM_VI_HIGHLIGHT_BACKGROUND=blue
-ZVM_VI_HIGHLIGHT_FOREGROUND=white 
-ZVM_VI_EDITOR=nvim
+    zvm_bindkey visual 'H' vi-beginning-of-line
+    zvm_bindkey visual 'L' vi-end-of-line
 
+    zvm_bindkey vicmd 'j' vi-cmd-mode
+    zvm_bindkey vicmd 'k' vi-cmd-mode
+
+    # Bind Ctrl-P to previous command and Ctrl-N to next command
+    # bindkey '^P' history-beginning-search-backward
+    # bindkey '^N' history-beginning-search-forward
+    # bindkey '^R' .history-incremental-search-backward
+    # bindkey '^S' .history-incremental-search-forward
+
+    ZVM_VI_HIGHLIGHT_BACKGROUND=blue
+    ZVM_VI_HIGHLIGHT_FOREGROUND=white 
+    ZVM_VI_EDITOR=nvim
 }
 
 # fix vi plugin conflicting with fzf
@@ -82,7 +88,7 @@ ZVM_VI_EDITOR=nvim
 # plugins
 source "$HOME/.config/ohmyposh/plugins/you-should-use/you-should-use.plugin.zsh"
 # source "$HOME/.config/ohmyposh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$HOME/.config/ohmyposh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+# source "$HOME/.config/ohmyposh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 source "$HOME/.config/ohmyposh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 # source "~/.config/ohmyposh/plugins/"
 
@@ -146,9 +152,11 @@ alias df='duf'
 
 
 alias cat='batcat -pp'
-alias -g -- -h='-h 2>&1 | batcat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
+# alias -g -- -h='-h 2>&1 | batcat --language=help --style=plain'
+# alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
 
+
+# alias wasm2wat='f() { wasm2wat "$1" -o "${1%.wasm}.wat" | batcat --language=wat --paging=never --decorations=never; }; f'
 
 
 # alias cfr='java -jar /opt/cfr/cfr-0.152.jar "$@" 2>/dev/null | batcat --language=java --paging=never --decorations=never'
@@ -191,6 +199,7 @@ alias ta="tmux attach"
 alias n=nvim
 export VISUAL=nvim
 
+alias ida=/opt/ida-free-pc-9.0/ida
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="~/.cargo/bin:$PATH"
@@ -200,4 +209,16 @@ export PATH="/home/frederik/.cargo/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk-amd64
+
+export PATH="$HOME/.local/share/coursier/bin:$PATH"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/frederik/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

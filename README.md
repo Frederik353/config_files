@@ -217,3 +217,18 @@ sudo apt install ffuf
 
 npm install -g @ast-grep/cli
 
+#### scala
+<!-- curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup -->
+
+sudo sh -c 'curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > /usr/local/bin/cs'
+sudo chmod +x /usr/local/bin/cs
+/usr/local/bin/cs setup
+
+
+##### javac
+sudo apt install openjdk-23-jdk
+
+
+
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/gofmt@latest
